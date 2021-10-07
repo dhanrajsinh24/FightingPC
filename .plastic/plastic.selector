@@ -1,0 +1,4 @@
+repository "Fighting Game@DB_Apps@cloud"
+  path "/"
+    br "/main"
+    co "/main"
