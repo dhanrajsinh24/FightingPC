@@ -796,7 +796,7 @@ MonoBehaviour:
     activeIcon: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
   - inputType: 1
     inputButtonName: P1KeyboardVertical
-    engineRelatedButton: 2
+    engineRelatedButton: 3
     joystickAxisName: P1JoystickVertical
     cInputPositiveKeyName: P1Up
     cInputPositiveDefaultKey: W
@@ -901,7 +901,7 @@ MonoBehaviour:
   player2_Inputs:
   - inputType: 0
     inputButtonName: P2KeyboardHorizontal
-    engineRelatedButton: 0
+    engineRelatedButton: 1
     joystickAxisName: P2JoystickHorizontal
     cInputPositiveKeyName: P2Right
     cInputPositiveDefaultKey: RightArrow
@@ -911,10 +911,10 @@ MonoBehaviour:
     cInputNegativeAlternativeKey: Joy2 Axis 1-
     inputViewerIcon1: {fileID: 2800000, guid: f029529e09f1c12428dcc1a8c7dcb91c, type: 3}
     inputViewerIcon2: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
-    activeIcon: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
+    activeIcon: {fileID: 2800000, guid: f029529e09f1c12428dcc1a8c7dcb91c, type: 3}
   - inputType: 1
     inputButtonName: P2KeyboardVertical
-    engineRelatedButton: 2
+    engineRelatedButton: 3
     joystickAxisName: P2JoystickVertical
     cInputPositiveKeyName: P2Up
     cInputPositiveDefaultKey: UpArrow
