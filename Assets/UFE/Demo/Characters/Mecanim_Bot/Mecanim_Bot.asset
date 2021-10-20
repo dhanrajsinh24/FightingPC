@@ -141,7 +141,7 @@ MonoBehaviour:
   animationFlow: 0
   useAnimationMaps: 1
   stanceResourcePath:
-  - MoveSets\Robot_Kyle_Stance_1
+  - MoveSets\Mecanim_Bot_Stance_1
   moves: []
   aiInstructionsSet:
   - aiInfo: {fileID: 11400000, guid: 381a98fe3348ea640801d8072511a960, type: 2}

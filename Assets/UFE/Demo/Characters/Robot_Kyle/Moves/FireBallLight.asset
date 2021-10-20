@@ -7388,8 +7388,8 @@ MonoBehaviour:
   opponentConditions:
     basicMoveLimitation: 
     possibleMoveStates: []
-    basicMovesToggle: 0
-    statesToggle: 0
+    basicMovesToggle: 1
+    statesToggle: 1
   selfConditions:
     basicMoveLimitation: 
     possibleMoveStates:
@@ -7417,8 +7417,8 @@ MonoBehaviour:
       standBy: 1
       blocking: 0
       stunned: 0
-    basicMovesToggle: 0
-    statesToggle: 0
+    basicMovesToggle: 1
+    statesToggle: 1
   moveClassification:
     attackType: 6
     hitType: 0

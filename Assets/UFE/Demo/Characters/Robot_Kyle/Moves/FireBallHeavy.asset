@@ -7418,7 +7418,7 @@ MonoBehaviour:
       blocking: 0
       stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   moveClassification:
     attackType: 6
     hitType: 0
@@ -7520,7 +7520,7 @@ MonoBehaviour:
   invincibleBodyParts: []
   armorOptions:
     activeFramesBegin: 0
-    activeFramesEnds: 0
+    activeFramesEnds: 1
     overrideHitEffects: 0
     hitEffects:
       hitParticle: {fileID: 0}
@@ -7857,7 +7857,7 @@ MonoBehaviour:
     moveLinkOnBlock: {fileID: 0}
     moveLinkOnParry: {fileID: 0}
     forceGrounded: 0
-    moveLinksToggle: 0
+    moveLinksToggle: 1
     damageOptionsToggle: 1
     hitStunOptionsToggle: 1
     preview: 1

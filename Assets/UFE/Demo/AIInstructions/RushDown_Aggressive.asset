@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -17,10 +18,10 @@ MonoBehaviour:
   advancedOptions:
     timeBetweenDecisions: 0
     timeBetweenActions: 0
-    aggressiveness: .5
-    ruleCompliance: .899999976
+    aggressiveness: 0.5
+    ruleCompliance: 0.9
     comboEfficiency: 1
-    movementDuration: .0599999987
+    movementDuration: 0.06
     buttonSequenceInterval: 1
     attackDesirabilityCalculation: 2
     defaultDesirability: 0
@@ -914,36 +915,36 @@ MonoBehaviour:
     reactionsToggle: 0
   aiDefinitions:
     damage:
-      veryWeak: .0500000007
-      weak: .100000001
-      medium: .150000006
-      strong: .200000003
-      veryStrong: .25
+      veryWeak: 0.05
+      weak: 0.1
+      medium: 0.15
+      strong: 0.2
+      veryStrong: 0.25
     distance:
-      veryClose: .100000001
-      close: .150000006
-      mid: .5
-      far: .800000012
-      veryFar: .949999988
+      veryClose: 0.1
+      close: 0.15
+      mid: 0.5
+      far: 0.8
+      veryFar: 0.95
     desirability:
       theWorstOption: 0
-      veryUndesirable: .150000006
-      undesirable: .300000012
-      notBad: .449999988
-      desirable: .600000024
-      veryDesirable: .800000012
+      veryUndesirable: 0.15
+      undesirable: 0.3
+      notBad: 0.45
+      desirable: 0.6
+      veryDesirable: 0.8
       theBestOption: 1
     health:
       healthy: 1
-      scratched: .899999976
-      lightlyWounded: .799999952
-      moderatelyWounded: .599999964
-      seriouslyWounded: .399999976
-      criticallyWounded: .199999988
-      almostDead: .099999994
+      scratched: 0.9
+      lightlyWounded: 0.79999995
+      moderatelyWounded: 0.59999996
+      seriouslyWounded: 0.39999998
+      criticallyWounded: 0.19999999
+      almostDead: 0.099999994
       dead: 0
     speed:
-      verySlow: .5
+      verySlow: 0.5
       slow: 1
       normal: 3
       fast: 5
