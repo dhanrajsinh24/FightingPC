@@ -28,7 +28,7 @@ MonoBehaviour:
   maxGaugePoints: 500
   characterPrefabStorage: 1
   characterPrefab: {fileID: 0}
-  prefabResourcePath: Aurous
+  prefabResourcePath: Fighters/Aurous
   alternativeCostumes: []
   initialPosition:
     x:
@@ -123,7 +123,7 @@ MonoBehaviour:
   avatar: {fileID: 9000000, guid: 098cf4041a4a3434682101db4d98184c, type: 3}
   applyRootMotion: 0
   animationFlow: 0
-  useAnimationMaps: 1
+  useAnimationMaps: 0
   stanceResourcePath:
   - MoveSets/Robot_Kyle_Stance_1
   moves: []

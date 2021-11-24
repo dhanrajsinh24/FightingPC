@@ -931,7 +931,7 @@ public class UFE : MonoBehaviour, UFEInterface
 
 	public static void StartMainMenuScreen(float fadeTime){
         if (currentScreen.hasFadeOut) {
-	        Debug.Log(currentScreen.name);
+	        //Debug.Log(currentScreen.name);
             eventSystem.enabled = false;
             CameraFade.StartAlphaFade(
                 config.gameGUI.screenFadeColor,
@@ -941,7 +941,7 @@ public class UFE : MonoBehaviour, UFEInterface
             );
             DelayLocalAction(() => { eventSystem.enabled = true; _StartMainMenuScreen(fadeTime / 2f); }, (Fix64)fadeTime / 2);
         } else {
-	        Debug.Log(currentScreen.name + ", else");
+	        //Debug.Log(currentScreen.name + ", else");
             _StartMainMenuScreen(fadeTime / 2f);
         }
 	}
@@ -2463,15 +2463,17 @@ public class UFE : MonoBehaviour, UFEInterface
 
 	public static void DanMainScreen()
 	{
-		//HideScreen(currentScreen);
-		ShowScreen(config.gameGUI.mainMenuScreen);
+		HideScreen(currentScreen);
+		//ShowScreen(config.gameGUI.mainMenuScreen);
 		PauseGame(false);
-		CameraFade.StartAlphaFade(config.gameGUI.screenFadeColor, true, 0f);
+		var game = GameObject.Find("Game");
+		if(game != null) Destroy(game);
+		StartMainMenuScreen();
 	}
 
 	private static void _StartMainMenuScreen(float fadeTime){
 		EnsureNetworkDisconnection();
-		Debug.Log(currentScreen.name);
+		//Debug.Log(currentScreen.name);
 		HideScreen(currentScreen);
 		if (config.gameGUI.mainMenuScreen == null){
 			Debug.LogError("Main Menu Screen not found! Make sure you have set the prefab correctly in the Global Editor");

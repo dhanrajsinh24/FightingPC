@@ -28,7 +28,7 @@ MonoBehaviour:
   maxGaugePoints: 500
   characterPrefabStorage: 1
   characterPrefab: {fileID: 0}
-  prefabResourcePath: FireIce
+  prefabResourcePath: Fighters/FireIce
   alternativeCostumes: []
   initialPosition:
     x:
@@ -123,7 +123,7 @@ MonoBehaviour:
   avatar: {fileID: 9000000, guid: 002501493d9304235b55711e2bd03d0b, type: 3}
   applyRootMotion: 0
   animationFlow: 0
-  useAnimationMaps: 1
+  useAnimationMaps: 0
   stanceResourcePath:
   - MoveSets/Ethan_Stance_1
   moves: []

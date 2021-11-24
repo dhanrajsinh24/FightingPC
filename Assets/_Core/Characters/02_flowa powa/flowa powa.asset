@@ -28,7 +28,7 @@ MonoBehaviour:
   maxGaugePoints: 500
   characterPrefabStorage: 1
   characterPrefab: {fileID: 0}
-  prefabResourcePath: flowa powa
+  prefabResourcePath: Fighters/flowa powa
   alternativeCostumes: []
   initialPosition:
     x:
@@ -123,7 +123,7 @@ MonoBehaviour:
   avatar: {fileID: 9000000, guid: 25f680a38ab2a488e9fe3040e4335e58, type: 3}
   applyRootMotion: 0
   animationFlow: 0
-  useAnimationMaps: 1
+  useAnimationMaps: 0
   stanceResourcePath:
   - MoveSets/Robot_Kyle_Stance_1
   moves: []

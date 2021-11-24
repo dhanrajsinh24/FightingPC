@@ -28,7 +28,7 @@ MonoBehaviour:
   maxGaugePoints: 500
   characterPrefabStorage: 1
   characterPrefab: {fileID: 0}
-  prefabResourcePath: spiketron
+  prefabResourcePath: Fighters/spiketron
   alternativeCostumes: []
   initialPosition:
     x:
@@ -123,7 +123,7 @@ MonoBehaviour:
   avatar: {fileID: 9000000, guid: b59da689310e54c5a99986fd75d3cb28, type: 3}
   applyRootMotion: 0
   animationFlow: 0
-  useAnimationMaps: 1
+  useAnimationMaps: 0
   stanceResourcePath:
   - MoveSets/Ethan_Stance_1
   moves: []
