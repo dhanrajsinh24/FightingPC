@@ -1,0 +1,382 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/dhanrajsinhgohil/Work/FightingPC
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50000
+Successfully changed project path to: /Users/dhanrajsinhgohil/Work/FightingPC
+/Users/dhanrajsinhgohil/Work/FightingPC
+Using Asset Import Pipeline V2.
+Default GameObject BitMask: UI already registered
+
+Refreshing native plugins compatible for Editor in 128.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.14f1 (d0d1bb862f9d)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/dhanrajsinhgohil/Work/FightingPC/Assets
+GfxDevice: creating device client; threaded=0
+2021-12-02 12:52:38.820 Unity[1425:29341] Color LCD preferred device: Intel(R) UHD Graphics 630 (low power)
+2021-12-02 12:52:38.820 Unity[1425:29341] Metal devices available: 2
+2021-12-02 12:52:38.820 Unity[1425:29341] 0: AMD Radeon Pro 5300M (high power)
+2021-12-02 12:52:38.820 Unity[1425:29341] 1: Intel(R) UHD Graphics 630 (low power)
+2021-12-02 12:52:38.820 Unity[1425:29341] Using device AMD Radeon Pro 5300M (high power)
+Initializing Metal device caps: AMD Radeon Pro 5300M
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56425
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003868 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 104.20 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.623 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2623ms)
+		BeginReloadAssembly (38ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (516ms)
+			LoadAssemblies (40ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (168ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (254ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (104ms)
+				BeforeProcessingInitializeOnLoad (8ms)
+				ProcessInitializeOnLoadAttributes (102ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.013822 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 87.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+02-12-2021 12:52:45|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.520 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1522ms)
+		BeginReloadAssembly (137ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1317ms)
+			LoadAssemblies (139ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (414ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (105ms)
+			SetupLoadedEditorAssemblies (531ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (88ms)
+				BeforeProcessingInitializeOnLoad (106ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (45ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Default GameObject BitMask: UI already registered
+
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 460.6 MB.
+System memory in use after: 460.8 MB.
+
+Unloading 64 unused Assets to reduce memory usage. Loaded Objects now: 4832.
+Total: 6.835233 ms (FindLiveObjects: 0.429079 ms CreateObjectMapping: 0.248281 ms MarkObjects: 6.026485 ms  DeleteObjects: 0.130315 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_ao.tif
+  artifactKey: Guid(3673b56904414b74e8136b0ede9a6aee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_ao.tif using Guid(3673b56904414b74e8136b0ede9a6aee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53bdc4cde6de1acea75ad9fcf15c71d4') in 0.773532 seconds 
+  Import took 0.781166 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_normal.tif
+  artifactKey: Guid(55f4f7aa4b2ed7745ad8899215c68468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_normal.tif using Guid(55f4f7aa4b2ed7745ad8899215c68468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ad8d42e3c51840d8665580ca03b42b1') in 0.011952 seconds 
+  Import took 0.018571 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_emissive.tif
+  artifactKey: Guid(4b5a9a4c59579d04cb97fc3f0882e7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_emissive.tif using Guid(4b5a9a4c59579d04cb97fc3f0882e7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6206c92d8752b68cb9197c29e52e180f') in 0.009246 seconds 
+  Import took 0.015475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_ao.tif
+  artifactKey: Guid(22945f79a4ecfda479ff67fab5ee42d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_ao.tif using Guid(22945f79a4ecfda479ff67fab5ee42d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da3f175ca6e0a3216c07fbacba1c4bf4') in 0.011398 seconds 
+  Import took 0.018526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_albedo.tif
+  artifactKey: Guid(6ed7980a906dbf3448f4693a1482490f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_albedo.tif using Guid(6ed7980a906dbf3448f4693a1482490f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98f7e35ff5192ffed3215dff633182cf') in 0.011435 seconds 
+  Import took 0.018388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_roughness.tif
+  artifactKey: Guid(2a07c47d65e2f5c45b896df21dc28457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_roughness.tif using Guid(2a07c47d65e2f5c45b896df21dc28457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e101ea101d52ad92d2f8a69133e06527') in 0.011742 seconds 
+  Import took 0.019702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_height.tif
+  artifactKey: Guid(9c1e832ae09421d48b2c7dc5e246c57f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_height.tif using Guid(9c1e832ae09421d48b2c7dc5e246c57f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48dd92df1b7c88dec54c3b7a88e4f485') in 0.009648 seconds 
+  Import took 0.016578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_roughness.tif
+  artifactKey: Guid(c5174af5dc5d7ce48b5bdd7f6b704c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_roughness.tif using Guid(c5174af5dc5d7ce48b5bdd7f6b704c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efd6ebd101977e1e2f6da5155d944003') in 0.011065 seconds 
+  Import took 0.018076 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_normal.tif
+  artifactKey: Guid(1ba0e1de4e9a2444f80fcc8f1abd95f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_normal.tif using Guid(1ba0e1de4e9a2444f80fcc8f1abd95f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74225b088e008404589d20b4a9ca0542') in 0.010854 seconds 
+  Import took 0.017550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_normal.tif
+  artifactKey: Guid(6a1dcfdf12e59974b880bd3cbf47b6cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_normal.tif using Guid(6a1dcfdf12e59974b880bd3cbf47b6cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '482f162554192044b88308ea1f397041') in 0.011470 seconds 
+  Import took 0.018229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_albedo.tif
+  artifactKey: Guid(852b7c2b5238fe14ba012d0a367dd0c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_albedo.tif using Guid(852b7c2b5238fe14ba012d0a367dd0c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29155ed905163200a0c95b608bf17395') in 0.011074 seconds 
+  Import took 0.018199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Metal_StainlessClean_1K_albedo.tif
+  artifactKey: Guid(f28dbc3f0f434dd4a9c22cc2ba5964bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Metal_StainlessClean_1K_albedo.tif using Guid(f28dbc3f0f434dd4a9c22cc2ba5964bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da7bf18adfaca08913b416de5f7bc806') in 0.010533 seconds 
+  Import took 0.017570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_metallic.tif
+  artifactKey: Guid(6489c1f834152e74f9c274042f2f8f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_metallic.tif using Guid(6489c1f834152e74f9c274042f2f8f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcd35db3c7af29d13c80d5f54b136586') in 0.010972 seconds 
+  Import took 0.018101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_height.tif
+  artifactKey: Guid(8f166da5373da1a4f86bbd712e9fa5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_height.tif using Guid(8f166da5373da1a4f86bbd712e9fa5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '735cc00a5d23ea007a955a2a1bb7691d') in 0.009751 seconds 
+  Import took 0.016438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_roughness.tif
+  artifactKey: Guid(6b47f518852d8e346ada81dc9cb1f650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_roughness.tif using Guid(6b47f518852d8e346ada81dc9cb1f650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43701eef26bfb74ac151fbce06ffa8b5') in 0.010773 seconds 
+  Import took 0.017966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000523 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_albedo.tif
+  artifactKey: Guid(f1c504a089f50164584c0de598afebcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Floor4_1K_albedo.tif using Guid(f1c504a089f50164584c0de598afebcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe2c9202aad9a16d04a03eb37be464a6') in 0.009626 seconds 
+  Import took 0.016914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_albedo.tif
+  artifactKey: Guid(8f9838d6418a7134eaa6243ef4052279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_albedo.tif using Guid(8f9838d6418a7134eaa6243ef4052279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2ed8b04313032bc67b711246dbb17b5') in 0.011866 seconds 
+  Import took 0.019375 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Metal_StainlessClean_1K_metallic.tif
+  artifactKey: Guid(903af82add5e88a46b37a48f47fe45a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Metal_StainlessClean_1K_metallic.tif using Guid(903af82add5e88a46b37a48f47fe45a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b58a045574157abf1b7c7c5f8814baa9') in 0.011477 seconds 
+  Import took 0.018418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_height.tif
+  artifactKey: Guid(b7764233e8a36644dbc437341ac37053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_height.tif using Guid(b7764233e8a36644dbc437341ac37053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db6e8737880973edec8f2e4db40b53d9') in 0.010194 seconds 
+  Import took 0.016945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_metallic.tif
+  artifactKey: Guid(8ab54352cb91da449b07b6731a835b58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi6_512_metallic.tif using Guid(8ab54352cb91da449b07b6731a835b58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '602f6927f4b81f01f4802c09cb7ab912') in 0.010747 seconds 
+  Import took 0.017130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_height.tif
+  artifactKey: Guid(afbf0ea8aa8a35047ba25a4b4c7e777d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi7_512_height.tif using Guid(afbf0ea8aa8a35047ba25a4b4c7e777d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '905ba3d30518107a624bf2eb4709b227') in 0.012150 seconds 
+  Import took 0.021255 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.286990 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_ao (4).tif
+  artifactKey: Guid(82dcccac358af584e898f58c9af22d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_ao (4).tif using Guid(82dcccac358af584e898f58c9af22d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '914e8f2a573883d38b6010913396d049') in 0.018863 seconds 
+  Import took 0.026624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.143744 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (1).tif
+  artifactKey: Guid(4c26fe503601058419e9e07af7181185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (1).tif using Guid(4c26fe503601058419e9e07af7181185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5a516ded0f0448f686f7552bfa7a9ba') in 0.012913 seconds 
+  Import took 0.019998 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.338923 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (2).tif
+  artifactKey: Guid(e440a5b7435efb5449cf920bdaa3d772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (2).tif using Guid(e440a5b7435efb5449cf920bdaa3d772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f603488239f9d3351845ffdd8b05402') in 0.011958 seconds 
+  Import took 0.020817 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.530992 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (3).tif
+  artifactKey: Guid(b522e9c1cba56214aaa12d42f3935f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (3).tif using Guid(b522e9c1cba56214aaa12d42f3935f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09bb92195f9dd70948fd4f6c0cf966e5') in 0.013590 seconds 
+  Import took 0.021448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.331985 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (4).tif
+  artifactKey: Guid(9abab2fdb7810f549b69d135b3f94137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (4).tif using Guid(9abab2fdb7810f549b69d135b3f94137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c42d80804d8c9793676241e15720f3') in 0.012367 seconds 
+  Import took 0.020097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.174948 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal.tif
+  artifactKey: Guid(6d6796bc2b031654dbacb2c785c8144b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal.tif using Guid(6d6796bc2b031654dbacb2c785c8144b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b81be0346aabd9b8d620638b3d2899e') in 0.011361 seconds 
+  Import took 0.019265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 139.618859 seconds.
+  path: Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (1).tif
+  artifactKey: Guid(4c26fe503601058419e9e07af7181185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/TexturesCom_Scifi_Panel_4K_normal (1).tif using Guid(4c26fe503601058419e9e07af7181185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a645fca3d83809bb02d704574c257fbc') in 0.041982 seconds 
+  Import took 0.048380 seconds .
+

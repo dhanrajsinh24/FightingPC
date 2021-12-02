@@ -42,11 +42,11 @@ MonoBehaviour:
   p1CharStorage: {fileID: 11400000, guid: 5b533db5ca1714687a09da583f066446, type: 2}
   p2CharStorage: {fileID: 11400000, guid: e063a287aed544d2a81eacae248625fd, type: 2}
   selectedStage:
-    stageName: Main
+    stageName: Battle Bot Arena
     stageResourcePath: 
     musicResourcePath: 
-    screenshot: {fileID: 2800000, guid: 49d7b141d04234a07900e3dcde3ba14d, type: 3}
-    prefab: {fileID: 1509416590611773032, guid: cba3299f8fbf248bda848b98c0d110bc,
+    screenshot: {fileID: 2800000, guid: d062f14d138ea4b7baae0bdaa15f4758, type: 3}
+    prefab: {fileID: 6953425344351331456, guid: 13a4f2e6086414e7282f2fdd349f2d19,
       type: 3}
     music: {fileID: 8300000, guid: 2067a21e6d6e0a345a9eac9c41ec5d33, type: 3}
     groundFriction: 100
@@ -54,10 +54,10 @@ MonoBehaviour:
       _serializedValue: 429496729600
     leftBoundary: -38
     _leftBoundary:
-      _serializedValue: -128849018880
+      _serializedValue: -85899345920
     rightBoundary: 38
     _rightBoundary:
-      _serializedValue: 128849018880
+      _serializedValue: 85899345920
     _groundHeight:
       _serializedValue: 0
   stagePrefabStorage: 0
@@ -130,43 +130,23 @@ MonoBehaviour:
       - maxFights: 3
         mode: 1
         name: Random Fights
-        opponents:
-        - conversationBeforeBattle: {fileID: 11400004, guid: 9994f2f4c6d0c4bbaadbe0fd864bec81,
-            type: 3}
-          conversationAfterBattle: {fileID: 11400004, guid: d9ebcacaabc5e44bba98188d32b0a703,
-            type: 3}
-          opponentCharacterIndex: 0
-          possibleStagesIndexes: 00000000
-        - conversationBeforeBattle: {fileID: 11400004, guid: 9994f2f4c6d0c4bbaadbe0fd864bec81,
-            type: 3}
-          conversationAfterBattle: {fileID: 11400004, guid: d9ebcacaabc5e44bba98188d32b0a703,
-            type: 3}
-          opponentCharacterIndex: 1
-          possibleStagesIndexes: 00000000
-        - conversationBeforeBattle: {fileID: 11400004, guid: 9994f2f4c6d0c4bbaadbe0fd864bec81,
-            type: 3}
-          conversationAfterBattle: {fileID: 11400004, guid: d9ebcacaabc5e44bba98188d32b0a703,
-            type: 3}
-          opponentCharacterIndex: 2
-          possibleStagesIndexes: 00000000
+        opponents: []
         showOpponentsInEditor: 1
       - maxFights: 4
         mode: 2
         name: Boss Fight
-        opponents:
-        - conversationBeforeBattle: {fileID: 11400004, guid: 9994f2f4c6d0c4bbaadbe0fd864bec81,
-            type: 3}
-          conversationAfterBattle: {fileID: 11400004, guid: d9ebcacaabc5e44bba98188d32b0a703,
-            type: 3}
-          opponentCharacterIndex: 3
-          possibleStagesIndexes: 00000000
+        opponents: []
         showOpponentsInEditor: 1
       showStoryInEditor: 1
-    selectableCharactersInStoryMode: 000000000200000001000000030000000400000005000000060000000700000008000000090000000a0000000b000000
-    selectableCharactersInVersusMode: 000000000200000001000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
     characterStories:
-      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
       _values:
+      - opening: {fileID: 0}
+        ending: {fileID: 0}
+        fightsGroups: []
+        showStoryInEditor: 0
       - opening: {fileID: 0}
         ending: {fileID: 0}
         fightsGroups: []
@@ -803,7 +783,7 @@ MonoBehaviour:
   player1_Inputs:
   - inputType: 0
     inputButtonName: P1KeyboardHorizontal
-    engineRelatedButton: 0
+    engineRelatedButton: 1
     joystickAxisName: P1JoystickHorizontal
     cInputPositiveKeyName: P1Right
     cInputPositiveDefaultKey: D
@@ -813,10 +793,10 @@ MonoBehaviour:
     cInputNegativeAlternativeKey: Joy1 Axis 1-
     inputViewerIcon1: {fileID: 2800000, guid: f029529e09f1c12428dcc1a8c7dcb91c, type: 3}
     inputViewerIcon2: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
-    activeIcon: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
+    activeIcon: {fileID: 2800000, guid: f029529e09f1c12428dcc1a8c7dcb91c, type: 3}
   - inputType: 1
     inputButtonName: P1KeyboardVertical
-    engineRelatedButton: 2
+    engineRelatedButton: 3
     joystickAxisName: P1JoystickVertical
     cInputPositiveKeyName: P1Up
     cInputPositiveDefaultKey: W
@@ -1051,10 +1031,10 @@ MonoBehaviour:
     confirmButton: 4
     cancelButton: 7
   stages:
-  - stageName: Main
+  - stageName: Green Stage
     stageResourcePath: 
     musicResourcePath: 
-    screenshot: {fileID: 2800000, guid: 49d7b141d04234a07900e3dcde3ba14d, type: 3}
+    screenshot: {fileID: 2800000, guid: 03afdd1629dec4aec92a61312b69928d, type: 3}
     prefab: {fileID: 1509416590611773032, guid: cba3299f8fbf248bda848b98c0d110bc,
       type: 3}
     music: {fileID: 8300000, guid: 2067a21e6d6e0a345a9eac9c41ec5d33, type: 3}
@@ -1069,19 +1049,38 @@ MonoBehaviour:
       _serializedValue: 128849018880
     _groundHeight:
       _serializedValue: 0
+  - stageName: Battle Bot Arena
+    stageResourcePath: 
+    musicResourcePath: 
+    screenshot: {fileID: 2800000, guid: d062f14d138ea4b7baae0bdaa15f4758, type: 3}
+    prefab: {fileID: 6953425344351331456, guid: 13a4f2e6086414e7282f2fdd349f2d19,
+      type: 3}
+    music: {fileID: 8300000, guid: 2067a21e6d6e0a345a9eac9c41ec5d33, type: 3}
+    groundFriction: 100
+    _groundFriction:
+      _serializedValue: 429496729600
+    leftBoundary: -38
+    _leftBoundary:
+      _serializedValue: -85899345920
+    rightBoundary: 38
+    _rightBoundary:
+      _serializedValue: 85899345920
+    _groundHeight:
+      _serializedValue: 0
   characters:
-  - {fileID: 11400000, guid: 5b533db5ca1714687a09da583f066446, type: 2}
-  - {fileID: 11400000, guid: e063a287aed544d2a81eacae248625fd, type: 2}
-  - {fileID: 11400000, guid: 5f76e17c3e2814cecbf18a79a39444eb, type: 2}
-  - {fileID: 11400000, guid: bd216ba590d814f8d923d7a229c3cb54, type: 2}
-  - {fileID: 11400000, guid: 7b13ae371ccba405683c2ed3f86f2b16, type: 2}
-  - {fileID: 11400000, guid: 7872788124b114010a2472f02b9b8ef1, type: 2}
-  - {fileID: 11400000, guid: dcae66286ce31450fb32d29caf1b3a91, type: 2}
-  - {fileID: 11400000, guid: 134b0fec85a1047368b4bc156694503e, type: 2}
+  - {fileID: 11400000, guid: 3d3e84e1b98db4a1f920d6345f662b6d, type: 2}
   - {fileID: 11400000, guid: c34fea5a998254e579065a4996337eee, type: 2}
+  - {fileID: 11400000, guid: 134b0fec85a1047368b4bc156694503e, type: 2}
   - {fileID: 11400000, guid: c13050b387b0c4bdf8894480fcf58e7a, type: 2}
   - {fileID: 11400000, guid: cfafb2d620dd54de4af912adbb21e18c, type: 2}
-  - {fileID: 11400000, guid: 3d3e84e1b98db4a1f920d6345f662b6d, type: 2}
+  - {fileID: 11400000, guid: 7b13ae371ccba405683c2ed3f86f2b16, type: 2}
+  - {fileID: 11400000, guid: 7872788124b114010a2472f02b9b8ef1, type: 2}
+  - {fileID: 11400000, guid: 5f76e17c3e2814cecbf18a79a39444eb, type: 2}
+  - {fileID: 11400000, guid: e063a287aed544d2a81eacae248625fd, type: 2}
+  - {fileID: 11400000, guid: dcae66286ce31450fb32d29caf1b3a91, type: 2}
+  - {fileID: 11400000, guid: 5b533db5ca1714687a09da583f066446, type: 2}
+  - {fileID: 11400000, guid: bd216ba590d814f8d923d7a229c3cb54, type: 2}
+  - {fileID: 11400000, guid: d9b6a5d3b10ea491dad31bf99f2a84bf, type: 2}
   debugOptions:
     startGameImmediately: 0
     skipLoadingScreen: 0
