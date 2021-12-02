@@ -3803,3 +3803,142 @@ Received Import Request.
 Start importing Assets/01_Jessie using Guid(6cd86025b6c324f8e9fc5512187a060d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44ef1e02d99fc31c84fa7de9a70c48b3') in 0.006680 seconds 
   Import took 0.015161 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 406.598123 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_Emission.png
+  artifactKey: Guid(706935fa1d6ff494681eb3b09810c20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_Emission.png using Guid(706935fa1d6ff494681eb3b09810c20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7cfa9ca175cdbdafb927b0d32724df1') in 0.044618 seconds 
+  Import took 0.052326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_MetallicSmoothness.png
+  artifactKey: Guid(50a7a9d9a22120248bfb3dec6e9dfc17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_MetallicSmoothness.png using Guid(50a7a9d9a22120248bfb3dec6e9dfc17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee46ef29b30ade3f24811149ac144f56') in 0.017864 seconds 
+  Import took 0.025140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_Normal.png
+  artifactKey: Guid(21a1cdab49357874bbddebd91950318f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_Normal.png using Guid(21a1cdab49357874bbddebd91950318f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d6612dd6b903cbb7a25eb5066e818b0') in 0.022205 seconds 
+  Import took 0.029392 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_Normal.png
+  artifactKey: Guid(847cd3da9b7ed0c4892ee3b0fa03d5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_Normal.png using Guid(847cd3da9b7ed0c4892ee3b0fa03d5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e9d78dfb44add2c24b6f8117461fa2c') in 0.013270 seconds 
+  Import took 0.020600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_MetallicSmoothness.png
+  artifactKey: Guid(7aa945e140b28ed478b8bcfd73598fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Gold_MetallicSmoothness.png using Guid(7aa945e140b28ed478b8bcfd73598fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4751f5f0599a4461052b06610372a3b') in 0.016849 seconds 
+  Import took 0.024629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_AlbedoTransparency.png
+  artifactKey: Guid(53248b7aa3c029c4997c581f2457846f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_AlbedoTransparency.png using Guid(53248b7aa3c029c4997c581f2457846f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a6fd247245e862be1205f87b1cfab91') in 0.015020 seconds 
+  Import took 0.022021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_ButtonSecondary_Normal.png
+  artifactKey: Guid(d03bdeaf429e3124bb3316de32611908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_ButtonSecondary_Normal.png using Guid(d03bdeaf429e3124bb3316de32611908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c5c324ea737e9da7dd34f8264694aa0') in 0.013320 seconds 
+  Import took 0.020345 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_Emission.png
+  artifactKey: Guid(04ec8ad829ad0f641814e46a4eb2db79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BattleBot_Arena/Textures/Substance/Arena1_Chrome_Emission.png using Guid(04ec8ad829ad0f641814e46a4eb2db79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c78ab495cc7a1c49b0529ca283681a79') in 0.011714 seconds 
+  Import took 0.018222 seconds .
+
+========================================================================
+Received Prepare
+Default GameObject BitMask: UI already registered
+
+Registering precompiled user dll's ...
+Registered in 0.007897 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+02-12-2021 17:43:29|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.358 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1359ms)
+		BeginReloadAssembly (126ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (61ms)
+		EndReloadAssembly (1172ms)
+			LoadAssemblies (89ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (404ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (84ms)
+			SetupLoadedEditorAssemblies (414ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (91ms)
+				ProcessInitializeOnLoadAttributes (272ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4243 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 0.51 GB.
+System memory in use after: 0.51 GB.
+
+Unloading 59 unused Assets to reduce memory usage. Loaded Objects now: 5076.
+Total: 5.513546 ms (FindLiveObjects: 0.425641 ms CreateObjectMapping: 0.205604 ms MarkObjects: 4.801958 ms  DeleteObjects: 0.079576 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1477.954511 seconds.
+  path: Assets/_Core/Scenes/Main.unity
+  artifactKey: Guid(a4f99dda2dd9d4442b85a6936f4bb0d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/Scenes/Main.unity using Guid(a4f99dda2dd9d4442b85a6936f4bb0d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c9987abe2971b066140fc0ec1601eaf') in 0.016676 seconds 
+  Import took 0.024470 seconds .
+

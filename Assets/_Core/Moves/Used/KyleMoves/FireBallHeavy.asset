@@ -7288,7 +7288,7 @@ MonoBehaviour:
   invertRotationRight: 0
   autoCorrectRotation: 0
   frameWindowRotation: 0
-  gaugeToggle: 1
+  gaugeToggle: 0
   startDrainingGauge: 0
   inhibitGainWhileDraining: 0
   stopDrainingGauge: 0
@@ -7806,7 +7806,7 @@ MonoBehaviour:
           _serializedValue: 0
     spaceBetweenHits: 2
     totalHits: 5
-    resetPreviousHitStun: 1
+    resetPreviousHitStun: 0
     hitStunOnHit: 0
     hitStunOnBlock: 0
     overrideHitEffects: 0
