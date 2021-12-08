@@ -64,7 +64,7 @@ MonoBehaviour:
   stageMusicStorage: 0
   p1CPUControl: 1
   p2CPUControl: 1
-  gameName: UFE Training Room
+  gameName: BlokkBots
   gameGUI:
     hasGauge: 1
     screenFadeDuration:
@@ -137,12 +137,16 @@ MonoBehaviour:
         name: Boss Fight
         opponents: []
         showOpponentsInEditor: 1
-      showStoryInEditor: 1
-    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
-    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
+      showStoryInEditor: 0
+    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
+    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
     characterStories:
-      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
+      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
       _values:
+      - opening: {fileID: 0}
+        ending: {fileID: 0}
+        fightsGroups: []
+        showStoryInEditor: 0
       - opening: {fileID: 0}
         ending: {fileID: 0}
         fightsGroups: []
@@ -787,7 +791,7 @@ MonoBehaviour:
   player1_Inputs:
   - inputType: 0
     inputButtonName: P1KeyboardHorizontal
-    engineRelatedButton: 1
+    engineRelatedButton: 0
     joystickAxisName: P1JoystickHorizontal
     cInputPositiveKeyName: P1Right
     cInputPositiveDefaultKey: D
@@ -800,7 +804,7 @@ MonoBehaviour:
     activeIcon: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
   - inputType: 1
     inputButtonName: P1KeyboardVertical
-    engineRelatedButton: 3
+    engineRelatedButton: 2
     joystickAxisName: P1JoystickVertical
     cInputPositiveKeyName: P1Up
     cInputPositiveDefaultKey: W
@@ -918,7 +922,7 @@ MonoBehaviour:
     activeIcon: {fileID: 2800000, guid: 0f1eb58df8917b74f804b8cb97615fd5, type: 3}
   - inputType: 1
     inputButtonName: P2KeyboardVertical
-    engineRelatedButton: 3
+    engineRelatedButton: 2
     joystickAxisName: P2JoystickVertical
     cInputPositiveKeyName: P2Up
     cInputPositiveDefaultKey: UpArrow
@@ -1086,6 +1090,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd216ba590d814f8d923d7a229c3cb54, type: 2}
   - {fileID: 11400000, guid: d9b6a5d3b10ea491dad31bf99f2a84bf, type: 2}
   - {fileID: 11400000, guid: 828865cfdc5b5452085b3b1b68eb6ff7, type: 2}
+  - {fileID: 11400000, guid: af0fa7ef6579a4cab866ae8cc164c899, type: 2}
   debugOptions:
     startGameImmediately: 0
     skipLoadingScreen: 0
@@ -1308,6 +1313,6 @@ MonoBehaviour:
     inputMessageFrequency: 0
     synchronizationMessageFrequency: 0
   music: 0
-  musicVolume: 1
+  musicVolume: 0
   soundfx: 1
   soundfxVolume: 1

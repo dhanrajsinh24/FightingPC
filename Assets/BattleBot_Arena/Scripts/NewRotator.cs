@@ -13,9 +13,9 @@ public class NewRotator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        RotateSpeedX = RotateSpeedX * GeneralRotateSpeed;
-        RotateSpeedY = RotateSpeedY * GeneralRotateSpeed;
-        RotateSpeedZ = RotateSpeedZ * GeneralRotateSpeed;
+        RotateSpeedX *= GeneralRotateSpeed;
+        RotateSpeedY *= GeneralRotateSpeed;
+        RotateSpeedZ *= GeneralRotateSpeed;
     }
 
     // Update is called once per frame
