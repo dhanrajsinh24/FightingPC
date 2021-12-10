@@ -12,7 +12,7 @@ public class DefaultBattleGUI : BattleGUI{
 		public Image portrait;
 		public Image lifeBar;
 		public Image gaugeMeter;
-		public Image[] wonRoundsImages;
+		public GameObject[] wonRoundsImages;
 		public AlertGUI alert = new AlertGUI();
 	}
 
@@ -384,12 +384,12 @@ public class DefaultBattleGUI : BattleGUI{
 				this.player1GUI.wonRoundsImages.Length >= targetNumberOfImages
 			){
 				for (int i = 0; i < targetNumberOfImages; ++i){
-					this.player1GUI.wonRoundsImages[i].enabled = true;
-					this.player1GUI.wonRoundsImages[i].sprite = this.wonRounds.NotFinishedRounds;
+					//this.player1GUI.wonRoundsImages[i].enabled = true;
+					//this.player1GUI.wonRoundsImages[i].sprite = this.wonRounds.NotFinishedRounds;
 				}
 					
 				for (int i = targetNumberOfImages; i < this.player1GUI.wonRoundsImages.Length; ++i){
-					this.player1GUI.wonRoundsImages[i].enabled = false;
+					//this.player1GUI.wonRoundsImages[i].enabled = false;
 				}
 			}else{
 				Debug.LogError(
@@ -405,12 +405,12 @@ public class DefaultBattleGUI : BattleGUI{
 				this.player2GUI.wonRoundsImages.Length >= targetNumberOfImages
 			){
 				for (int i = 0; i < targetNumberOfImages; ++i){
-					this.player2GUI.wonRoundsImages[i].enabled = true;
-					this.player2GUI.wonRoundsImages[i].sprite = this.wonRounds.NotFinishedRounds;
+					//this.player2GUI.wonRoundsImages[i].enabled = true;
+					//this.player2GUI.wonRoundsImages[i].sprite = this.wonRounds.NotFinishedRounds;
 				}
 					
 				for (int i = targetNumberOfImages; i < this.player2GUI.wonRoundsImages.Length; ++i){
-					this.player2GUI.wonRoundsImages[i].enabled = false;
+					//this.player2GUI.wonRoundsImages[i].enabled = false;
 				}
 			}else{
 				Debug.LogError(
@@ -676,7 +676,7 @@ public class DefaultBattleGUI : BattleGUI{
 					winnerGUI.wonRoundsImages != null && 
 					winnerGUI.wonRoundsImages.Length >= targetNumberOfImages
 				){
-					winnerGUI.wonRoundsImages[UFE.config.currentRound - 1].sprite = this.wonRounds.WonRounds;
+					winnerGUI.wonRoundsImages[UFE.config.currentRound - 1].SetActive(true);
 				}else{
 					Debug.LogError(
 						"Player " + winnerPlayer + ": not enough \"Won Rounds\" Images not found! " +
@@ -690,7 +690,7 @@ public class DefaultBattleGUI : BattleGUI{
 					loserGUI.wonRoundsImages != null && 
 					loserGUI.wonRoundsImages.Length >= targetNumberOfImages
 				){
-					loserGUI.wonRoundsImages[UFE.config.currentRound - 1].sprite = this.wonRounds.LostRounds;
+					loserGUI.wonRoundsImages[UFE.config.currentRound - 1].SetActive(false);
 				}else{
 					Debug.LogError(
 						"Player " + winnerPlayer + ": not enough \"Won Rounds\" Images not found! " +
@@ -705,7 +705,7 @@ public class DefaultBattleGUI : BattleGUI{
 					winnerGUI.wonRoundsImages != null && 
 					winnerGUI.wonRoundsImages.Length >= winnerControlsScript.roundsWon
 				){
-					winnerGUI.wonRoundsImages[winnerControlsScript.roundsWon - 1].sprite = this.wonRounds.WonRounds;
+					winnerGUI.wonRoundsImages[winnerControlsScript.roundsWon - 1].SetActive(true);
 				}else if (UFE.gameMode != GameMode.ChallengeMode) {
 					Debug.LogError(
 						"Player " + winnerPlayer + ": not enough \"Won Rounds\" Images not found! " +

@@ -107,8 +107,8 @@ MonoBehaviour:
   hudPlayer2: {fileID: 9500002}
   hudBothPlayers: {fileID: 9500000}
   noCharacterSprite: {fileID: 21300000, guid: 49a6f61837fd54bf9956a2cb6aff27fa, type: 3}
-  defaultCharacterPlayer1: 0
-  defaultCharacterPlayer2: 999
+  defaultCharacterPlayer1: -1
+  defaultCharacterPlayer2: -1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

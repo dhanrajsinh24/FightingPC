@@ -4664,7 +4664,8 @@ MonoBehaviour:
   _animationSpeed:
     _serializedValue: 3435973888
   wrapMode: 0
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 6421939583650440951, guid: 32a40db8088534278913356039aa3a0b,
+    type: 3}
   moveName: Crouching Heavy Kick
   description: Crouching Heavy Kick
   fps: 60
@@ -5046,7 +5047,7 @@ MonoBehaviour:
     overrideEventsToggle: 1
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 1
     groundBounceToggle: 0
     hurtBoxes:

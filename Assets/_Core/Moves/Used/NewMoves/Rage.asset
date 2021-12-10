@@ -196,9 +196,9 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
-    armorBreaker: 1
+    armorBreaker: 0
     continuousHit: 0
     unblockable: 0
     spaceBetweenHits: 0
@@ -280,11 +280,11 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 1
+    hitStrength: 2
     hitStunType: 1
     hitStunOnHit: 0
     _hitStunOnHit:
-      _serializedValue: 42949672960
+      _serializedValue: 257698037760
     hitStunOnBlock: 0
     _hitStunOnBlock:
       _serializedValue: 21474836480
@@ -405,15 +405,15 @@ MonoBehaviour:
         z:
           _serializedValue: 0
     damageOptionsToggle: 0
-    hitStunOptionsToggle: 0
+    hitStunOptionsToggle: 1
     forceOptionsToggle: 0
     opponentForceToggle: 0
     selfForceToggle: 0
     stageReactionsToggle: 0
     overrideEventsToggle: 0
-    hitConditionsToggle: 0
+    hitConditionsToggle: 1
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
@@ -421,51 +421,51 @@ MonoBehaviour:
       shape: 1
       rect:
         serializedVersion: 2
-        x: 0.66
+        x: 0.42
         y: -0.77
-        width: 3
-        height: 3
+        width: 2.5
+        height: 2.38
       _rect:
         topRight:
           x:
-            _serializedValue: 15719580672
+            _serializedValue: 12541304832
           y:
             _serializedValue: -3307124736
           z:
             _serializedValue: 0
         topLeft:
           x:
-            _serializedValue: 2834678528
+            _serializedValue: 1803886208
           y:
             _serializedValue: -3307124736
           z:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 15719580672
+            _serializedValue: 12541304832
           y:
-            _serializedValue: 9577777152
+            _serializedValue: 6914897920
           z:
             _serializedValue: 0
         bottomLeft:
           x:
-            _serializedValue: 2834678528
+            _serializedValue: 1803886208
           y:
-            _serializedValue: 9577777152
+            _serializedValue: 6914897920
           z:
             _serializedValue: 0
         x:
-          _serializedValue: 2834678528
+          _serializedValue: 1803886208
         y:
           _serializedValue: -3307124736
         width:
-          _serializedValue: 12884901888
+          _serializedValue: 10737418240
         height:
-          _serializedValue: 12884901888
+          _serializedValue: 10222022656
         xMax:
-          _serializedValue: 15719580672
+          _serializedValue: 12541304832
         yMax:
-          _serializedValue: 9577777152
+          _serializedValue: 6914897920
       followXBounds: 0
       followYBounds: 0
       radius: 0.5
@@ -485,9 +485,9 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
-    armorBreaker: 1
+    armorBreaker: 0
     continuousHit: 1
     unblockable: 0
     spaceBetweenHits: 3
@@ -694,7 +694,7 @@ MonoBehaviour:
         z:
           _serializedValue: 0
     damageOptionsToggle: 0
-    hitStunOptionsToggle: 0
+    hitStunOptionsToggle: 1
     forceOptionsToggle: 0
     opponentForceToggle: 0
     selfForceToggle: 0
@@ -702,121 +702,59 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
-    - bodyPart: 6
+    - bodyPart: 2
       shape: 1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3
-        height: 3
+        x: 1.68
+        y: -0.64
+        width: 2.5
+        height: 2.06
       _rect:
         topRight:
           x:
-            _serializedValue: 12884901888
+            _serializedValue: 17952962560
           y:
-            _serializedValue: 0
+            _serializedValue: -2748779008
           z:
             _serializedValue: 0
         topLeft:
           x:
-            _serializedValue: 0
+            _serializedValue: 7215544832
           y:
-            _serializedValue: 0
+            _serializedValue: -2748779008
           z:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 12884901888
+            _serializedValue: 17952962560
           y:
-            _serializedValue: 12884901888
+            _serializedValue: 6098853376
           z:
             _serializedValue: 0
         bottomLeft:
           x:
-            _serializedValue: 0
+            _serializedValue: 7215544832
           y:
-            _serializedValue: 12884901888
+            _serializedValue: 6098853376
           z:
             _serializedValue: 0
         x:
-          _serializedValue: 0
+          _serializedValue: 7215544832
         y:
-          _serializedValue: 0
+          _serializedValue: -2748779008
         width:
-          _serializedValue: 12884901888
+          _serializedValue: 10737418240
         height:
-          _serializedValue: 12884901888
+          _serializedValue: 8847632384
         xMax:
-          _serializedValue: 12884901888
+          _serializedValue: 17952962560
         yMax:
-          _serializedValue: 12884901888
-      followXBounds: 0
-      followYBounds: 0
-      radius: 0.5
-      _radius:
-        _serializedValue: 2147483648
-      offSet: {x: 0, y: 0}
-      _offSet:
-        x:
-          _serializedValue: 0
-        y:
-          _serializedValue: 0
-        z:
-          _serializedValue: 0
-    - bodyPart: 7
-      shape: 1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3
-        height: 2
-      _rect:
-        topRight:
-          x:
-            _serializedValue: 12884901888
-          y:
-            _serializedValue: 0
-          z:
-            _serializedValue: 0
-        topLeft:
-          x:
-            _serializedValue: 0
-          y:
-            _serializedValue: 0
-          z:
-            _serializedValue: 0
-        bottomRight:
-          x:
-            _serializedValue: 12884901888
-          y:
-            _serializedValue: 8589934592
-          z:
-            _serializedValue: 0
-        bottomLeft:
-          x:
-            _serializedValue: 0
-          y:
-            _serializedValue: 8589934592
-          z:
-            _serializedValue: 0
-        x:
-          _serializedValue: 0
-        y:
-          _serializedValue: 0
-        width:
-          _serializedValue: 12884901888
-        height:
-          _serializedValue: 8589934592
-        xMax:
-          _serializedValue: 12884901888
-        yMax:
-          _serializedValue: 8589934592
+          _serializedValue: 6098853376
       followXBounds: 0
       followYBounds: 0
       radius: 0.5
@@ -836,9 +774,9 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
-    armorBreaker: 1
+    armorBreaker: 0
     continuousHit: 0
     unblockable: 0
     spaceBetweenHits: 0
@@ -1053,7 +991,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
@@ -1063,12 +1001,12 @@ MonoBehaviour:
         serializedVersion: 2
         x: 0
         y: -1.49
-        width: 4
-        height: 5.14
+        width: 3
+        height: 2.87
       _rect:
         topRight:
           x:
-            _serializedValue: 17179869184
+            _serializedValue: 12884901888
           y:
             _serializedValue: -6399501312
           z:
@@ -1082,16 +1020,16 @@ MonoBehaviour:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 17179869184
+            _serializedValue: 12884901888
           y:
-            _serializedValue: 15676630016
+            _serializedValue: 5927054336
           z:
             _serializedValue: 0
         bottomLeft:
           x:
             _serializedValue: 0
           y:
-            _serializedValue: 15676630016
+            _serializedValue: 5927054336
           z:
             _serializedValue: 0
         x:
@@ -1099,13 +1037,13 @@ MonoBehaviour:
         y:
           _serializedValue: -6399501312
         width:
-          _serializedValue: 17179869184
+          _serializedValue: 12884901888
         height:
-          _serializedValue: 22076131328
+          _serializedValue: 12326555648
         xMax:
-          _serializedValue: 17179869184
+          _serializedValue: 12884901888
         yMax:
-          _serializedValue: 15676630016
+          _serializedValue: 5927054336
       followXBounds: 0
       followYBounds: 0
       radius: 0.5
@@ -1194,7 +1132,7 @@ MonoBehaviour:
   invincibleBodyParts: []
   armorOptions:
     activeFramesBegin: 0
-    activeFramesEnds: 0
+    activeFramesEnds: 1
     overrideHitEffects: 0
     hitEffects:
       hitParticle: {fileID: 0}

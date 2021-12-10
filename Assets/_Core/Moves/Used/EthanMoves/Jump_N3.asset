@@ -771,29 +771,7 @@ MonoBehaviour:
   soundEffects: []
   inGameAlert: []
   stanceChanges: []
-  cameraMovements:
-  - cinematicType: 0
-    animationClip: {fileID: 0}
-    prefab: {fileID: 0}
-    camAnimationSpeed: 1
-    blendSpeed: 100
-    gameObjectPosition: {x: 0, y: 0, z: 0}
-    position: {x: 37, y: 10, z: -35}
-    rotation: {x: 7, y: 315, z: 0}
-    castingFrame: 10
-    duration: 0
-    _duration:
-      _serializedValue: 2147483648
-    fieldOfView: 10
-    camSpeed: 2
-    freezePhysics: 0
-    myAnimationSpeed: 100
-    _myAnimationSpeed:
-      _serializedValue: 128849018880
-    opAnimationSpeed: 100
-    _opAnimationSpeed:
-      _serializedValue: 128849018880
-    previewToggle: 0
+  cameraMovements: []
   hits:
   - activeFramesBegin: 16
     activeFramesEnds: 29

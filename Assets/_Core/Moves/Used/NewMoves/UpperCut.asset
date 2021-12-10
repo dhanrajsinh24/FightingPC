@@ -196,9 +196,9 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
-    armorBreaker: 1
+    armorBreaker: 0
     continuousHit: 1
     unblockable: 0
     spaceBetweenHits: 3
@@ -280,21 +280,21 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 1
+    hitStrength: 2
     hitStunType: 1
     hitStunOnHit: 0
     _hitStunOnHit:
-      _serializedValue: 0
+      _serializedValue: 85899345920
     hitStunOnBlock: 0
     _hitStunOnBlock:
-      _serializedValue: 0
+      _serializedValue: 42949672960
     frameAdvantageOnHit: 0
     frameAdvantageOnBlock: 0
     damageScaling: 0
     damageType: 1
     damageOnHit: 0
     _damageOnHit:
-      _serializedValue: 128849018880
+      _serializedValue: 214748364800
     damageOnBlock: 0
     _damageOnBlock:
       _serializedValue: 42949672960
@@ -302,14 +302,14 @@ MonoBehaviour:
     hitType: 0
     resetPreviousHorizontalPush: 0
     resetPreviousVerticalPush: 0
-    applyDifferentAirForce: 1
+    applyDifferentAirForce: 0
     applyDifferentBlockForce: 0
     pushForce: {x: 0, y: 0}
     _pushForce:
       x:
         _serializedValue: 0
       y:
-        _serializedValue: 0
+        _serializedValue: 8589934592
       z:
         _serializedValue: 0
     pushForceAir: {x: 0, y: 0}
@@ -405,8 +405,8 @@ MonoBehaviour:
         z:
           _serializedValue: 0
     damageOptionsToggle: 0
-    hitStunOptionsToggle: 0
-    forceOptionsToggle: 1
+    hitStunOptionsToggle: 1
+    forceOptionsToggle: 0
     opponentForceToggle: 1
     selfForceToggle: 1
     stageReactionsToggle: 0

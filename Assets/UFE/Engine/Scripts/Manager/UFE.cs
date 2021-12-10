@@ -2464,11 +2464,9 @@ public class UFE : MonoBehaviour, UFEInterface
 	public static void DanMainScreen()
 	{
 		HideScreen(currentScreen);
-		//ShowScreen(config.gameGUI.mainMenuScreen);
 		PauseGame(false);
-		var game = GameObject.Find("Game");
-		if(game != null) Destroy(game);
-		StartMainMenuScreen();
+		//StartMainMenuScreen();
+		StartStoryModeGameOverScreen();
 	}
 
 	private static void _StartMainMenuScreen(float fadeTime){

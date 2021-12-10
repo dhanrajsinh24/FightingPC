@@ -1147,7 +1147,7 @@ MonoBehaviour:
     refillTime: 3
   challengeModeOptions: []
   aiOptions:
-    engine: 1
+    engine: 0
     attackWhenEnemyIsDown: 0
     moveWhenEnemyIsDown: 1
     inputFrequency: 0
@@ -1312,7 +1312,7 @@ MonoBehaviour:
     onlySendInputChanges: 1
     inputMessageFrequency: 0
     synchronizationMessageFrequency: 0
-  music: 0
-  musicVolume: 0
+  music: 1
+  musicVolume: 1
   soundfx: 1
   soundfxVolume: 1

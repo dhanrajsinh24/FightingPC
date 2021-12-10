@@ -7,6 +7,7 @@ public class PauseScreen : UFEScreen {
 		Debug.Log("GoToMainMenu pause");
 		ResumeGame();
 		UFE.DanMainScreen();
+		
 	}
 
 	public virtual void ResumeGame(){

@@ -15740,9 +15740,9 @@ MonoBehaviour:
   animSpeedKeyFrame: []
   totalFrames: 255
   startUpFrames: 16
-  activeFrames: 123
-  recoveryFrames: 116
-  applyRootMotion: 0
+  activeFrames: 125
+  recoveryFrames: 114
+  applyRootMotion: 1
   forceGrounded: 0
   rootMotionNode: 0
   overrideBlendingIn: 1
@@ -15880,7 +15880,7 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
     armorBreaker: 0
     continuousHit: 0
@@ -15896,7 +15896,7 @@ MonoBehaviour:
       basicMovesToggle: 1
       statesToggle: 0
     downHit: 0
-    resetPreviousHitStun: 0
+    resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
     overrideHitEffects: 0
@@ -15964,11 +15964,11 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 38
-    hitStrength: 1
+    hitStrength: 2
     hitStunType: 1
     hitStunOnHit: 45
     _hitStunOnHit:
-      _serializedValue: 193273528320
+      _serializedValue: 257698037760
     hitStunOnBlock: 10
     _hitStunOnBlock:
       _serializedValue: 42949672960
@@ -16088,7 +16088,7 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    damageOptionsToggle: 1
+    damageOptionsToggle: 0
     hitStunOptionsToggle: 1
     forceOptionsToggle: 0
     opponentForceToggle: 1
@@ -16105,53 +16105,53 @@ MonoBehaviour:
       shape: 1
       rect:
         serializedVersion: 2
-        x: -0.62
-        y: 0
-        width: 3
-        height: 0
+        x: -1.13
+        y: -1.06
+        width: 2.6
+        height: 2.87
       _rect:
         topRight:
           x:
-            _serializedValue: 10222022656
+            _serializedValue: 6313601536
           y:
-            _serializedValue: 0
+            _serializedValue: -4552665088
           z:
             _serializedValue: 0
         topLeft:
           x:
-            _serializedValue: -2662879744
+            _serializedValue: -4853313024
           y:
-            _serializedValue: 0
+            _serializedValue: -4552665088
           z:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 10222022656
+            _serializedValue: 6313601536
           y:
-            _serializedValue: 0
+            _serializedValue: 7773890560
           z:
             _serializedValue: 0
         bottomLeft:
           x:
-            _serializedValue: -2662879744
+            _serializedValue: -4853313024
           y:
-            _serializedValue: 0
+            _serializedValue: 7773890560
           z:
             _serializedValue: 0
         x:
-          _serializedValue: -2662879744
+          _serializedValue: -4853313024
         y:
-          _serializedValue: 0
+          _serializedValue: -4552665088
         width:
-          _serializedValue: 12884901888
+          _serializedValue: 11166914560
         height:
-          _serializedValue: 0
+          _serializedValue: 12326555648
         xMax:
-          _serializedValue: 10222022656
+          _serializedValue: 6313601536
         yMax:
-          _serializedValue: 0
+          _serializedValue: 7773890560
       followXBounds: 0
-      followYBounds: 1
+      followYBounds: 0
       radius: 1
       _radius:
         _serializedValue: 4294967296
@@ -16169,7 +16169,7 @@ MonoBehaviour:
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
     armorBreaker: 0
     continuousHit: 0
@@ -16253,11 +16253,11 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 28
-    hitStrength: 1
+    hitStrength: 2
     hitStunType: 1
     hitStunOnHit: 60
     _hitStunOnHit:
-      _serializedValue: 257698037760
+      _serializedValue: 85899345920
     hitStunOnBlock: 10
     _hitStunOnBlock:
       _serializedValue: 42949672960
@@ -16378,7 +16378,7 @@ MonoBehaviour:
         z:
           _serializedValue: 0
     damageOptionsToggle: 0
-    hitStunOptionsToggle: 0
+    hitStunOptionsToggle: 1
     forceOptionsToggle: 0
     opponentForceToggle: 1
     selfForceToggle: 1
@@ -16386,7 +16386,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 1
     groundBounceToggle: 0
     hurtBoxes:
@@ -16394,53 +16394,53 @@ MonoBehaviour:
       shape: 1
       rect:
         serializedVersion: 2
-        x: -0.8
-        y: 0
+        x: -1.46
+        y: -1.15
         width: 3
-        height: 0
+        height: 2.51
       _rect:
         topRight:
           x:
-            _serializedValue: 9448928256
+            _serializedValue: 6614249472
           y:
-            _serializedValue: -4681514496
+            _serializedValue: -4939212288
           z:
             _serializedValue: 0
         topLeft:
           x:
-            _serializedValue: -3435973888
+            _serializedValue: -6270652416
           y:
-            _serializedValue: -4681514496
+            _serializedValue: -4939212288
           z:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 9448928256
+            _serializedValue: 6614249472
           y:
-            _serializedValue: -4681514496
+            _serializedValue: 5841155584
           z:
             _serializedValue: 0
         bottomLeft:
           x:
-            _serializedValue: -3435973888
+            _serializedValue: -6270652416
           y:
-            _serializedValue: -4681514496
+            _serializedValue: 5841155584
           z:
             _serializedValue: 0
         x:
-          _serializedValue: -3435973888
+          _serializedValue: -6270652416
         y:
-          _serializedValue: -4681514496
+          _serializedValue: -4939212288
         width:
           _serializedValue: 12884901888
         height:
-          _serializedValue: 0
+          _serializedValue: 10780367872
         xMax:
-          _serializedValue: 9448928256
+          _serializedValue: 6614249472
         yMax:
-          _serializedValue: -4681514496
+          _serializedValue: 5841155584
       followXBounds: 0
-      followYBounds: 1
+      followYBounds: 0
       radius: 0.5
       _radius:
         _serializedValue: 2147483648
@@ -16452,13 +16452,13 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-  - activeFramesBegin: 103
-    activeFramesEnds: 140
+  - activeFramesBegin: 130
+    activeFramesEnds: 142
     hitConfirmType: 0
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
-    resetHitAnimations: 1
+    resetHitAnimations: 0
     forceStand: 0
     armorBreaker: 0
     continuousHit: 0
@@ -16474,7 +16474,7 @@ MonoBehaviour:
       basicMovesToggle: 0
       statesToggle: 0
     downHit: 0
-    resetPreviousHitStun: 0
+    resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
     overrideHitEffects: 0
@@ -16666,8 +16666,8 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    damageOptionsToggle: 1
-    hitStunOptionsToggle: 1
+    damageOptionsToggle: 0
+    hitStunOptionsToggle: 0
     forceOptionsToggle: 0
     opponentForceToggle: 0
     selfForceToggle: 0
@@ -16675,7 +16675,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
@@ -16683,53 +16683,53 @@ MonoBehaviour:
       shape: 1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4
-        height: 0
+        x: -1.24
+        y: -1.47
+        width: 3.85
+        height: 2.48
       _rect:
         topRight:
           x:
-            _serializedValue: 17179869184
+            _serializedValue: 11209864192
           y:
-            _serializedValue: 0
+            _serializedValue: -6313602048
           z:
             _serializedValue: 0
         topLeft:
           x:
-            _serializedValue: 0
+            _serializedValue: -5325759488
           y:
-            _serializedValue: 0
+            _serializedValue: -6313602048
           z:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 17179869184
+            _serializedValue: 11209864192
           y:
-            _serializedValue: 0
+            _serializedValue: 4337916928
           z:
             _serializedValue: 0
         bottomLeft:
           x:
-            _serializedValue: 0
+            _serializedValue: -5325759488
           y:
-            _serializedValue: 0
+            _serializedValue: 4337916928
           z:
             _serializedValue: 0
         x:
-          _serializedValue: 0
+          _serializedValue: -5325759488
         y:
-          _serializedValue: 0
+          _serializedValue: -6313602048
         width:
-          _serializedValue: 17179869184
+          _serializedValue: 16535623680
         height:
-          _serializedValue: 0
+          _serializedValue: 10651518976
         xMax:
-          _serializedValue: 17179869184
+          _serializedValue: 11209864192
         yMax:
-          _serializedValue: 0
+          _serializedValue: 4337916928
       followXBounds: 0
-      followYBounds: 1
+      followYBounds: 0
       radius: 0.5
       _radius:
         _serializedValue: 2147483648
