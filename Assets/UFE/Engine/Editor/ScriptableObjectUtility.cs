@@ -31,6 +31,8 @@ public static class ScriptableObjectUtility
 			fileName = "New Character";
 		}else if (asset.GetType().ToString().Equals("UFE3D.AIInfo")) {
 			fileName = "New AI Instructions";
+		}else if (asset is CustomHitBoxesInfo) {
+			fileName = "New Hitbox Map";
 		}else if (asset is GlobalInfo) {
 			fileName = "New UFE Config";
 		}else if (asset is StanceInfo) {

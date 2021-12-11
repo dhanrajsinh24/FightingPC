@@ -22,6 +22,7 @@ public class CharacterEditorWindow : EditorWindow {
 
     private int selectedPrefabIndex;
     private GameObject selectedPrefab;
+    private string prefabResourcePath;
 	
 	private bool prefabsOption;
 	private bool hitBoxesOption;
@@ -33,6 +34,8 @@ public class CharacterEditorWindow : EditorWindow {
 	private bool physicsOption;
 	private bool headLookOption;
 	private bool customControlsOption;
+	private bool gaugeDisplayOptions;
+	private bool inputOptions;
 	private bool moveSetOption;
 	private bool aiInstructionsOption;
 	private bool characterWarning;
@@ -93,14 +96,16 @@ public class CharacterEditorWindow : EditorWindow {
 			character.transform.position = new Vector3(0,0,0);
         }
 		hitBoxesScript = character.GetComponent<HitBoxesScript>();
-		hitBoxesScript.UpdateRenderer();
+        hitBoxesScript.animationMaps = null;
+        hitBoxesScript.previewAllBoxes = false;
+        hitBoxesScript.UpdateRenderer();
 
         if (hasAnimator)
         {
             Animator animator = character.GetComponent<Animator>();
             if (animator == null)
             {
-                animator = (Animator)character.AddComponent<Animator>();
+                animator = character.AddComponent<Animator>();
                 animator.avatar = characterInfo.avatar;
                 if (animator.runtimeAnimatorController == null)
                     animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("MC_Controller");
@@ -137,8 +142,8 @@ public class CharacterEditorWindow : EditorWindow {
 		addButtonStyle = "CN CountBadge";
 		rootGroupStyle = "GroupBox";
 		subGroupStyle = "ObjectFieldThumb";
-		arrayElementStyle = "flow overlay box";
-		subArrayElementStyle = "HelpBox";
+        arrayElementStyle = "FrameBox";
+        subArrayElementStyle = "HelpBox";
 		foldStyle = "Foldout";
 		enumStyle = "MiniPopup";
 		toggleStyle = "BoldToggle";
@@ -160,7 +165,6 @@ public class CharacterEditorWindow : EditorWindow {
 		UnityEngine.Object[] selection = Selection.GetFiltered(typeof(UFE3D.CharacterInfo), SelectionMode.Assets);
 		if (selection.Length > 0){
 			if (selection[0] == null) return;
-			//characterInfoSO = new SerializedObject(selection[0]);
 			characterInfo = (UFE3D.CharacterInfo) selection[0];
 		}
 	}
@@ -177,7 +181,6 @@ public class CharacterEditorWindow : EditorWindow {
 		}
 
 		GUIStyle fontStyle = new GUIStyle();
-		//fontStyle.font = (Font) EditorGUIUtility.Load("EditorFont.TTF");
         fontStyle.font = (Font) Resources.Load("EditorFont");
 		fontStyle.fontSize = 30;
 		fontStyle.alignment = TextAnchor.UpperCenter;
@@ -185,19 +188,27 @@ public class CharacterEditorWindow : EditorWindow {
 		fontStyle.hover.textColor = Color.white;
 		EditorGUILayout.BeginVertical(titleStyle);{
 			EditorGUILayout.BeginHorizontal();{
-				EditorGUILayout.LabelField("", (characterInfo.characterName == ""? "New Character":characterInfo.characterName) , fontStyle, GUILayout.Height(32));
-				helpButton("character:start");
+#if !UFE_LITE && !UFE_BASIC
+                EditorGUILayout.LabelField("", characterInfo.characterName == ""? "New Character" : characterInfo.characterName + " " + (characterInfo.gameplayType == GameplayType._2DFighter ? "(2D)" : "(3D)"), fontStyle, GUILayout.Height(32));
+#else
+                EditorGUILayout.LabelField("", characterInfo.characterName == ""? "New Character" : characterInfo.characterName, fontStyle, GUILayout.Height(32));
+#endif
+                helpButton("character:start");
 			}EditorGUILayout.EndHorizontal();
 		}EditorGUILayout.EndVertical();
 		
 		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);{
 			EditorGUILayout.BeginVertical(rootGroupStyle);{
-				EditorGUILayout.BeginHorizontal();{
-					characterInfo.profilePictureSmall = (Texture2D) EditorGUILayout.ObjectField(characterInfo.profilePictureSmall, typeof(Texture2D), false, GUILayout.Width(100), GUILayout.Height(122));
+#if !UFE_LITE && !UFE_BASIC
+                characterInfo.gameplayType = (GameplayType)EditorGUILayout.EnumPopup("Gameplay Type:", characterInfo.gameplayType, enumStyle);
+#endif
+                EditorGUILayout.BeginHorizontal();
+                {
+                    characterInfo.profilePictureSmall = (Texture2D) EditorGUILayout.ObjectField(characterInfo.profilePictureSmall, typeof(Texture2D), false, GUILayout.Width(100), GUILayout.Height(122));
 
 					EditorGUILayout.BeginVertical();{
 						EditorGUIUtility.labelWidth = 90;
-						characterInfo.characterName = EditorGUILayout.TextField("Name:", characterInfo.characterName);
+                        characterInfo.characterName = EditorGUILayout.TextField("Name:", characterInfo.characterName);
 						characterInfo.age = EditorGUILayout.IntField("Age:", characterInfo.age);
 						bloodTypeChoice = EditorGUILayout.Popup("Blood Type:", bloodTypeChoice, bloodTypeChoices);
 						characterInfo.bloodType = bloodTypeChoices[bloodTypeChoice];
@@ -206,8 +217,9 @@ public class CharacterEditorWindow : EditorWindow {
 						characterInfo.lifePoints = EditorGUILayout.IntField("Life Points:", characterInfo.lifePoints);
 						characterInfo.maxGaugePoints = EditorGUILayout.IntField("Max Gauge:", characterInfo.maxGaugePoints);
 					} EditorGUILayout.EndVertical();
+				}
+                EditorGUILayout.EndHorizontal();
 
-				}EditorGUILayout.EndHorizontal();
 				EditorGUIUtility.labelWidth = 180;
 				EditorGUILayout.LabelField("Portrail Big:");
 				characterInfo.profilePictureBig = (Texture2D) EditorGUILayout.ObjectField(characterInfo.profilePictureBig, typeof(Texture2D), false);
@@ -245,12 +257,13 @@ public class CharacterEditorWindow : EditorWindow {
 
 
                         StorageMode newPrefabPrefabStorage = (StorageMode)EditorGUILayout.EnumPopup("Loading Method:", characterInfo.characterPrefabStorage);
+                        if (newPrefabPrefabStorage == StorageMode.SceneFile) newPrefabPrefabStorage = StorageMode.ResourcesFolder;
                         if (characterInfo.characterPrefabStorage != newPrefabPrefabStorage) {
                             characterInfo.characterPrefabStorage = newPrefabPrefabStorage;
                             characterInfo.characterPrefab = null;
                         }
 
-                        if (characterInfo.characterPrefabStorage == StorageMode.Legacy) {
+                        if (characterInfo.characterPrefabStorage == StorageMode.Prefab) {
                             characterInfo.characterPrefab = (GameObject)EditorGUILayout.ObjectField("Default Prefab:", characterInfo.characterPrefab, typeof(UnityEngine.GameObject), true);
                         } else {
                             characterInfo.prefabResourcePath = EditorGUILayout.TextField("Default Prefab Path:", characterInfo.prefabResourcePath);
@@ -290,7 +303,7 @@ public class CharacterEditorWindow : EditorWindow {
                                             characterInfo.alternativeCostumes[i].prefab = null;
                                         }
                                         
-                                        if (characterInfo.alternativeCostumes[i].characterPrefabStorage == StorageMode.Legacy) {
+                                        if (characterInfo.alternativeCostumes[i].characterPrefabStorage == StorageMode.Prefab) {
                                             characterInfo.alternativeCostumes[i].prefab = (GameObject)EditorGUILayout.ObjectField("Alternative Prefab:", characterInfo.alternativeCostumes[i].prefab, typeof(UnityEngine.GameObject), true);
                                         } else {
                                             characterInfo.alternativeCostumes[i].prefabResourcePath = EditorGUILayout.TextField("Prefab Path:", characterInfo.alternativeCostumes[i].prefabResourcePath);
@@ -378,16 +391,18 @@ public class CharacterEditorWindow : EditorWindow {
                         selectedPrefabIndex = EditorGUILayout.Popup("Prefab Selection:", selectedPrefabIndex, prefabSelect);
 
                         if (selectedPrefabIndex > 0) {
-                            if (characterInfo.alternativeCostumes[selectedPrefabIndex - 1].characterPrefabStorage == StorageMode.Legacy) {
+                            if (characterInfo.alternativeCostumes[selectedPrefabIndex - 1].characterPrefabStorage == StorageMode.Prefab) {
                                 selectedPrefab = characterInfo.alternativeCostumes[selectedPrefabIndex - 1].prefab;
                             } else {
-                                selectedPrefab = Resources.Load<GameObject>(characterInfo.alternativeCostumes[selectedPrefabIndex - 1].prefabResourcePath);
+                                prefabResourcePath = characterInfo.alternativeCostumes[selectedPrefabIndex - 1].prefabResourcePath;
+                                selectedPrefab = Resources.Load<GameObject>(prefabResourcePath);
                             }
                         } else {
-                            if (characterInfo.characterPrefabStorage == StorageMode.Legacy) {
+                            if (characterInfo.characterPrefabStorage == StorageMode.Prefab) {
                                 selectedPrefab = characterInfo.characterPrefab;
                             } else {
-                                selectedPrefab = Resources.Load<GameObject>(characterInfo.prefabResourcePath);
+                                prefabResourcePath = characterInfo.prefabResourcePath;
+                                selectedPrefab = Resources.Load<GameObject>(prefabResourcePath);
                             }
                         }
 
@@ -413,24 +428,9 @@ public class CharacterEditorWindow : EditorWindow {
 									
 									EditorGUILayout.Space();
 
-                                    if (characterInfo.animationType == AnimationType.Mecanim && StyledButton("Force T-Pose")) {
+                                    if (characterInfo.animationType == AnimationType.Mecanim3D && StyledButton("Force T-Pose")) {
                                         AnimationClip animationClip = (AnimationClip)Resources.Load("T-Pose");
                                         animationClip.SampleAnimation(character, 1);
-                                    }
-
-                                    if (StyledButton("Restore Legacy Values"))
-                                    {
-                                        if (EditorUtility.DisplayDialog("Restore UFE 1.x values?",
-                                                                        "This action will restore the sizes and off-sets of all your hitboxes. Confirm it?",
-                                                                        "Yes", "No"))
-                                        {
-                                            for (int i = 0; i < hitBoxesScript.hitBoxes.Length; i++)
-                                            {
-                                                hitBoxesScript.hitBoxes[i]._radius = hitBoxesScript.hitBoxes[i].radius;
-                                                hitBoxesScript.hitBoxes[i]._offSet = FPVector.ToFPVector(hitBoxesScript.hitBoxes[i].offSet);
-                                                hitBoxesScript.hitBoxes[i]._rect = new FPRect(hitBoxesScript.hitBoxes[i].rect);
-                                            }
-                                        }
                                     }
 
                                     EditorGUI.BeginDisabledGroup(FindTransform("Head") == null);{
@@ -550,11 +550,17 @@ public class CharacterEditorWindow : EditorWindow {
 													}EditorGUILayout.EndHorizontal();
 													hitBoxesScript.hitBoxes[i].position = (Transform) EditorGUILayout.ObjectField("Link:", hitBoxesScript.hitBoxes[i].position, typeof(UnityEngine.Transform), true);
 
-													hitBoxesScript.hitBoxes[i].shape = (HitBoxShape) EditorGUILayout.EnumPopup("Shape:", hitBoxesScript.hitBoxes[i].shape, enumStyle);
-													if (hitBoxesScript.hitBoxes[i].shape == HitBoxShape.circle){
+                                                    if (characterInfo.gameplayType == GameplayType._2DFighter)
+                                                        hitBoxesScript.hitBoxes[i].shape = (HitBoxShape)EditorGUILayout.EnumPopup("Shape:", hitBoxesScript.hitBoxes[i].shape, enumStyle);
+                                                    else
+                                                        hitBoxesScript.hitBoxes[i].shape = HitBoxShape.circle;
+
+                                                    if (hitBoxesScript.hitBoxes[i].shape == HitBoxShape.circle){
 														hitBoxesScript.hitBoxes[i]._radius = EditorGUILayout.Slider("Radius:", (float)hitBoxesScript.hitBoxes[i]._radius, .1f, 10);
 														hitBoxesScript.hitBoxes[i]._offSet = FPVector.ToFPVector(EditorGUILayout.Vector2Field("Off Set:", hitBoxesScript.hitBoxes[i]._offSet.ToVector2()));
-													}else{
+                                                    }
+                                                    else
+                                                    {
 														hitBoxesScript.hitBoxes[i].rect = EditorGUILayout.RectField("Rectangle:", hitBoxesScript.hitBoxes[i].rect);
 														hitBoxesScript.hitBoxes[i]._rect = new FPRect(hitBoxesScript.hitBoxes[i].rect);
 														
@@ -597,11 +603,14 @@ public class CharacterEditorWindow : EditorWindow {
 											EditorCamera.SetSize(5);
 										}
 										if (StyledButton("Apply Changes")){
-#if UNITY_2018_2_OR_NEWER
+#if UNITY_2018_3_OR_NEWER
+                                            PrefabUtility.ApplyPrefabInstance(character, InteractionMode.AutomatedAction);
+#elif UNITY_2018_2
                                             PrefabUtility.ReplacePrefab(character, PrefabUtility.GetCorrespondingObjectFromSource(character), ReplacePrefabOptions.ConnectToPrefab);
 #else
                                             PrefabUtility.ReplacePrefab(character, PrefabUtility.GetPrefabParent(character), ReplacePrefabOptions.ConnectToPrefab);
 #endif
+                                            hitBoxesScript.animationMaps = null;
                                         }
                                     }
                                     EditorGUILayout.EndHorizontal();
@@ -612,7 +621,7 @@ public class CharacterEditorWindow : EditorWindow {
                             if (!characterPreviewToggle) {
                                 if (StyledButton("Open Character")) {
                                     EditorWindow.FocusWindowIfItsOpen<SceneView>();
-                                    PreviewCharacter(characterInfo.animationType == AnimationType.Mecanim);
+                                    PreviewCharacter(characterInfo.animationType == AnimationType.Mecanim3D || characterInfo.animationType == AnimationType.Mecanim2D);
                                 }
                             } else {
                                 if (StyledButton("Close Character")) ClosePreview();
@@ -642,10 +651,15 @@ public class CharacterEditorWindow : EditorWindow {
 						EditorGUILayout.Space();
 						EditorGUI.indentLevel += 1;
 						EditorGUIUtility.labelWidth = 190;
-						SubGroupTitle("Horizontal Movement");
+						SubGroupTitle("Movement");
 						characterInfo.physics._moveForwardSpeed = EditorGUILayout.FloatField("Move Forward Speed:", (float)characterInfo.physics._moveForwardSpeed);
 						characterInfo.physics._moveBackSpeed = EditorGUILayout.FloatField("Move Back Speed:", (float)characterInfo.physics._moveBackSpeed);
-						characterInfo.physics.highMovingFriction = EditorGUILayout.Toggle("High Moving Friction", characterInfo.physics.highMovingFriction);
+#if !UFE_LITE && !UFE_BASIC
+                        if (characterInfo.gameplayType == GameplayType._3DFighter)
+                            characterInfo.physics._moveSidewaysSpeed = EditorGUILayout.FloatField("Move Sideways Speed:", (float)characterInfo.physics._moveSidewaysSpeed);
+#endif
+
+                        characterInfo.physics.highMovingFriction = EditorGUILayout.Toggle("High Moving Friction", characterInfo.physics.highMovingFriction);
 						characterInfo.physics._friction = EditorGUILayout.FloatField("Friction:", (float)characterInfo.physics._friction);
 						EditorGUILayout.Space();
 
@@ -657,26 +671,32 @@ public class CharacterEditorWindow : EditorWindow {
                         } EditorGUI.EndDisabledGroup();
                         EditorGUILayout.Space();*/
 
-						SubGroupTitle("Jump Options");
+                        SubGroupTitle("Jump Options");
 						characterInfo.physics.canJump = EditorGUILayout.Toggle("Enable Jump", characterInfo.physics.canJump);
                         EditorGUI.BeginDisabledGroup(!characterInfo.physics.canJump);
                         {
                             characterInfo.physics.pressureSensitiveJump = EditorGUILayout.Toggle("Pressure Sensitive", characterInfo.physics.pressureSensitiveJump);
                             if (characterInfo.physics.pressureSensitiveJump) characterInfo.physics._minJumpForce = EditorGUILayout.FloatField("Min. Jump Force:", (float)characterInfo.physics._minJumpForce);
                             characterInfo.physics._jumpForce = EditorGUILayout.FloatField("Jump Force:", (float)characterInfo.physics._jumpForce);
-                            characterInfo.physics._jumpDistance = EditorGUILayout.FloatField("Jump Distance:", (float)characterInfo.physics._jumpDistance);
+                            characterInfo.physics._jumpDistance = EditorGUILayout.FloatField("Forward Jump Distance:", (float)characterInfo.physics._jumpDistance);
+                            characterInfo.physics._jumpBackDistance = EditorGUILayout.FloatField("Backwards Jump Distance:", (float)characterInfo.physics._jumpBackDistance);
                             if (characterInfo.physics.pressureSensitiveJump) characterInfo.physics.minJumpDelay = EditorGUILayout.IntField("Min. Jump Delay (frames):", characterInfo.physics.minJumpDelay);
 							characterInfo.physics.jumpDelay = EditorGUILayout.IntField("Jump Delay (frames):", characterInfo.physics.jumpDelay);
 							characterInfo.physics.landingDelay = EditorGUILayout.IntField("Landing Delay (frames):", characterInfo.physics.landingDelay);
                             characterInfo.physics.multiJumps = EditorGUILayout.IntField("Air Jumps:", characterInfo.physics.multiJumps);
-                            characterInfo.physics.overrideCrouch = EditorGUILayout.Toggle("Override Crouch", characterInfo.physics.overrideCrouch);
-						}EditorGUI.EndDisabledGroup();
+                            characterInfo.possibleAirMoves = EditorGUILayout.IntField("Possible Air Moves:", characterInfo.possibleAirMoves); // TODO Move to possibleAirMoves to physics
+                        }
+                        EditorGUI.EndDisabledGroup();
 						EditorGUILayout.Space();
 
-						SubGroupTitle("Mass Variation");
+                        SubGroupTitle("Move Control");
+                        characterInfo._executionTiming = EditorGUILayout.FloatField("Default Execution Timing:", (float)characterInfo._executionTiming);
+                        characterInfo.physics.cumulativeForce = EditorGUILayout.Toggle("Cumulative Force", characterInfo.physics.cumulativeForce);
+                        EditorGUILayout.Space();
+
+                        SubGroupTitle("Mass Variation");
 						characterInfo.physics._weight = EditorGUILayout.FloatField("Character's Weight:", (float)characterInfo.physics._weight);
 						characterInfo.physics._groundCollisionMass = EditorGUILayout.FloatField("Ground Collision Mass:", (float)characterInfo.physics._groundCollisionMass);
-						characterInfo.physics.cumulativeForce = EditorGUILayout.Toggle("Cumulative Force", characterInfo.physics.cumulativeForce);
 						EditorGUIUtility.labelWidth = 150;
 						EditorGUILayout.Space();
 
@@ -767,66 +787,87 @@ public class CharacterEditorWindow : EditorWindow {
 
 
             // Custom Controls
-            EditorGUILayout.BeginVertical(rootGroupStyle);
-            {
-                EditorGUILayout.BeginHorizontal();
-                {
+            EditorGUILayout.BeginVertical(rootGroupStyle); {
+                EditorGUILayout.BeginHorizontal(); {
                     customControlsOption = EditorGUILayout.Foldout(customControlsOption, "Custom Controls", foldStyle);
                     helpButton("character:customcontrols");
-                } EditorGUILayout.EndHorizontal();
+                }
+                EditorGUILayout.EndHorizontal();
 
                 if (customControlsOption) {
                     EditorGUILayout.BeginVertical(subGroupStyle);
                     {
                         EditorGUILayout.Space();
                         EditorGUI.indentLevel += 1;
-                        EditorGUIUtility.labelWidth = 180;
+                        EditorGUIUtility.labelWidth = 200;
 
-                        characterInfo.customControls.enabled = EditorGUILayout.Toggle("Enabled", characterInfo.customControls.enabled);
-
-                        EditorGUI.BeginDisabledGroup(!characterInfo.customControls.enabled);
+                        if (UFE.isControlFreak2Installed)
                         {
-                            characterInfo.customControls.overrideInputs = EditorGUILayout.Toggle("Override Inputs", characterInfo.customControls.overrideInputs);
-                            if (characterInfo.customControls.overrideInputs) {
-                                characterInfo.customControls.walkForward = (ButtonPress)EditorGUILayout.EnumPopup("- Move Forward:", characterInfo.customControls.walkForward, enumStyle);
-                                characterInfo.customControls.walkBack = (ButtonPress)EditorGUILayout.EnumPopup("- Move Back:", characterInfo.customControls.walkBack, enumStyle);
-                                characterInfo.customControls.crouch = (ButtonPress)EditorGUILayout.EnumPopup("- Crouch:", characterInfo.customControls.crouch, enumStyle);
-                                characterInfo.customControls.jump = (ButtonPress)EditorGUILayout.EnumPopup("- Jump:", characterInfo.customControls.jump, enumStyle);
-                                characterInfo.customControls.button1 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 1:", characterInfo.customControls.button1, enumStyle);
-                                characterInfo.customControls.button2 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 2:", characterInfo.customControls.button2, enumStyle);
-                                characterInfo.customControls.button3 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 3:", characterInfo.customControls.button3, enumStyle);
-                                characterInfo.customControls.button4 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 4:", characterInfo.customControls.button4, enumStyle);
-                                characterInfo.customControls.button5 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 5:", characterInfo.customControls.button5, enumStyle);
-                                characterInfo.customControls.button6 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 6:", characterInfo.customControls.button6, enumStyle);
-                                characterInfo.customControls.button7 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 7:", characterInfo.customControls.button7, enumStyle);
-                                characterInfo.customControls.button8 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 8:", characterInfo.customControls.button8, enumStyle);
-                                characterInfo.customControls.button9 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 9:", characterInfo.customControls.button9, enumStyle);
-                                characterInfo.customControls.button10 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 10:", characterInfo.customControls.button10, enumStyle);
-                                characterInfo.customControls.button11 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 11:", characterInfo.customControls.button11, enumStyle);
-                                characterInfo.customControls.button12 = (ButtonPress)EditorGUILayout.EnumPopup("- Button 12:", characterInfo.customControls.button12, enumStyle);
+                            characterInfo.customControls.overrideControlFreak = EditorGUILayout.Toggle("Override Mobile Controls", characterInfo.customControls.overrideControlFreak);
+                            if (characterInfo.customControls.overrideControlFreak)
+                            {
+                                characterInfo.customControls.controlFreak2Prefab = EditorGUILayout.ObjectField(new GUIContent("CF2 Prefab:",
+                                    "Prefab of Control Freak 2 Input Rig with \'UFE Bridge\' component."),
+                                    characterInfo.customControls.controlFreak2Prefab, typeof(InputTouchControllerBridge), false) as InputTouchControllerBridge;
                             }
+                        }
+#if !UFE_LITE && !UFE_BASIC
+                        if (characterInfo.gameplayType == GameplayType._3DFighter)
+                            characterInfo.customControls.zAxisMovement = EditorGUILayout.Toggle("Allow Z Axis Movement", characterInfo.customControls.zAxisMovement);
+#endif
 
-                            if (UFE.isControlFreak2Installed) {
-                                characterInfo.customControls.overrideControlFreak = EditorGUILayout.Toggle("Override Mobile Controls", characterInfo.customControls.overrideControlFreak);
-                                if (characterInfo.customControls.overrideControlFreak) {
-                                    characterInfo.customControls.controlFreak2Prefab = EditorGUILayout.ObjectField(new GUIContent("CF2 Prefab:",
-                                        "Prefab of Control Freak 2 Input Rig with \'UFE Bridge\' component."),
-                                        characterInfo.customControls.controlFreak2Prefab, typeof(InputTouchControllerBridge), false) as InputTouchControllerBridge;
-                                }
-                            }
+                        characterInfo.customControls.disableJump = EditorGUILayout.Toggle("Disable Jump", characterInfo.customControls.disableJump);
+                        if (!characterInfo.customControls.disableJump)
+                            characterInfo.customControls.jumpButton = (ButtonPress)EditorGUILayout.EnumPopup("Override Jump Button:", characterInfo.customControls.jumpButton, enumStyle);
 
-                        } EditorGUI.EndDisabledGroup();
+                        characterInfo.customControls.disableCrouch = EditorGUILayout.Toggle("Disable Crouch", characterInfo.customControls.disableCrouch);
+                        if (!characterInfo.customControls.disableCrouch)
+                            characterInfo.customControls.crouchButton = (ButtonPress)EditorGUILayout.EnumPopup("Override Crouch Button:", characterInfo.customControls.crouchButton, enumStyle);
+
+                        EditorGUIUtility.labelWidth = 150;
+                        EditorGUI.indentLevel -= 1;
+                        EditorGUILayout.Space();
+                    }
+                    EditorGUILayout.EndVertical();
+                }
+            }
+            EditorGUILayout.EndVertical();
+
+
+            // Gauge UI
+            EditorGUILayout.BeginVertical(rootGroupStyle);
+            {
+                EditorGUILayout.BeginHorizontal();
+                {
+                    gaugeDisplayOptions = EditorGUILayout.Foldout(gaugeDisplayOptions, "Gauge Display", foldStyle);
+                    helpButton("character:gaugedisplay");
+                }
+                EditorGUILayout.EndHorizontal();
+
+                if (gaugeDisplayOptions)
+                {
+                    EditorGUILayout.BeginVertical(subGroupStyle);
+                    {
+                        EditorGUI.indentLevel += 1;
+                        EditorGUILayout.Space();
+
+                        for (int i = 0; i < characterInfo.hideGauges.Length; i ++)
+                        {
+                            characterInfo.hideGauges[i] = EditorGUILayout.Toggle("Hide Gauge "+ (i + 1), characterInfo.hideGauges[i]);
+                        }
 
                         EditorGUILayout.Space();
                         EditorGUI.indentLevel -= 1;
-                        EditorGUIUtility.labelWidth = 150;
 
-                    } EditorGUILayout.EndVertical();
+                    }
+                    EditorGUILayout.EndVertical();
                 }
-            } EditorGUILayout.EndVertical();
+            }
+            EditorGUILayout.EndVertical();
 
-			// Move Sets
-			EditorGUILayout.BeginVertical(rootGroupStyle);{
+
+            // Move Sets
+            EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUILayout.BeginHorizontal();{
 					moveSetOption = EditorGUILayout.Foldout(moveSetOption, "Move Sets ("+ (characterInfo.moves.Length + characterInfo.stanceResourcePath.Length) +")", foldStyle);
 					helpButton("character:movesets");
@@ -836,26 +877,29 @@ public class CharacterEditorWindow : EditorWindow {
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUILayout.Space();
 						EditorGUI.indentLevel += 1;
-						// content
+
+                        SubGroupTitle("Animation Options");
                         EditorGUIUtility.labelWidth = 200;
-						characterInfo._executionTiming = EditorGUILayout.FloatField("Execution Timing:", (float)characterInfo._executionTiming);
-						characterInfo.possibleAirMoves = EditorGUILayout.IntField("Possible Air Moves:", characterInfo.possibleAirMoves);
-						characterInfo._blendingTime = EditorGUILayout.FloatField("Blending Duration:", (float)characterInfo._blendingTime);
-                        EditorGUIUtility.labelWidth = 150;
-
-						EditorGUILayout.Space();
-
-						characterInfo.animationType = (AnimationType)EditorGUILayout.EnumPopup("Animation Type:", characterInfo.animationType, enumStyle);
-                        if (characterInfo.animationType == AnimationType.Mecanim) {
+                        characterInfo.animationType = (AnimationType)EditorGUILayout.EnumPopup("Animation Type:", characterInfo.animationType, enumStyle);
+                        if (characterInfo.animationType == AnimationType.Mecanim3D)
+                        {
                             characterInfo.avatar = (Avatar)EditorGUILayout.ObjectField("Avatar:", characterInfo.avatar, typeof(Avatar), false);
                         }
 
+                        if (characterInfo.animationType == AnimationType.Mecanim3D || characterInfo.animationType == AnimationType.Mecanim2D)
+                        {
+                            characterInfo.useScaleFlip = EditorGUILayout.Toggle("Mirror Using Scale Flip", characterInfo.useScaleFlip);
+                        }
+
+                        characterInfo._blendingTime = EditorGUILayout.FloatField("Default Blending Duration:", (float)characterInfo._blendingTime);
                         characterInfo.animationFlow = (AnimationFlow) EditorGUILayout.EnumPopup("Animation Control:", characterInfo.animationFlow, enumStyle);
+                        characterInfo.normalizeAnimationFrames = EditorGUILayout.Toggle("Normalize Animation Frames", characterInfo.normalizeAnimationFrames);
 #if UFE_LITE || UFE_BASIC || UFE_STANDARD
                         characterInfo.useAnimationMaps = false;
 #else
-                        characterInfo.useAnimationMaps = EditorGUILayout.Toggle("Use Animation Maps:", characterInfo.useAnimationMaps);
+                        characterInfo.useAnimationMaps = EditorGUILayout.Toggle("Use Animation Maps", characterInfo.useAnimationMaps);
 #endif
+                        EditorGUIUtility.labelWidth = 150;
 
                         EditorGUILayout.Space();
 						SubGroupTitle("Stances (Preloaded)");
@@ -864,14 +908,16 @@ public class CharacterEditorWindow : EditorWindow {
                             StanceBlock(characterInfo.moves[i]);
                         }
                         
-                        EditorGUILayout.Space();
                         if (StyledButton("New Stance"))
                             characterInfo.moves = AddElement<MoveSetData>(characterInfo.moves, new MoveSetData());
-                        
 
+
+                        EditorGUILayout.Space();
                         SubGroupTitle("Stances (Resource)");
                         for (int i = 0; i < characterInfo.stanceResourcePath.Length; i++){
+                            EditorGUILayout.Space();
                             EditorGUILayout.BeginVertical(arrayElementStyle);{
+                                EditorGUILayout.Space();
                                 EditorGUILayout.BeginHorizontal();{
                                     characterInfo.stanceResourcePath[i] = EditorGUILayout.TextField("Resource Path:", characterInfo.stanceResourcePath[i]);
                                     if (GUILayout.Button("", "PaneOptions")) {
@@ -887,7 +933,7 @@ public class CharacterEditorWindow : EditorWindow {
                                     {
                                         if (StyledButton("Apply Changes"))
                                         {
-                                            ScriptableObjectUtility.CreateAsset<StanceInfo>(instantiatedMoveSet[i].ConvertData(), Resources.Load<StanceInfo>(characterInfo.stanceResourcePath[i]));
+                                            ScriptableObjectUtility.CreateAsset(instantiatedMoveSet[i].ConvertData(), Resources.Load<StanceInfo>(characterInfo.stanceResourcePath[i]));
                                         }
 
                                         if (StyledButton("Close File"))
@@ -907,15 +953,20 @@ public class CharacterEditorWindow : EditorWindow {
                         }
 
                         EditorGUILayout.Space();
-                        if (StyledButton("New Stance")) {
+                        EditorGUILayout.Space();
+                        EditorGUILayout.BeginHorizontal();
+                        if (StyledButton("New Stance Entry")) {
                             characterInfo.stanceResourcePath = AddElement<string>(characterInfo.stanceResourcePath, null);
                         }
 
                         if (StyledButton("Create Empty Stance File")) {
                             ScriptableObjectUtility.CreateAsset<StanceInfo>();
                         }
+                        EditorGUILayout.EndHorizontal();
                         EditorGUILayout.Space();
-						EditorGUI.indentLevel -= 1;
+                        EditorGUILayout.Space();
+
+                        EditorGUI.indentLevel -= 1;
                     }
                     EditorGUILayout.EndVertical();
 				}
@@ -967,10 +1018,14 @@ public class CharacterEditorWindow : EditorWindow {
 		if (GUI.changed) {
 			Undo.RecordObject(characterInfo, "Character Editor Modify");
 			EditorUtility.SetDirty(characterInfo);
-		}
+            if (UFE.autoSaveAssets) AssetDatabase.SaveAssets();
+        }
 	}
-
+    
 	private void SubGroupTitle(string _name){
+		Texture2D originalBackground = GUI.skin.box.normal.background;
+		GUI.skin.box.normal.background = Texture2D.grayTexture;
+
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
@@ -978,6 +1033,8 @@ public class CharacterEditorWindow : EditorWindow {
 		GUILayout.FlexibleSpace();
 		EditorGUILayout.EndHorizontal();
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+
+		GUI.skin.box.normal.background = originalBackground;
 	}
 
 	public bool StyledButton (string label) {
@@ -997,7 +1054,11 @@ public class CharacterEditorWindow : EditorWindow {
         errorMsg = "";
 
         if (prefab != null) {
+#if UNITY_2018_3_OR_NEWER
+            if (PrefabUtility.GetPrefabAssetType(prefab) != PrefabAssetType.Regular) {
+#else
             if (PrefabUtility.GetPrefabType(prefab) != PrefabType.Prefab) {
+#endif
                 characterWarning = true;
                 errorMsg = "This character is not a prefab.";
             } else if (prefab.GetComponent<HitBoxesScript>() == null) {
@@ -1037,7 +1098,6 @@ public class CharacterEditorWindow : EditorWindow {
             {
                 EditorGUILayout.BeginVertical(subGroupStyle);
                 {
-                    //EditorGUI.indentLevel += 1;
                     EditorGUILayout.Space();
 
                     moveSet.enabledBasicMovesToggle = EditorGUILayout.Foldout(moveSet.enabledBasicMovesToggle, "Enabled Moves", foldStyle);
@@ -1064,7 +1124,14 @@ public class CharacterEditorWindow : EditorWindow {
                     EditorGUI.BeginDisabledGroup(!moveSet.basicMoves.moveEnabled);
                     {
                         BasicMoveBlock("Move Forward (*)", moveSet.basicMoves.moveForward, WrapMode.Loop, false, true, false, false, false);
+#if !UFE_LITE && !UFE_BASIC
+                        //if (characterInfo.gameplayType != GameplayType._3DArena)
+                            BasicMoveBlock("Move Back (*)", moveSet.basicMoves.moveBack, WrapMode.Loop, false, true, false, false, false);
+                        if (characterInfo.gameplayType == GameplayType._3DFighter && characterInfo.customControls.zAxisMovement)
+                            BasicMoveBlock("Move Sideways (*)", moveSet.basicMoves.moveSideways, WrapMode.Loop, false, true, false, false, false);
+#else
                         BasicMoveBlock("Move Back (*)", moveSet.basicMoves.moveBack, WrapMode.Loop, false, true, false, false, false);
+#endif
                     }
                     EditorGUI.EndDisabledGroup();
                     EditorGUI.BeginDisabledGroup(!moveSet.basicMoves.crouchEnabled);
@@ -1145,8 +1212,6 @@ public class CharacterEditorWindow : EditorWindow {
                     EditorGUILayout.Space();
 
                     SubGroupTitle("Stand Up Animations");
-                    //basicMoveBlock("Down (*)", moveSet.basicMoves.fallDown, WrapMode.ClampForever, false, true, false, false, true);
-                    //basicMoveBlock("Stand Up (*)", moveSet.basicMoves.standUp, WrapMode.ClampForever, true, true, false, false, false);
                     BasicMoveBlock("Default (*)", moveSet.basicMoves.standUp, WrapMode.ClampForever, true, true, false, true, false);
                     BasicMoveBlock("From Air Juggle", moveSet.basicMoves.standUpFromAirHit, WrapMode.ClampForever, true, true, false, true, false);
                     BasicMoveBlock("From Knock Back", moveSet.basicMoves.standUpFromKnockBack, WrapMode.ClampForever, true, true, false, true, false);
@@ -1158,7 +1223,6 @@ public class CharacterEditorWindow : EditorWindow {
                     BasicMoveBlock("From Air Wall Bounce", moveSet.basicMoves.standUpFromAirWallBounce, WrapMode.ClampForever, true, true, false, true, false);
                     BasicMoveBlock("From Ground Bounce", moveSet.basicMoves.standUpFromGroundBounce, WrapMode.ClampForever, true, true, false, true, false);
 
-                    //EditorGUI.indentLevel -= 1;
                     EditorGUILayout.Space();
 
                     GUILayout.Label("* Required", "MiniBoldLabel");
@@ -1233,140 +1297,203 @@ public class CharacterEditorWindow : EditorWindow {
                 EditorGUILayout.Space();
                 EditorGUI.indentLevel += 1;
                 EditorGUIUtility.labelWidth = 180;
-                if (hasHitStrength) {
-                    string required = label.IndexOf("*") != -1 ? " (*)" : "";
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Weak Hit Clip"+ required +":", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[1].clip = (AnimationClip)EditorGUILayout.ObjectField("Medium Hit Clip:", basicMove.animMap[1].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[2].clip = (AnimationClip)EditorGUILayout.ObjectField("Heavy Hit Clip:", basicMove.animMap[2].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[3].clip = (AnimationClip)EditorGUILayout.ObjectField("Custom 1 Hit Clip:", basicMove.animMap[3].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[4].clip = (AnimationClip)EditorGUILayout.ObjectField("Custom 2 Hit Clip:", basicMove.animMap[4].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[5].clip = (AnimationClip)EditorGUILayout.ObjectField("Custom 3 Hit Clip:", basicMove.animMap[5].clip, typeof(UnityEngine.AnimationClip), false);
-                } else if (label == "Idle (*)") {
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Animation Clip (*):", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[1].clip = (AnimationClip)EditorGUILayout.ObjectField("Resting Clip 1:", basicMove.animMap[1].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[2].clip = (AnimationClip)EditorGUILayout.ObjectField("Resting Clip 2:", basicMove.animMap[2].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[3].clip = (AnimationClip)EditorGUILayout.ObjectField("Resting Clip 3:", basicMove.animMap[3].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[4].clip = (AnimationClip)EditorGUILayout.ObjectField("Resting Clip 4:", basicMove.animMap[4].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[5].clip = (AnimationClip)EditorGUILayout.ObjectField("Resting Clip 5:", basicMove.animMap[5].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove._restingClipInterval = EditorGUILayout.FloatField("Resting Interval:", (float)basicMove._restingClipInterval);
-                } else if (label == "Stand Up (*)") {
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Default Clip (*):", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[1].clip = (AnimationClip)EditorGUILayout.ObjectField("High Knockdown Clip:", basicMove.animMap[1].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[2].clip = (AnimationClip)EditorGUILayout.ObjectField("Low Knockdown Clip:", basicMove.animMap[2].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[3].clip = (AnimationClip)EditorGUILayout.ObjectField("Sweep Clip:", basicMove.animMap[3].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[4].clip = (AnimationClip)EditorGUILayout.ObjectField("Crumple Clip:", basicMove.animMap[4].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[5].clip = (AnimationClip)EditorGUILayout.ObjectField("Wall Bounce Clip:", basicMove.animMap[5].clip, typeof(UnityEngine.AnimationClip), false);
-                /*} else if (label == "Crouching (*)") {
-                    EditorGUI.BeginDisabledGroup(basicMove.overrideBlendingIn);
-                    basicMove.clip[0] = (AnimationClip)EditorGUILayout.ObjectField("Crouching:", basicMove.clip[0], typeof(UnityEngine.AnimationClip), false);
-                    EditorGUI.EndDisabledGroup();
 
-                    basicMove.clip[1] = (AnimationClip)EditorGUILayout.ObjectField("Crouched:", basicMove.clip[1], typeof(UnityEngine.AnimationClip), false);
-
-                    EditorGUI.BeginDisabledGroup(basicMove.overrideBlendingOut);
-                    basicMove.serializedAnimationMaps[2].clip = (AnimationClip)EditorGUILayout.ObjectField("Standing:", basicMove.serializedAnimationMaps[2].clip, typeof(UnityEngine.AnimationClip), false);
-                    EditorGUI.EndDisabledGroup();*/
-
-                } else if (label.IndexOf("[Knockdown]") != -1) {
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Fall Clip (*):", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[1].clip = (AnimationClip)EditorGUILayout.ObjectField("Down Clip:", basicMove.animMap[1].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.downClip = true;
-                } else if (loops) {
-                    basicMove.animMap[1].clip = (AnimationClip)EditorGUILayout.ObjectField("Transition Clip:", basicMove.animMap[1].clip, typeof(UnityEngine.AnimationClip), false);
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Animation Clip (*):", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                } else {
-                    basicMove.animMap[0].clip = (AnimationClip)EditorGUILayout.ObjectField("Animation Clip:", basicMove.animMap[0].clip, typeof(UnityEngine.AnimationClip), false);
-                }
-
-                    if (autoSpeed) {
-                    basicMove.autoSpeed = EditorGUILayout.Toggle("Auto Speed", basicMove.autoSpeed, toggleStyle);
-                } else {
-                    basicMove.autoSpeed = false;
-                }
-
-                if (basicMove.autoSpeed) {
-                    EditorGUI.BeginDisabledGroup(true);
-                    EditorGUILayout.TextField("Animation Speed:", "(Automatic)");
-                    EditorGUI.EndDisabledGroup();
-                } else {
-                    basicMove._animationSpeed = EditorGUILayout.FloatField("Animation Speed:", (float)basicMove._animationSpeed);
-                }
-
-                EditorGUILayout.BeginHorizontal();
+                if (label != "Idle (*)")
                 {
-                    basicMove.wrapMode = (WrapMode)EditorGUILayout.EnumPopup("Wrap Mode:", basicMove.wrapMode, enumStyle);
-                    if (basicMove.wrapMode == WrapMode.Default) basicMove.wrapMode = wrapMode;
-                    if (GUILayout.Button("Default", "minibutton", GUILayout.Width(60))) basicMove.wrapMode = wrapMode;
-
+                    basicMove.useMoveFile = EditorGUILayout.Toggle("Use Move File", basicMove.useMoveFile, toggleStyle);
                 }
-                EditorGUILayout.EndHorizontal();
-
-                EditorGUILayout.Space();
-                GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
-                EditorGUILayout.Space();
-
-                basicMove.overrideBlendingIn = EditorGUILayout.Toggle("Override Blending (In)", basicMove.overrideBlendingIn, toggleStyle);
-                if (basicMove.overrideBlendingIn) {
-                    basicMove._blendingIn = EditorGUILayout.FloatField("Blend In Duration:", (float)basicMove._blendingIn);
+                else
+                {
+                    basicMove.useMoveFile = false;
                 }
 
-                basicMove.overrideBlendingOut = EditorGUILayout.Toggle("Override Blending (Out)", basicMove.overrideBlendingOut, toggleStyle);
-                if (basicMove.overrideBlendingOut) {
-                    basicMove._blendingOut = EditorGUILayout.FloatField("Blend Out Duration:", (float)basicMove._blendingOut);
+                if (basicMove.useMoveFile)
+                {
+                    basicMove.moveInfo = (MoveInfo)EditorGUILayout.ObjectField("Move:", basicMove.moveInfo, typeof(MoveInfo), false);
                 }
-
-                if (invincible) basicMove.invincible = EditorGUILayout.Toggle("Hide hitboxes", basicMove.invincible, toggleStyle);
-
-                basicMove.disableHeadLook = EditorGUILayout.Toggle("Disalbe Head Look", basicMove.disableHeadLook, toggleStyle);
-                basicMove.applyRootMotion = EditorGUILayout.Toggle("Apply Root Motion", basicMove.applyRootMotion, toggleStyle);
-
-                EditorGUILayout.Space();
-                GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
-                EditorGUILayout.Space();
-
-                basicMove.particleEffect.editorToggle = EditorGUILayout.Foldout(basicMove.particleEffect.editorToggle, "Particle Effect", foldStyle);
-                if (basicMove.particleEffect.editorToggle) {
-                    EditorGUILayout.BeginVertical(subGroupStyle);
+                else
+                {
+                    if (hasHitStrength)
                     {
-                        EditorGUILayout.Space();
-                        basicMove.particleEffect.prefab = (GameObject)EditorGUILayout.ObjectField("Particle Prefab:", basicMove.particleEffect.prefab, typeof(UnityEngine.GameObject), true);
-                        basicMove.particleEffect.duration = EditorGUILayout.FloatField("Duration (seconds):", basicMove.particleEffect.duration);
-                        basicMove.particleEffect.stick = EditorGUILayout.Toggle("Sticky", basicMove.particleEffect.stick, toggleStyle);
-                        basicMove.particleEffect.bodyPart = (BodyPart)EditorGUILayout.EnumPopup("Body Part:", basicMove.particleEffect.bodyPart, enumStyle);
-                        basicMove.particleEffect.positionOffSet = EditorGUILayout.Vector3Field("Off Set (relative):", basicMove.particleEffect.positionOffSet);
-                        basicMove.particleEffect.mirrorOn2PSide = EditorGUILayout.Toggle("Mirror on Right Side", basicMove.particleEffect.mirrorOn2PSide);
+                        // UFE 2.0.3 update
+                        if (basicMove.animMap.Length <= 8)
+                        {
+                            Array.Resize(ref basicMove.animMap, 9);
+                            basicMove.animMap[6] = new SerializedAnimationMap();
+                            basicMove.animMap[7] = new SerializedAnimationMap();
+                            basicMove.animMap[8] = new SerializedAnimationMap();
+                        }
 
-                        EditorGUILayout.Space();
-                    } EditorGUILayout.EndVertical();
-                }
-                if (hasSound) {
-                    basicMove.soundEffectsToggle = EditorGUILayout.Foldout(basicMove.soundEffectsToggle, "Possible Sound Effects (" + basicMove.soundEffects.Length + ")", EditorStyles.foldout);
-                    if (basicMove.soundEffectsToggle) {
+                        string required = label.IndexOf("*") != -1 ? " (*)" : "";
+                        AnimationFieldBlock(basicMove.animMap[0], "Weak Hit", required);
+                        AnimationFieldBlock(basicMove.animMap[1], "Medium Hit");
+                        AnimationFieldBlock(basicMove.animMap[2], "Heavy Hit");
+                        AnimationFieldBlock(basicMove.animMap[3], "Custom 1 Hit");
+                        AnimationFieldBlock(basicMove.animMap[4], "Custom 2 Hit");
+                        AnimationFieldBlock(basicMove.animMap[5], "Custom 3 Hit");
+                        AnimationFieldBlock(basicMove.animMap[6], "Custom 4 Hit");
+                        AnimationFieldBlock(basicMove.animMap[7], "Custom 5 Hit");
+                        AnimationFieldBlock(basicMove.animMap[8], "Custom 6 Hit");
+
+                    }
+                    else if (label == "Idle (*)")
+                    {
+                        AnimationFieldBlock(basicMove.animMap[0], "Default", " (*)");
+                        AnimationFieldBlock(basicMove.animMap[1], "AFK 1");
+                        AnimationFieldBlock(basicMove.animMap[2], "AFK 2");
+                        AnimationFieldBlock(basicMove.animMap[3], "AFK 3");
+                        AnimationFieldBlock(basicMove.animMap[4], "AFK 4");
+                        AnimationFieldBlock(basicMove.animMap[5], "AFK 5");
+                        basicMove._restingClipInterval = EditorGUILayout.FloatField("Resting Interval:", (float)basicMove._restingClipInterval);
+
+                    }
+                    else if (label == "Stand Up (*)")
+                    {
+                        AnimationFieldBlock(basicMove.animMap[0], "Default", " (*)");
+                        AnimationFieldBlock(basicMove.animMap[1], "High Knockdown");
+                        AnimationFieldBlock(basicMove.animMap[2], "Low Knockdown");
+                        AnimationFieldBlock(basicMove.animMap[3], "Sweep");
+                        AnimationFieldBlock(basicMove.animMap[4], "Crumple");
+                        AnimationFieldBlock(basicMove.animMap[5], "Wall Bounce");
+
+                    }
+                    else if (label == "Crouching (*)")
+                    {
+                        AnimationFieldBlock(basicMove.animMap[0], "Crouched");
+                        AnimationFieldBlock(basicMove.animMap[1], "Crouching Down");
+                        AnimationFieldBlock(basicMove.animMap[2], "Standing Up");
+                    }
+                    else if (label.IndexOf("[Knockdown]") != -1)
+                    {
+                        AnimationFieldBlock(basicMove.animMap[0], "Fall Clip", " (*)");
+                        AnimationFieldBlock(basicMove.animMap[1], "Down Clip");
+                        basicMove.loopDownClip = EditorGUILayout.Toggle("Loop Down Clip", basicMove.loopDownClip, toggleStyle);
+                    }
+                    else if (loops)
+                    {
+                        AnimationFieldBlock(basicMove.animMap[1], "Transition");
+                        AnimationFieldBlock(basicMove.animMap[0], "Animation", " (*)");
+                    }
+                    else
+                    {
+                        AnimationFieldBlock(basicMove.animMap[0], "Animation");
+                    }
+
+                    if (autoSpeed)
+                    {
+                        basicMove.autoSpeed = EditorGUILayout.Toggle("Auto Speed", basicMove.autoSpeed, toggleStyle);
+                    }
+                    else
+                    {
+                        basicMove.autoSpeed = false;
+                    }
+
+                    if (basicMove.autoSpeed)
+                    {
+                        EditorGUI.BeginDisabledGroup(true);
+                        EditorGUILayout.TextField("Animation Speed:", basicMove._animationSpeed.ToString());
+                        EditorGUI.EndDisabledGroup();
+                    }
+                    else
+                    {
+                        basicMove._animationSpeed = EditorGUILayout.FloatField("Animation Speed:", (float)basicMove._animationSpeed);
+                    }
+
+                    EditorGUILayout.BeginHorizontal();
+                    {
+                        basicMove.wrapMode = (WrapMode)EditorGUILayout.EnumPopup("Wrap Mode:", basicMove.wrapMode, enumStyle);
+                        if (basicMove.wrapMode == WrapMode.Default) basicMove.wrapMode = wrapMode;
+                        if (GUILayout.Button("Default", "minibutton", GUILayout.Width(60))) basicMove.wrapMode = wrapMode;
+
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.Space();
+                    GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+                    EditorGUILayout.Space();
+
+                    basicMove.overrideBlendingIn = EditorGUILayout.Toggle("Override Blending (In)", basicMove.overrideBlendingIn, toggleStyle);
+                    if (basicMove.overrideBlendingIn)
+                    {
+                        basicMove._blendingIn = EditorGUILayout.FloatField("Blend In Duration:", (float)basicMove._blendingIn);
+                    }
+
+                    basicMove.overrideBlendingOut = EditorGUILayout.Toggle("Override Blending (Out)", basicMove.overrideBlendingOut, toggleStyle);
+                    if (basicMove.overrideBlendingOut)
+                    {
+                        basicMove._blendingOut = EditorGUILayout.FloatField("Blend Out Duration:", (float)basicMove._blendingOut);
+                    }
+
+                    if (invincible) basicMove.invincible = EditorGUILayout.Toggle("Hide hitboxes", basicMove.invincible, toggleStyle);
+
+                    basicMove.disableHeadLook = EditorGUILayout.Toggle("Disable Head Look", basicMove.disableHeadLook, toggleStyle);
+                    basicMove.applyRootMotion = EditorGUILayout.Toggle("Apply Root Motion", basicMove.applyRootMotion, toggleStyle);
+                    if (basicMove.applyRootMotion)
+                    {
+                        EditorGUI.indentLevel += 1;
+                        basicMove.lockXMotion = EditorGUILayout.Toggle("Lock X Motion", basicMove.lockXMotion, toggleStyle);
+                        basicMove.lockYMotion = EditorGUILayout.Toggle("Lock Y Motion", basicMove.lockYMotion, toggleStyle);
+                        basicMove.lockZMotion = EditorGUILayout.Toggle("Lock Z Motion", basicMove.lockZMotion, toggleStyle);
+                        EditorGUI.indentLevel -= 1;
+                    }
+
+                    EditorGUILayout.Space();
+                    GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+                    EditorGUILayout.Space();
+
+                    basicMove.particleEffect.editorToggle = EditorGUILayout.Foldout(basicMove.particleEffect.editorToggle, "Particle Effect", foldStyle);
+                    if (basicMove.particleEffect.editorToggle)
+                    {
                         EditorGUILayout.BeginVertical(subGroupStyle);
                         {
-                            basicMove.continuousSound = EditorGUILayout.Toggle("Continuous Sound", basicMove.continuousSound, toggleStyle);
                             EditorGUILayout.Space();
+                            basicMove.particleEffect.prefab = (GameObject)EditorGUILayout.ObjectField("Particle Prefab:", basicMove.particleEffect.prefab, typeof(UnityEngine.GameObject), true);
+                            basicMove.particleEffect.duration = EditorGUILayout.FloatField("Duration (seconds):", basicMove.particleEffect.duration);
+                            basicMove.particleEffect.stick = EditorGUILayout.Toggle("Sticky", basicMove.particleEffect.stick, toggleStyle);
+                            basicMove.particleEffect.bodyPart = (BodyPart)EditorGUILayout.EnumPopup("Body Part:", basicMove.particleEffect.bodyPart, enumStyle);
+                            basicMove.particleEffect.positionOffSet = EditorGUILayout.Vector3Field("Off Set (relative):", basicMove.particleEffect.positionOffSet);
+                            basicMove.particleEffect.mirrorOn2PSide = EditorGUILayout.Toggle("Mirror on Right Side", basicMove.particleEffect.mirrorOn2PSide);
 
-                            EditorGUIUtility.labelWidth = 150;
-                            for (int i = 0; i < basicMove.soundEffects.Length; i++) {
+                            EditorGUILayout.Space();
+                        }
+                        EditorGUILayout.EndVertical();
+                    }
+                    if (hasSound)
+                    {
+                        basicMove.soundEffectsToggle = EditorGUILayout.Foldout(basicMove.soundEffectsToggle, "Possible Sound Effects (" + basicMove.soundEffects.Length + ")", EditorStyles.foldout);
+                        if (basicMove.soundEffectsToggle)
+                        {
+                            EditorGUILayout.BeginVertical(subGroupStyle);
+                            {
+                                basicMove.continuousSound = EditorGUILayout.Toggle("Continuous Sound", basicMove.continuousSound, toggleStyle);
                                 EditorGUILayout.Space();
-                                EditorGUILayout.BeginVertical(subArrayElementStyle);
+
+                                EditorGUIUtility.labelWidth = 150;
+                                for (int i = 0; i < basicMove.soundEffects.Length; i++)
                                 {
                                     EditorGUILayout.Space();
-                                    EditorGUILayout.BeginHorizontal();
+                                    EditorGUILayout.BeginVertical(subArrayElementStyle);
                                     {
-                                        basicMove.soundEffects[i] = (AudioClip)EditorGUILayout.ObjectField("Audio Clip:", basicMove.soundEffects[i], typeof(UnityEngine.AudioClip), true);
-                                        if (GUILayout.Button("", "PaneOptions")) {
-                                            PaneOptions<AudioClip>(basicMove.soundEffects, basicMove.soundEffects[i], delegate(AudioClip[] newElement) { basicMove.soundEffects = newElement; });
+                                        EditorGUILayout.Space();
+                                        EditorGUILayout.BeginHorizontal();
+                                        {
+                                            basicMove.soundEffects[i] = (AudioClip)EditorGUILayout.ObjectField("Audio Clip:", basicMove.soundEffects[i], typeof(UnityEngine.AudioClip), true);
+                                            if (GUILayout.Button("", "PaneOptions"))
+                                            {
+                                                PaneOptions<AudioClip>(basicMove.soundEffects, basicMove.soundEffects[i], delegate (AudioClip[] newElement) { basicMove.soundEffects = newElement; });
+                                            }
                                         }
-                                    } EditorGUILayout.EndHorizontal();
-                                    EditorGUILayout.Space();
-                                } EditorGUILayout.EndVertical();
-                            }
-                            if (StyledButton("New Sound Effect"))
-                                basicMove.soundEffects = AddElement<AudioClip>(basicMove.soundEffects, null);
+                                        EditorGUILayout.EndHorizontal();
+                                        EditorGUILayout.Space();
+                                    }
+                                    EditorGUILayout.EndVertical();
+                                }
+                                if (StyledButton("New Sound Effect"))
+                                    basicMove.soundEffects = AddElement<AudioClip>(basicMove.soundEffects, null);
 
-                        } EditorGUILayout.EndVertical();
+                            }
+                            EditorGUILayout.EndVertical();
+                        }
                     }
                 }
 
@@ -1390,7 +1517,33 @@ public class CharacterEditorWindow : EditorWindow {
 		return null;
 	}
     
+    private void AnimationFieldBlock(SerializedAnimationMap animMap, string label, string required = "")
+    {
+        EditorGUILayout.BeginHorizontal();
+        animMap.clip = (AnimationClip)EditorGUILayout.ObjectField(label + " Clip" + required + ":", animMap.clip, typeof(AnimationClip), false, GUILayout.ExpandWidth(true));
+        if (characterInfo.gameplayType == GameplayType._2DFighter)
+        {
+            Rect lastRect = GUILayoutUtility.GetLastRect();
+            lastRect.x += lastRect.width - 32;
+            lastRect.width = 105;
+            animMap.hitBoxDefinitionType = (HitBoxDefinitionType)EditorGUI.EnumPopup(lastRect, animMap.hitBoxDefinitionType);
+            EditorGUIUtility.labelWidth = 100;
+            EditorGUILayout.LabelField("", GUILayout.Width(70));
+            EditorGUIUtility.labelWidth = 180;
+        }
+        EditorGUILayout.EndHorizontal();
 
+        if (animMap.hitBoxDefinitionType == HitBoxDefinitionType.Custom)
+        {
+            animMap.customHitBoxDefinition = (CustomHitBoxesInfo)EditorGUILayout.ObjectField(label + " Map" + required + ":", animMap.customHitBoxDefinition, typeof(CustomHitBoxesInfo), false, GUILayout.ExpandWidth(true));
+            if (animMap.customHitBoxDefinition != null && animMap.customHitBoxDefinition.clip != null && animMap.clip == null)
+            {
+                animMap.clip = animMap.customHitBoxDefinition.clip;
+                animMap.length = animMap.clip.length;
+            }
+        }
+
+    }
 
     public void PaneOptions<T> (T[] elements, T element, System.Action<T[]> callback) {
 		if (elements == null || elements.Length == 0) return;
@@ -1459,7 +1612,7 @@ public class CharacterEditorWindow : EditorWindow {
 		if (CloneObject.objCopy == null) return elements;
 		List<T> elementsList = new List<T>(elements);
 		elementsList.Insert(elementsList.IndexOf(element) + 1, (T)CloneObject.objCopy);
-		CloneObject.objCopy = null;
+		//CloneObject.objCopy = null;
 		return elementsList.ToArray();
 	}
 	

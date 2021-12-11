@@ -82,8 +82,8 @@ public class AIEditorWindow : EditorWindow {
 		addButtonStyle = "CN CountBadge";
 		rootGroupStyle = "GroupBox";
 		subGroupStyle = "ObjectFieldThumb";
-		arrayElementStyle = "flow overlay box";
-		subArrayElementStyle = "HelpBox";
+        arrayElementStyle = "FrameBox";
+        subArrayElementStyle = "HelpBox";
 		foldStyle = "Foldout";
 		enumStyle = "MiniPopup";
 		toggleStyle = "BoldToggle";
@@ -881,10 +881,14 @@ public class AIEditorWindow : EditorWindow {
 		if (GUI.changed) {
 			Undo.RecordObject(aiInfo, "A.I. Instructions Editor Modify");
 			EditorUtility.SetDirty(aiInfo);
-		}
+            if (UFE.autoSaveAssets) AssetDatabase.SaveAssets();
+        }
 	}
-	
+
 	private void SubGroupTitle(string _name){
+		Texture2D originalBackground = GUI.skin.box.normal.background;
+		GUI.skin.box.normal.background = Texture2D.grayTexture;
+
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
@@ -892,8 +896,10 @@ public class AIEditorWindow : EditorWindow {
 		GUILayout.FlexibleSpace();
 		EditorGUILayout.EndHorizontal();
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+
+		GUI.skin.box.normal.background = originalBackground;
 	}
-	
+
 	public void MoveClassificationGroup(MoveClassification moveClassification){
 		EditorGUIUtility.labelWidth = 180;
 		

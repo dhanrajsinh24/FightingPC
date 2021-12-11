@@ -17,7 +17,9 @@ public class GlobalEditorWindow : EditorWindow {
 	private bool advancedOptions;
 	private bool preloadOptions;
 	private bool cameraOptions;
+	private bool lockOnOptions;
 	private bool characterRotationOptions;
+	private bool deploymentOptions;
 	private bool languageOptions;
 	private bool guiScreensOptions;
 	private bool screenOptions;
@@ -43,6 +45,7 @@ public class GlobalEditorWindow : EditorWindow {
 	private bool storyModeSelectableCharactersInStoryModeOptions;
 	private bool storyModeSelectableCharactersInVersusModeOptions;
 	private bool characterOptions;
+    private bool teamModeOptions;
     private GameObject canvasPreview;
     private GameObject eventSystemPreview;
     private UFEScreen screenPreview;
@@ -120,8 +123,8 @@ public class GlobalEditorWindow : EditorWindow {
 		addButtonStyle = "CN CountBadge";
 		rootGroupStyle = "GroupBox";
 		subGroupStyle = "ObjectFieldThumb";
-		arrayElementStyle = "flow overlay box";
-		fillBarStyle1 = "ProgressBarBar";
+        arrayElementStyle = "FrameBox";
+        fillBarStyle1 = "ProgressBarBar";
 		subArrayElementStyle = "HelpBox";
 		foldStyle = "Foldout";
 		enumStyle = "MiniPopup";
@@ -154,17 +157,18 @@ public class GlobalEditorWindow : EditorWindow {
 #endif
 
 #if UFE_LITE || UFE_BASIC
-		UFE.isNetworkAddonInstalled = false;
+        UFE.isUNetInstalled = false;
 		UFE.isPhotonInstalled = false;
         UFE.isBluetoothAddonInstalled = false;
+		UFE.isNetworkAddonInstalled = false;
 #else
-        UFE.isNetworkAddonInstalled = UFE.IsInstalled("UnetHighLevelMultiplayerAPI");
+        UFE.isUNetInstalled = UFE.IsInstalled("UnetHighLevelMultiplayerAPI");
         UFE.isPhotonInstalled = UFE.IsInstalled("PhotonMultiplayerAPI");
         UFE.isBluetoothAddonInstalled = UFE.IsInstalled("BluetoothMultiplayerAPI");
+        UFE.isNetworkAddonInstalled = (UFE.isUNetInstalled || UFE.isPhotonInstalled);
 #endif
 
         //versionUpdate();
-
     }
 
         public void OnGUI(){
@@ -174,7 +178,7 @@ public class GlobalEditorWindow : EditorWindow {
 			GUILayout.EndHorizontal();
 			EditorGUILayout.Space();
 			if (GUILayout.Button("Create new Global Configuration"))
-				ScriptableObjectUtility.CreateAsset<UFE3D.CharacterInfo> ();
+				ScriptableObjectUtility.CreateAsset<GlobalInfo> ();
 			return;
 		}
 
@@ -188,22 +192,22 @@ public class GlobalEditorWindow : EditorWindow {
 		fontStyle.hover.textColor = Color.white;
 		EditorGUILayout.BeginVertical(titleStyle);{
 			EditorGUILayout.BeginHorizontal();{
-				EditorGUILayout.LabelField("", (globalInfo.gameName == ""? "Universal Fighting Engine":globalInfo.gameName) , fontStyle, GUILayout.Height(32));
-				helpButton("global:start");
+#if !UFE_LITE && !UFE_BASIC
+                EditorGUILayout.LabelField("", globalInfo.gameName == ""? "Universal Fighting Engine" : globalInfo.gameName + " " + (globalInfo.gameplayType == GameplayType._2DFighter ? "(2D)" : "(3D)") , fontStyle, GUILayout.Height(32));
+#else
+                EditorGUILayout.LabelField("", globalInfo.gameName == ""? "Universal Fighting Engine" : globalInfo.gameName, fontStyle, GUILayout.Height(32));
+#endif
+                helpButton("global:start");
 			}EditorGUILayout.EndHorizontal();
 		}EditorGUILayout.EndVertical();
-		
-		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);{
+
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos);{
 			EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUIUtility.labelWidth = 120;
 				globalInfo.gameName = EditorGUILayout.TextField("Project Name:", globalInfo.gameName);
-				EditorGUILayout.Space();
+                globalInfo.gameplayType = (GameplayType)EditorGUILayout.EnumPopup("Gameplay Type:", globalInfo.gameplayType, enumStyle);
 
-				EditorGUIUtility.labelWidth = 200;
-
-				EditorGUILayout.Space();
-
-
+                EditorGUILayout.Space();
 				EditorGUIUtility.labelWidth = 150;
 			}EditorGUILayout.EndVertical();
 
@@ -218,97 +222,373 @@ public class GlobalEditorWindow : EditorWindow {
 				if (debugOptions){
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUI.indentLevel += 1;
-						EditorGUIUtility.labelWidth = 220;
-
+						EditorGUIUtility.labelWidth = 240;
                         EditorGUILayout.Space();
-                        SubGroupTitle("Debug Info");
 
                         globalInfo.debugOptions.preloadedObjects = EditorGUILayout.Toggle("Preload Info (console)", globalInfo.debugOptions.preloadedObjects);
-                        globalInfo.debugOptions.debugMode = EditorGUILayout.Toggle("Display Character Debug", globalInfo.debugOptions.debugMode);
-                        
+                        globalInfo.debugOptions.emulateNetwork = EditorGUILayout.Toggle("Emulate Network Game", globalInfo.debugOptions.emulateNetwork);
+
+                        EditorGUILayout.Space();
+                        globalInfo.debugOptions.debugMode = EditorGUILayout.Toggle("Display Debugger Info on Screen", globalInfo.debugOptions.debugMode);
                         EditorGUI.BeginDisabledGroup(!globalInfo.debugOptions.debugMode);{
-                            globalInfo.debugOptions.trainingModeDebugger = EditorGUILayout.Toggle("Display in Training Mode Only", globalInfo.debugOptions.trainingModeDebugger);
-                            CharacterDebugOptions(globalInfo.debugOptions.p1DebugInfo, "Player 1 Debugger");
-                            CharacterDebugOptions(globalInfo.debugOptions.p2DebugInfo, "Player 2 Debugger");
+                            globalInfo.debugOptions.trainingModeDebugger = EditorGUILayout.Toggle("Display on Training Mode Only", globalInfo.debugOptions.trainingModeDebugger);
+                            CharacterDebugOptions(globalInfo.debugOptions.p1DebugInfo, "Player 1 Info");
+                            CharacterDebugOptions(globalInfo.debugOptions.p2DebugInfo, "Player 2 Info");
 
-                            EditorGUI.BeginDisabledGroup(!UFE.isNetworkAddonInstalled);{
-                                globalInfo.debugOptions.networkToggle = EditorGUILayout.Foldout(globalInfo.debugOptions.networkToggle, "Network Info", foldStyle);
-                                if (globalInfo.debugOptions.networkToggle) {
-                                    EditorGUILayout.BeginVertical(subGroupStyle);
-                                    {
-                                        EditorGUI.indentLevel += 1;
+                        }EditorGUI.EndDisabledGroup();
+                        EditorGUILayout.Space();
+                        
+                        globalInfo.debugOptions.inputsToggle = EditorGUILayout.Foldout(globalInfo.debugOptions.inputsToggle, "Input Display", foldStyle);
+                        if (globalInfo.debugOptions.inputsToggle)
+                        {
+                            EditorGUILayout.BeginVertical(subGroupStyle);
+                            {
+                                EditorGUI.indentLevel += 1;
 
+                                globalInfo.debugOptions.displayInputsVersus = EditorGUILayout.Toggle("Versus Mode", globalInfo.debugOptions.displayInputsVersus);
+                                globalInfo.debugOptions.displayInputsNetwork = EditorGUILayout.Toggle("Network Mode", globalInfo.debugOptions.displayInputsNetwork);
+                                globalInfo.debugOptions.displayInputsStoryMode = EditorGUILayout.Toggle("Story Mode", globalInfo.debugOptions.displayInputsStoryMode);
+                                globalInfo.debugOptions.displayInputsTraining = EditorGUILayout.Toggle("Training Mode", globalInfo.debugOptions.displayInputsTraining);
+                                globalInfo.debugOptions.displayInputsChallengeMode = EditorGUILayout.Toggle("Challenge Mode", globalInfo.debugOptions.displayInputsChallengeMode);
+
+                                EditorGUI.indentLevel -= 1;
+                                EditorGUILayout.Space();
+                            }
+                            EditorGUILayout.EndVertical();
+                        }
+
+                        EditorGUI.BeginDisabledGroup(!UFE.isNetworkAddonInstalled);{
+                            globalInfo.debugOptions.networkToggle = EditorGUILayout.Foldout(globalInfo.debugOptions.networkToggle, "Network Info", foldStyle);
+                            if (globalInfo.debugOptions.networkToggle) {
+                                EditorGUILayout.BeginVertical(subGroupStyle);
+                                {
+                                    EditorGUI.indentLevel += 1;
+
+                                    EditorGUI.BeginDisabledGroup(!globalInfo.debugOptions.debugMode);{
                                         globalInfo.debugOptions.ping = EditorGUILayout.Toggle("Ping", globalInfo.debugOptions.ping);
                                         globalInfo.debugOptions.frameDelay = EditorGUILayout.Toggle("Frame Delay", globalInfo.debugOptions.frameDelay);
                                         globalInfo.debugOptions.currentLocalFrame = EditorGUILayout.Toggle("Current Local Frame", globalInfo.debugOptions.currentLocalFrame);
                                         globalInfo.debugOptions.currentNetworkFrame = EditorGUILayout.Toggle("Current Network Frame", globalInfo.debugOptions.currentNetworkFrame);
-                                        globalInfo.debugOptions.connectionLog = EditorGUILayout.Toggle("Connection Log (console)", globalInfo.debugOptions.connectionLog);
-                                        globalInfo.debugOptions.desyncErrorLog = EditorGUILayout.Toggle("Desync Error Log (console)", globalInfo.debugOptions.desyncErrorLog);
-                                        globalInfo.debugOptions.stateTrackerTest = EditorGUILayout.Toggle("State Tracker Test", globalInfo.debugOptions.stateTrackerTest);
-
-                                        EditorGUI.indentLevel -= 1;
-                                        EditorGUILayout.Space();
                                     }
-                                    EditorGUILayout.EndVertical();
-                                }
-                            }EditorGUI.EndDisabledGroup();
+                                    EditorGUI.EndDisabledGroup();
 
+                                    globalInfo.debugOptions.connectionLog = EditorGUILayout.Toggle("Connection Log (console)", globalInfo.debugOptions.connectionLog);
+                                    globalInfo.debugOptions.rollbackLog = EditorGUILayout.Toggle("Rollback Log (console)", globalInfo.debugOptions.rollbackLog);
+
+                                    EditorGUI.indentLevel -= 1;
+                                    EditorGUILayout.Space();
+                                }
+                                EditorGUILayout.EndVertical();
+                            }
                         }EditorGUI.EndDisabledGroup();
 
-                        EditorGUILayout.Space();
-                        SubGroupTitle("Debug Mode");
-                        
-                        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
-						globalInfo.debugOptions.startGameImmediately = EditorGUILayout.Toggle("Start Game Immediately", globalInfo.debugOptions.startGameImmediately);
-						EditorGUI.BeginDisabledGroup(!globalInfo.debugOptions.startGameImmediately);{
-                            globalInfo.debugOptions.skipLoadingScreen = EditorGUILayout.Toggle("Skip Loading Screen", globalInfo.debugOptions.skipLoadingScreen);
-                            if (globalInfo.stages.Length > 0) globalInfo.selectedStage = globalInfo.stages[0];
-
-                            globalInfo.debugOptions.matchType = (MatchType)EditorGUILayout.EnumPopup("Match Type:", globalInfo.debugOptions.matchType, enumStyle);
-                            if (globalInfo.debugOptions.matchType == MatchType.Challenge) {
-                                if (globalInfo.challengeModeOptions.Length > 0) {
-                                    int arraySize = globalInfo.challengeModeOptions.Length;
-                                    string[] challengeSelect = new string[arraySize];
-                                    for (int i = 0; i < globalInfo.challengeModeOptions.Length; i++) {
-                                        if (globalInfo.challengeModeOptions[i].challengeName != "") {
-                                            challengeSelect[i] = globalInfo.challengeModeOptions[i].challengeName;
-                                        } else {
-                                            challengeSelect[i] = "No name";
-                                        }
-                                    }
-                                    globalInfo.selectedChallenge = EditorGUILayout.Popup("Challenge Selection:", globalInfo.selectedChallenge, challengeSelect);
-                                } else {
-							        GUILayout.BeginHorizontal("GroupBox");
-							        GUILayout.Label("No challenges found", "CN EntryWarn");
-							        GUILayout.EndHorizontal();
-                                }
+#if !(UFE_LITE || UFE_BASIC || UFE_STANDARD)
+                        globalInfo.debugOptions.recordToggle = EditorGUILayout.Foldout(globalInfo.debugOptions.recordToggle, "Recording Tools", foldStyle);
+                        if (globalInfo.debugOptions.recordToggle)
+                        {
+                            EditorGUILayout.BeginVertical(subGroupStyle);
+                            {
+                                EditorGUI.indentLevel += 1;
+                                globalInfo.debugOptions.stateTrackerTest = EditorGUILayout.Toggle("Save/Load States", globalInfo.debugOptions.stateTrackerTest);
+                                globalInfo.debugOptions.recordMatchTools = EditorGUILayout.Toggle("Record/Playback Tools", globalInfo.debugOptions.recordMatchTools);
+                                globalInfo.debugOptions.playbackPhysics = EditorGUILayout.Toggle("Emulate Playback Physics", globalInfo.debugOptions.playbackPhysics);
+                                EditorGUI.indentLevel -= 1;
                             }
+                            EditorGUILayout.EndVertical();
+                        }
+#endif
 
-							globalInfo.p1CharStorage = (UFE3D.CharacterInfo) EditorGUILayout.ObjectField("Player 1 Character:", globalInfo.p1CharStorage, typeof(UFE3D.CharacterInfo), false);
-							globalInfo.p2CharStorage = (UFE3D.CharacterInfo) EditorGUILayout.ObjectField("Player 2 Character:", globalInfo.p2CharStorage, typeof(UFE3D.CharacterInfo), false);
-							globalInfo.p1CPUControl = EditorGUILayout.Toggle("Player 1 CPU Controlled", globalInfo.p1CPUControl);
-							globalInfo.p2CPUControl = EditorGUILayout.Toggle("Player 2 CPU Controlled", globalInfo.p2CPUControl);
-                            globalInfo.debugOptions.emulateNetwork = EditorGUILayout.Toggle("Emulate Network Game", globalInfo.debugOptions.emulateNetwork);
-						}EditorGUI.EndDisabledGroup();
-                        
-                        if (!globalInfo.debugOptions.startGameImmediately){
-                            globalInfo.selectedStage = null;
-							globalInfo.player1Character = null;
-							globalInfo.player2Character = null;
+                        globalInfo.debugOptions.hitboxColorsToggle = EditorGUILayout.Foldout(globalInfo.debugOptions.hitboxColorsToggle, "Hit Box Colors", foldStyle);
+                        if (globalInfo.debugOptions.hitboxColorsToggle)
+                        {
+                            EditorGUILayout.BeginVertical(subGroupStyle);
+                            {
+                                EditorGUI.indentLevel += 1;
+                                //EditorGUILayout.BeginHorizontal();
+                                //{
+                                //    EditorGUIUtility.labelWidth = 160;
+                                //    globalInfo.colorStateOne = (Color)EditorGUILayout.ColorField("When State is 1:", globalInfo.colorStateOne);
+                                //    EditorGUIUtility.labelWidth = 60;
+                                //    globalInfo.colorStateOneFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorStateOneFill);
+                                //}
+                                //EditorGUILayout.EndHorizontal();
+                                //EditorGUILayout.BeginHorizontal();
+                                //{
+                                //    EditorGUIUtility.labelWidth = 160;
+                                //    globalInfo.colorIsHit = (Color)EditorGUILayout.ColorField("When Registers Hit:", globalInfo.colorIsHit);
+                                //    EditorGUIUtility.labelWidth = 60;
+                                //    globalInfo.colorIsHitFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorIsHitFill);
+                                //}
+                                //EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorBodyCollider = (Color)EditorGUILayout.ColorField("Body Collider:", globalInfo.colorBodyCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorBodyColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorBodyColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorHitCollider = (Color)EditorGUILayout.ColorField("Hit Collider:", globalInfo.colorHitCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorHitColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorHitColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorNoCollider = (Color)EditorGUILayout.ColorField("No Collider:", globalInfo.colorNoCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorNoColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorNoColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorThrowCollider = (Color)EditorGUILayout.ColorField("Throw Collider:", globalInfo.colorThrowCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorThrowColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorThrowColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorPhysicalInvincibleCollider = (Color)EditorGUILayout.ColorField("Physically Invincible:", globalInfo.colorPhysicalInvincibleCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorPhysicalInvincibleColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorPhysicalInvincibleColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorProjectileInvincibleCollider = (Color)EditorGUILayout.ColorField("Projectile Invincible:", globalInfo.colorProjectileInvincibleCollider);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorProjectileInvincibleColliderFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorProjectileInvincibleColliderFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                //EditorGUILayout.BeginHorizontal();
+                                //{
+                                //    EditorGUIUtility.labelWidth = 160;
+                                //    globalInfo.colorLowHitBoxType = (Color)EditorGUILayout.ColorField("Low Hit Box Hit:", globalInfo.colorLowHitBoxType);
+                                //    EditorGUIUtility.labelWidth = 60;
+                                //    globalInfo.colorLowHitBoxTypeFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorLowHitBoxTypeFill);
+                                //}
+                                //EditorGUILayout.EndHorizontal();
+                                //EditorGUILayout.BeginHorizontal();
+                                //{
+                                //    EditorGUIUtility.labelWidth = 160;
+                                //    globalInfo.colorHighHitBoxType = (Color)EditorGUILayout.ColorField("High Hit Box Hit:", globalInfo.colorHighHitBoxType);
+                                //    EditorGUIUtility.labelWidth = 60;
+                                //    globalInfo.colorHighHitBoxTypeFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorHighHitBoxTypeFill);
+                                //}
+                                //EditorGUILayout.EndHorizontal();
+                                //EditorGUILayout.BeginHorizontal();
+                                //{
+                                //    EditorGUIUtility.labelWidth = 160;
+                                //    globalInfo.colorCollisionBox = (Color)EditorGUILayout.ColorField("Collision Box:", globalInfo.colorCollisionBox);
+                                //    EditorGUIUtility.labelWidth = 60;
+                                //    globalInfo.colorCollisionBoxFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorCollisionBoxFill);
+                                //}
+                                //EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorHurtBoxThrow = (Color)EditorGUILayout.ColorField("Throw Hurt Box:", globalInfo.colorHurtBoxThrow);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorHurtBoxThrowFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorHurtBoxThrowFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorHurtBoxNotThrow = (Color)EditorGUILayout.ColorField("Attack Hurt Box:", globalInfo.colorHurtBoxNotThrow);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorHurtBoxNotThrowFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorHurtBoxNotThrowFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    EditorGUIUtility.labelWidth = 160;
+                                    globalInfo.colorBlockBox = (Color)EditorGUILayout.ColorField("Blocking Box:", globalInfo.colorBlockBox);
+                                    EditorGUIUtility.labelWidth = 60;
+                                    globalInfo.colorBlockBoxFill = (bool)EditorGUILayout.Toggle("Fill:", globalInfo.colorBlockBoxFill);
+                                }
+                                EditorGUILayout.EndHorizontal();
+
+                                EditorGUIUtility.labelWidth = 220;
+                                if (StyledButton("Reset Colors"))
+                                {
+                                    globalInfo.colorStateOne = Color.red;
+                                    globalInfo.colorIsHit = Color.magenta;
+                                    globalInfo.colorBodyCollider = Color.yellow;
+                                    globalInfo.colorNoCollider = Color.white;
+                                    globalInfo.colorThrowCollider = new Color(1f, 0, .5f);
+                                    globalInfo.colorPhysicalInvincibleCollider = Color.gray;
+                                    globalInfo.colorProjectileInvincibleCollider = Color.cyan;
+                                    globalInfo.colorHitCollider = Color.green;
+                                    globalInfo.colorLowHitBoxType = Color.red;
+                                    globalInfo.colorHighHitBoxType = Color.yellow;
+                                    globalInfo.colorCollisionBox = Color.yellow;
+                                    globalInfo.colorHurtBoxThrow = new Color(1f, .5f, 0);
+                                    globalInfo.colorHurtBoxNotThrow = Color.cyan;
+                                    globalInfo.colorBlockBox = Color.blue;
+
+                                    globalInfo.colorStateOneFill = false;
+                                    globalInfo.colorIsHitFill = false;
+                                    globalInfo.colorBodyColliderFill = false;
+                                    globalInfo.colorNoColliderFill = false;
+                                    globalInfo.colorThrowColliderFill = false;
+                                    globalInfo.colorPhysicalInvincibleColliderFill = false;
+                                    globalInfo.colorProjectileInvincibleColliderFill = false;
+                                    globalInfo.colorHitColliderFill = false;
+                                    globalInfo.colorLowHitBoxTypeFill = false;
+                                    globalInfo.colorHighHitBoxTypeFill = false;
+                                    globalInfo.colorCollisionBoxFill = false;
+                                    globalInfo.colorHurtBoxThrowFill = false;
+                                    globalInfo.colorHurtBoxNotThrowFill = false;
+                                    globalInfo.colorBlockBoxFill = false;
+                                }
+                                EditorGUI.indentLevel -= 1;
+                            }
+                            EditorGUILayout.EndVertical();
                         }
 
                         EditorGUILayout.Space();
-						
-						EditorGUIUtility.labelWidth = 150;
-						EditorGUI.indentLevel -= 1;
+                        EditorGUIUtility.labelWidth = 150;
+                        EditorGUI.indentLevel -= 1;
 
 					}EditorGUILayout.EndVertical();
 				}
 			}EditorGUILayout.EndVertical();
 
+            // Deployment Options
+            EditorGUILayout.BeginVertical(rootGroupStyle);
+            {
+                EditorGUILayout.BeginHorizontal();
+                {
+                    deploymentOptions = EditorGUILayout.Foldout(deploymentOptions, "Deployment Options", foldStyle);
+                    helpButton("global:deployment");
+                }
+                EditorGUILayout.EndHorizontal();
 
-			// AI Options
-			EditorGUILayout.BeginVertical(rootGroupStyle);{
+                if (deploymentOptions)
+                {
+                    EditorGUILayout.BeginVertical(subGroupStyle);
+                    {
+                        EditorGUILayout.Space();
+                        EditorGUI.indentLevel += 1;
+                        EditorGUIUtility.labelWidth = 240;
+
+                        globalInfo.deploymentOptions.deploymentType = (DeploymentType)EditorGUILayout.EnumPopup("Deployment Type:", globalInfo.deploymentOptions.deploymentType, enumStyle);
+                        if (globalInfo.deploymentOptions.deploymentType != DeploymentType.FullInterface)
+                        {
+                            if (globalInfo.deploymentOptions.deploymentType == DeploymentType.ChallengeMode)
+                            {
+                                int arraySize = globalInfo.challengeModeOptions.Length;
+                                if (arraySize > 0)
+                                {
+                                    string[] challengeSelect = new string[arraySize];
+                                    for (int i = 0; i < globalInfo.challengeModeOptions.Length; i++)
+                                    {
+                                        if (globalInfo.challengeModeOptions[i].challengeName != "")
+                                        {
+                                            challengeSelect[i] = globalInfo.challengeModeOptions[i].challengeName;
+                                        }
+                                        else
+                                        {
+                                            challengeSelect[i] = "No name";
+                                        }
+                                    }
+                                    globalInfo.deploymentOptions.selectedChallengeMode = EditorGUILayout.Popup("Challenge Selection:", globalInfo.deploymentOptions.selectedChallengeMode, challengeSelect);
+                                }
+                                else
+                                {
+                                    GUILayout.BeginHorizontal("GroupBox");
+                                    GUILayout.Label("No challenges found", "CN EntryWarn");
+                                    GUILayout.EndHorizontal();
+                                }
+                            }
+
+                            /*globalInfo.deploymentOptions.matchType = (MatchType)EditorGUILayout.EnumPopup("Match Type:", globalInfo.deploymentOptions.matchType, enumStyle);
+                            if (globalInfo.deploymentOptions.matchType == MatchType.Teams)
+                            {
+                                int arraySize = globalInfo.teamModes.Length;
+                                if (arraySize > 0)
+                                {
+                                    string[] teamModeSelect = new string[arraySize];
+                                    for (int i = 0; i < globalInfo.teamModes.Length; i++)
+                                    {
+                                        if (globalInfo.teamModes[i].modeName != "")
+                                        {
+                                            teamModeSelect[i] = globalInfo.teamModes[i].modeName;
+                                        }
+                                        else
+                                        {
+                                            teamModeSelect[i] = "No name";
+                                        }
+                                    }
+                                    globalInfo.deploymentOptions.selectedTeamMode = EditorGUILayout.Popup("Team Mode Selection:", globalInfo.deploymentOptions.selectedTeamMode, teamModeSelect);
+                                }
+                                else
+                                {
+                                    GUILayout.BeginHorizontal("GroupBox");
+                                    GUILayout.Label("No team modes found", "CN EntryWarn");
+                                    GUILayout.EndHorizontal();
+                                }
+                            }*/
+
+                            EditorGUI.indentLevel += 1;
+                            /*if (globalInfo.deploymentOptions.matchType == MatchType.Teams)
+                            {
+                                int teamCount = 0;
+                                int characterCount = 0;
+                                if (globalInfo.teamModes[globalInfo.deploymentOptions.selectedTeamMode] == null) globalInfo.deploymentOptions.selectedTeamMode = 0;
+                                foreach (Team team in globalInfo.teamModes[globalInfo.deploymentOptions.selectedTeamMode].teams)
+                                {
+                                    EditorGUILayout.LabelField(team.teamName);
+                                    foreach (UFE3D.CharacterController character in team.characters)
+                                    {
+                                        characterCount++;
+                                        if (globalInfo.deploymentOptions.activeCharacters.Count <= characterCount)
+                                            globalInfo.deploymentOptions.activeCharacters.Add(null);
+
+                                        globalInfo.deploymentOptions.activeCharacters[characterCount] = (UFE3D.CharacterInfo)EditorGUILayout.ObjectField("Character "+ characterCount + " (" + character.player + "):", globalInfo.deploymentOptions.activeCharacters[characterCount], typeof(UFE3D.CharacterInfo), false);
+                                    }
+
+                                    if (globalInfo.deploymentOptions.AIControlled.Count < teamCount) globalInfo.deploymentOptions.AIControlled.Add(false);
+                                    globalInfo.deploymentOptions.AIControlled[teamCount] = EditorGUILayout.Toggle("CPU Controlled", globalInfo.deploymentOptions.AIControlled[teamCount]);
+                                    teamCount++;
+                                    EditorGUILayout.Space();
+                                }
+                            }
+                            else
+                            {*/
+                                globalInfo.deploymentOptions.activeCharacters[0] = (UFE3D.CharacterInfo)EditorGUILayout.ObjectField("Player 1 Character:", globalInfo.deploymentOptions.activeCharacters[0], typeof(UFE3D.CharacterInfo), false);
+                                globalInfo.deploymentOptions.AIControlled[0] = EditorGUILayout.Toggle("CPU Controlled", globalInfo.deploymentOptions.AIControlled[0]);
+                                EditorGUILayout.Space();
+                                globalInfo.deploymentOptions.activeCharacters[1] = (UFE3D.CharacterInfo)EditorGUILayout.ObjectField("Player 2 Character:", globalInfo.deploymentOptions.activeCharacters[1], typeof(UFE3D.CharacterInfo), false);
+                                globalInfo.deploymentOptions.AIControlled[1] = EditorGUILayout.Toggle("CPU Controlled", globalInfo.deploymentOptions.AIControlled[1]);
+                                EditorGUILayout.Space();
+                            //}
+                            globalInfo.deploymentOptions.skipLoadingScreen = EditorGUILayout.Toggle("Skip Loading Screen", globalInfo.deploymentOptions.skipLoadingScreen);
+                            EditorGUI.indentLevel -= 1;
+                            EditorGUILayout.Space();
+                        }
+
+                        EditorGUIUtility.labelWidth = 150;
+
+                        EditorGUI.indentLevel -= 1;
+                        EditorGUILayout.Space();
+                    }
+                    EditorGUILayout.EndVertical();
+                }
+            }
+            EditorGUILayout.EndVertical();
+
+            // AI Options
+            EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUILayout.BeginHorizontal();{
 					aiOptions = EditorGUILayout.Foldout(aiOptions, "AI Options", foldStyle);
 					helpButton("global:aioptions");
@@ -496,6 +776,7 @@ public class GlobalEditorWindow : EditorWindow {
 				}
 			}EditorGUILayout.EndVertical();
 
+
 			// Language Options
 			EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUILayout.BeginHorizontal();{
@@ -578,26 +859,54 @@ public class GlobalEditorWindow : EditorWindow {
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUILayout.Space();
 						EditorGUI.indentLevel += 1;
-						
 						EditorGUIUtility.labelWidth = 200;
-						globalInfo.cameraOptions.initialFieldOfView = EditorGUILayout.Slider("Field of View:", globalInfo.cameraOptions.initialFieldOfView, 1, 179);
-						globalInfo.cameraOptions.initialDistance = EditorGUILayout.Vector3Field("Initial Distance:", globalInfo.cameraOptions.initialDistance);
-						//globalInfo.cameraOptions.initialDistance.x = 0;
-						globalInfo.cameraOptions.initialRotation = EditorGUILayout.Vector3Field("Initial Rotation:", globalInfo.cameraOptions.initialRotation);
-						globalInfo.cameraOptions.movementSpeed = EditorGUILayout.FloatField("Movement Speed:", globalInfo.cameraOptions.movementSpeed);
-						globalInfo.cameraOptions.minZoom = EditorGUILayout.FloatField("Minimum Zoom:", globalInfo.cameraOptions.minZoom);
-						globalInfo.cameraOptions.maxZoom = EditorGUILayout.FloatField("Maximum Zoom:", globalInfo.cameraOptions.maxZoom);
-						globalInfo.cameraOptions._maxDistance = EditorGUILayout.FloatField("Maximum Players Distance:", (float)globalInfo.cameraOptions._maxDistance);
-						globalInfo.cameraOptions.followJumpingCharacter = EditorGUILayout.Toggle("Follow Jumping Characters", globalInfo.cameraOptions.followJumpingCharacter);
-						globalInfo.cameraOptions.enableLookAt = EditorGUILayout.Toggle("Enable LookAt", globalInfo.cameraOptions.enableLookAt);
-                        if (globalInfo.cameraOptions.enableLookAt) {
-                            globalInfo.cameraOptions.rotationSpeed = EditorGUILayout.FloatField("Rotation Speed:", globalInfo.cameraOptions.rotationSpeed);
-                            //globalInfo.cameraOptions.heightOffSet = EditorGUILayout.FloatField("LookAt Height Offset:", globalInfo.cameraOptions.heightOffSet);
-                            globalInfo.cameraOptions.rotationOffSet = EditorGUILayout.Vector3Field("Rotation Offset:", globalInfo.cameraOptions.rotationOffSet);
-                            globalInfo.cameraOptions.motionSensor = (MotionSensor)EditorGUILayout.EnumPopup("Motion Sensor:", globalInfo.cameraOptions.motionSensor);
-                            if (globalInfo.cameraOptions.motionSensor != MotionSensor.None)
-                                globalInfo.cameraOptions.motionSensibility = EditorGUILayout.FloatField("Sensibility", globalInfo.cameraOptions.motionSensibility);
+
+                        if (globalInfo.gameplayType == GameplayType._2DFighter)
+                        {
+                            globalInfo.cameraOptions.initialDistance = EditorGUILayout.Vector3Field("Initial Distance:", globalInfo.cameraOptions.initialDistance);
+                            globalInfo.cameraOptions.initialRotation = EditorGUILayout.Vector3Field("Initial Rotation:", globalInfo.cameraOptions.initialRotation);
+                            globalInfo.cameraOptions.verticalPriority = (VerticalPriority)EditorGUILayout.EnumPopup("Vertical Follow:", globalInfo.cameraOptions.verticalPriority);
+                            if (globalInfo.cameraOptions.verticalPriority != VerticalPriority.Disabled)
+                                globalInfo.cameraOptions.verticalThreshold = EditorGUILayout.FloatField("-Minimum Height:", globalInfo.cameraOptions.verticalThreshold);
                         }
+#if !UFE_LITE && !UFE_BASIC
+                        else if (globalInfo.gameplayType == GameplayType._3DFighter)
+                        {
+                            globalInfo.cameraOptions.distance3d = EditorGUILayout.FloatField("Default Distance:", globalInfo.cameraOptions.distance3d);
+                            globalInfo.cameraOptions.height3d = EditorGUILayout.FloatField("Height:", globalInfo.cameraOptions.height3d);
+                            globalInfo.cameraOptions.dollyAngle = EditorGUILayout.FloatField("Dolly Angle:", globalInfo.cameraOptions.dollyAngle);
+						}
+                        else
+                        {
+                            globalInfo.cameraOptions.initialDistance = EditorGUILayout.Vector3Field("Initial Position:", globalInfo.cameraOptions.initialDistance);
+                            globalInfo.cameraOptions.initialRotation = EditorGUILayout.Vector3Field("Initial Rotation:", globalInfo.cameraOptions.initialRotation);
+                            globalInfo.cameraOptions.followCharacters = EditorGUILayout.Toggle("Follow Characters", globalInfo.cameraOptions.followCharacters);
+                        }
+#endif
+                        globalInfo.cameraOptions.enableLookAt = EditorGUILayout.Toggle("Enable LookAt", globalInfo.cameraOptions.enableLookAt);
+                        if (globalInfo.cameraOptions.enableLookAt)
+                        {
+                            globalInfo.cameraOptions.rotationSpeed = EditorGUILayout.FloatField("-Rotation Speed:", globalInfo.cameraOptions.rotationSpeed);
+                            globalInfo.cameraOptions.rotationOffSet = EditorGUILayout.Vector3Field("-Rotation Offset:", globalInfo.cameraOptions.rotationOffSet);
+                            globalInfo.cameraOptions.motionSensor = (MotionSensor)EditorGUILayout.EnumPopup("-Motion Sensor:", globalInfo.cameraOptions.motionSensor);
+                            if (globalInfo.cameraOptions.motionSensor != MotionSensor.None)
+                                globalInfo.cameraOptions.motionSensibility = EditorGUILayout.FloatField("--Sensibility", globalInfo.cameraOptions.motionSensibility);
+                        }
+
+                        EditorGUILayout.Space();
+
+                        globalInfo.cameraOptions.initialFieldOfView = EditorGUILayout.Slider("Field of View:", globalInfo.cameraOptions.initialFieldOfView, 1, 179);
+                        globalInfo.cameraOptions.movementSpeed = EditorGUILayout.FloatField("Camera Move Speed:", globalInfo.cameraOptions.movementSpeed);
+
+                        globalInfo.cameraOptions.enableZoom = EditorGUILayout.Toggle("Enable Zoom", globalInfo.cameraOptions.enableZoom);
+                        if (globalInfo.cameraOptions.enableZoom)
+                        {
+                            globalInfo.cameraOptions.minZoom = EditorGUILayout.FloatField("Minimum Zoom:", globalInfo.cameraOptions.minZoom);
+						    globalInfo.cameraOptions.maxZoom = EditorGUILayout.FloatField("Maximum Zoom:", globalInfo.cameraOptions.maxZoom);
+                        }
+
+
+                        globalInfo.cameraOptions._maxDistance = EditorGUILayout.FloatField("Maximum Players Distance:", (float)globalInfo.cameraOptions._maxDistance);
 						EditorGUIUtility.labelWidth = 150;
 
 						EditorGUI.indentLevel -= 1;
@@ -606,9 +915,71 @@ public class GlobalEditorWindow : EditorWindow {
 				}
 			}EditorGUILayout.EndVertical();
 
-			
-			// Character Rotation Options
-			EditorGUILayout.BeginVertical(rootGroupStyle);{
+
+            // Lock On Options
+            /*if (globalInfo.gameplayType == GameplayType._3DArena)
+            {
+                EditorGUILayout.BeginVertical(rootGroupStyle);
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    {
+                        lockOnOptions = EditorGUILayout.Foldout(lockOnOptions, "(WIP) Lock On Options", foldStyle);
+                        helpButton("global:lockon");
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    if (lockOnOptions)
+                    {
+                        EditorGUILayout.BeginVertical(subGroupStyle);
+                        {
+                            EditorGUILayout.Space();
+                            EditorGUI.indentLevel += 1;
+
+                            EditorGUIUtility.labelWidth = 210;
+                            globalInfo.lockOnOptions.lockOnType = (LockOnType)EditorGUILayout.EnumPopup("Lock-On Type:", globalInfo.lockOnOptions.lockOnType);
+                            if (globalInfo.lockOnOptions.lockOnType != LockOnType.AlwaysLockedOn)
+                            {
+                                GUILayout.BeginHorizontal("GroupBox");
+                                GUILayout.Label("Under Development", "CN EntryWarn");
+                                GUILayout.EndHorizontal();
+
+                                globalInfo.lockOnOptions.lockOnButtonEnabled = EditorGUILayout.Toggle("Enable Lock-On Button", globalInfo.lockOnOptions.lockOnButtonEnabled);
+
+                                if (globalInfo.lockOnOptions.lockOnButtonEnabled)
+                                    globalInfo.lockOnOptions.lockOnButton = (ButtonPress)EditorGUILayout.EnumPopup("- Lock-On Button:", globalInfo.lockOnOptions.lockOnButton);
+                            }
+
+                            globalInfo.lockOnOptions.lockOutEnabled = EditorGUILayout.Toggle("Enable Lock-Out", globalInfo.lockOnOptions.lockOutEnabled);
+                            if (globalInfo.lockOnOptions.lockOutEnabled)
+                            {
+                                GUILayout.BeginHorizontal("GroupBox");
+                                GUILayout.Label("Under Development", "CN EntryWarn");
+                                GUILayout.EndHorizontal();
+                                globalInfo.lockOnOptions.lockOutButton = (ButtonPress)EditorGUILayout.EnumPopup("- Lock-Out Button:", globalInfo.lockOnOptions.lockOutButton);
+                            }
+
+                            globalInfo.lockOnOptions.targetSwitchType = (TargetSwitchType)EditorGUILayout.EnumPopup("Target Switch Type:", globalInfo.lockOnOptions.targetSwitchType);
+                            if (globalInfo.lockOnOptions.targetSwitchType != TargetSwitchType.NeverSwitch)
+                            {
+                                GUILayout.BeginHorizontal("GroupBox");
+                                GUILayout.Label("Under Development", "CN EntryWarn");
+                                GUILayout.EndHorizontal();
+                                globalInfo.lockOnOptions.switchButton = (ButtonPress)EditorGUILayout.EnumPopup("- Switch Target Button:", globalInfo.lockOnOptions.switchButton);
+                            }
+
+                            EditorGUIUtility.labelWidth = 150;
+                            EditorGUI.indentLevel -= 1;
+                            EditorGUILayout.Space();
+                        }
+                        EditorGUILayout.EndVertical();
+                    }
+                }
+                EditorGUILayout.EndVertical();
+            }*/
+
+
+            // Character Rotation Options
+            EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUILayout.BeginHorizontal();{
 					characterRotationOptions = EditorGUILayout.Foldout(characterRotationOptions, "Character Rotation Options", foldStyle);
 					helpButton("global:rotation");
@@ -620,13 +991,21 @@ public class GlobalEditorWindow : EditorWindow {
 						EditorGUI.indentLevel += 1;
 						
 						EditorGUIUtility.labelWidth = 210;
-						globalInfo.characterRotationOptions.autoMirror = EditorGUILayout.Toggle("Auto Mirror", globalInfo.characterRotationOptions.autoMirror);
+                        globalInfo.characterRotationOptions.autoMirror = EditorGUILayout.Toggle("Right Side Mirror", globalInfo.characterRotationOptions.autoMirror);
 						globalInfo.characterRotationOptions.rotateWhileJumping = EditorGUILayout.Toggle("Rotate While Jumping", globalInfo.characterRotationOptions.rotateWhileJumping);
+						if (globalInfo.gameplayType == GameplayType._3DFighter)
+							globalInfo.characterRotationOptions.allowAirBorneSideSwitch = EditorGUILayout.Toggle("Allow Airborne Side Switch", globalInfo.characterRotationOptions.allowAirBorneSideSwitch);
+
 						globalInfo.characterRotationOptions.rotateOnMoveOnly = EditorGUILayout.Toggle("Rotate On Move Only", globalInfo.characterRotationOptions.rotateOnMoveOnly);
+
 						globalInfo.characterRotationOptions.fixRotationWhenStunned = EditorGUILayout.Toggle("Fix Rotation When Stunned", globalInfo.characterRotationOptions.fixRotationWhenStunned);
 						globalInfo.characterRotationOptions.fixRotationWhenBlocking = EditorGUILayout.Toggle("Fix Rotation When Blocking", globalInfo.characterRotationOptions.fixRotationWhenBlocking);
 						globalInfo.characterRotationOptions.fixRotationOnHit = EditorGUILayout.Toggle("Fix Rotation On Hit", globalInfo.characterRotationOptions.fixRotationOnHit);
-						globalInfo.characterRotationOptions._rotationSpeed = EditorGUILayout.FloatField("Rotation Speed:", (float)globalInfo.characterRotationOptions._rotationSpeed);
+
+                        globalInfo.characterRotationOptions.smoothRotation = EditorGUILayout.Toggle("Smooth Rotation", globalInfo.characterRotationOptions.smoothRotation);
+                        if (globalInfo.characterRotationOptions.smoothRotation)
+                            globalInfo.characterRotationOptions._rotationSpeed = EditorGUILayout.FloatField("Rotation Speed:", (float)globalInfo.characterRotationOptions._rotationSpeed);
+
 						globalInfo.characterRotationOptions._mirrorBlending = EditorGUILayout.FloatField("Mirror Blending (Mecanim only):", (float)globalInfo.characterRotationOptions._mirrorBlending);
 						EditorGUIUtility.labelWidth = 150;
 						
@@ -647,14 +1026,24 @@ public class GlobalEditorWindow : EditorWindow {
 				if (roundOptions){
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUILayout.Space();
-						EditorGUI.indentLevel += 1;
-						
-						EditorGUIUtility.labelWidth = 200;
+                        EditorGUI.indentLevel += 1;
+
+                        EditorGUIUtility.labelWidth = 240;
 						globalInfo.roundOptions.totalRounds = EditorGUILayout.IntField("Total Rounds (Best of):", globalInfo.roundOptions.totalRounds);
-						globalInfo.roundOptions._p1XPosition = EditorGUILayout.FloatField("Initial Spawn Position (P1):", (float)globalInfo.roundOptions._p1XPosition);
-						globalInfo.roundOptions._p2XPosition = EditorGUILayout.FloatField("Initial Spawn Position (P2):", (float)globalInfo.roundOptions._p2XPosition);
-						globalInfo.roundOptions._newRoundDelay = EditorGUILayout.FloatField("New Round Delay (seconds):", (float)globalInfo.roundOptions._newRoundDelay);
+                        globalInfo.roundOptions._p1XPosition = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Initial Spawn Position (P1):", globalInfo.roundOptions._p1XPosition.ToVector()));
+                        globalInfo.roundOptions._p2XPosition = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Initial Spawn Position (P2):", globalInfo.roundOptions._p2XPosition.ToVector()));
+#if !UFE_LITE && !UFE_BASIC
+                        /*if (globalInfo.gameplayType == GameplayType._3DArena)
+                        {
+                            globalInfo.roundOptions._p1XRotation = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Initial Spawn Rotation (P1):", globalInfo.roundOptions._p1XRotation.ToVector()));
+                            globalInfo.roundOptions._p2XRotation = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Initial Spawn Rotation (P2):", globalInfo.roundOptions._p2XRotation.ToVector()));
+                        }*/
+#endif
+
+                        EditorGUILayout.Space();
+                        globalInfo.roundOptions._newRoundDelay = EditorGUILayout.FloatField("New Round Delay (seconds):", (float)globalInfo.roundOptions._newRoundDelay);
 						globalInfo.roundOptions._endGameDelay = EditorGUILayout.FloatField("End Game Delay (seconds):", (float)globalInfo.roundOptions._endGameDelay);
+						globalInfo.roundOptions._showMenuDelay = EditorGUILayout.FloatField("After Battle Menu Delay (seconds):", (float)globalInfo.roundOptions._showMenuDelay);
 						globalInfo.roundOptions.victoryMusic = (AudioClip) EditorGUILayout.ObjectField("Victory Music:", globalInfo.roundOptions.victoryMusic, typeof(UnityEngine.AudioClip), false);
 						globalInfo.roundOptions.hasTimer = EditorGUILayout.Toggle("Has Timer", globalInfo.roundOptions.hasTimer);
 						if (globalInfo.roundOptions.hasTimer){
@@ -669,6 +1058,7 @@ public class GlobalEditorWindow : EditorWindow {
                             globalInfo.roundOptions._slowMoTimer = EditorGUILayout.FloatField("- Slow-mo Timer (seconds):", (float)globalInfo.roundOptions._slowMoTimer);
                             globalInfo.roundOptions._slowMoSpeed = EditorGUILayout.Slider("- Game Speed:", (float)globalInfo.roundOptions._slowMoSpeed, .01f, 1);
                         }
+                        globalInfo.roundOptions.playIntrosAtSameTime = EditorGUILayout.Toggle("Play intros at same time", globalInfo.roundOptions.playIntrosAtSameTime);
                         globalInfo.roundOptions.allowMovementEnd = EditorGUILayout.Toggle("Allow movement after K.O", globalInfo.roundOptions.allowMovementEnd);
                         globalInfo.roundOptions.inhibitGaugeGain = EditorGUILayout.Toggle("Inhibit gauge after K.O", globalInfo.roundOptions.inhibitGaugeGain);
                         globalInfo.roundOptions.rotateBodyKO = EditorGUILayout.Toggle("Rotate body after K.O", globalInfo.roundOptions.rotateBodyKO);
@@ -947,11 +1337,24 @@ public class GlobalEditorWindow : EditorWindow {
 						HitOptionBlock("Custom Hit 1 Options", globalInfo.hitOptions.customHit1);
 						HitOptionBlock("Custom Hit 2 Options", globalInfo.hitOptions.customHit2);
 						HitOptionBlock("Custom Hit 3 Options", globalInfo.hitOptions.customHit3);
+                        HitOptionBlock("Custom Hit 4 Options", globalInfo.hitOptions.customHit4);
+                        HitOptionBlock("Custom Hit 5 Options", globalInfo.hitOptions.customHit5);
+                        HitOptionBlock("Custom Hit 6 Options", globalInfo.hitOptions.customHit6);
 
-						EditorGUILayout.Space();
+                        EditorGUILayout.Space();
 
 						globalInfo.hitOptions.resetAnimationOnHit = EditorGUILayout.Toggle("Restart Animation on Hit", globalInfo.hitOptions.resetAnimationOnHit);
-						EditorGUIUtility.labelWidth = 150;
+
+                        EditorGUILayout.Space();
+                        globalInfo.sortCharacterOnHit = EditorGUILayout.Toggle("Sort Layer on Hit (2D Only)", globalInfo.sortCharacterOnHit);
+                        if (globalInfo.sortCharacterOnHit) {
+                            EditorGUI.indentLevel += 1;
+                            globalInfo.foregroundSortLayer = EditorGUILayout.IntField("Foreground Layer:", globalInfo.foregroundSortLayer);
+                            globalInfo.backgroundSortLayer = EditorGUILayout.IntField("Background Layer:", globalInfo.backgroundSortLayer);
+                            EditorGUI.indentLevel -= 1;
+                        }
+
+                        EditorGUIUtility.labelWidth = 150;
 						
 						EditorGUI.indentLevel -= 1;
 						EditorGUILayout.Space();
@@ -983,13 +1386,17 @@ public class GlobalEditorWindow : EditorWindow {
                             errorMsg = "You must have Rewired installed\n in order to use this option.";
 						}
 
-
-						if (errorMsg != null){
+						if (errorMsg != null)
+                        {
 							GUILayout.BeginHorizontal("GroupBox");
 							GUILayout.Label(errorMsg, "CN EntryWarn");
 							GUILayout.EndHorizontal();
-						}else{
-							player1InputOptions = EditorGUILayout.Foldout(player1InputOptions, "Player 1 Inputs ("+ globalInfo.player1_Inputs.Length +")", foldStyle);
+						}
+                        else
+                        {
+                            //globalInfo.inputOptions.controlScheme = (ControlScheme)EditorGUILayout.EnumPopup("(WIP) Control Scheme:", globalInfo.inputOptions.controlScheme, enumStyle);
+
+                            player1InputOptions = EditorGUILayout.Foldout(player1InputOptions, "Player 1 Inputs ("+ globalInfo.player1_Inputs.Length +")", foldStyle);
 							if (player1InputOptions) globalInfo.player1_Inputs = PlayerInputsBlock(globalInfo.player1_Inputs);
 							
 							player2InputOptions = EditorGUILayout.Foldout(player2InputOptions, "Player 2 Inputs ("+ globalInfo.player2_Inputs.Length +")", foldStyle);
@@ -1009,10 +1416,7 @@ public class GlobalEditorWindow : EditorWindow {
 						EditorGUILayout.Space();
                         EditorGUIUtility.labelWidth = 180;
 
-                        //if (globalInfo.inputOptions.inputManagerType == InputManagerType.UnityInputManager) {
-                            globalInfo.inputOptions.forceDigitalInput = EditorGUILayout.Toggle("Force Digital Input", globalInfo.inputOptions.forceDigitalInput);
-                        //}
-
+                        globalInfo.inputOptions.forceDigitalInput = EditorGUILayout.Toggle("Force Digital Input", globalInfo.inputOptions.forceDigitalInput);
 						globalInfo.inputOptions.confirmButton = (ButtonPress) EditorGUILayout.EnumPopup("Confirm Button:", globalInfo.inputOptions.confirmButton, enumStyle);
 						globalInfo.inputOptions.cancelButton = (ButtonPress) EditorGUILayout.EnumPopup("Cancel Button:", globalInfo.inputOptions.cancelButton, enumStyle);
 						EditorGUIUtility.labelWidth = 150;
@@ -1037,34 +1441,7 @@ public class GlobalEditorWindow : EditorWindow {
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUILayout.Space();
                         EditorGUI.indentLevel += 1;
-                        SubGroupTitle("Loading Method");
 
-                        StorageMode newStagePrefabStorage = (StorageMode)EditorGUILayout.EnumPopup("Stage Prefab:", globalInfo.stagePrefabStorage);
-                        if (globalInfo.stagePrefabStorage != newStagePrefabStorage) {
-                            globalInfo.stagePrefabStorage = newStagePrefabStorage;
-
-                            if (newStagePrefabStorage == StorageMode.ResourcesFolder) {
-                                for (int i = 0; i < globalInfo.stages.Length; i++) {
-                                    globalInfo.stages[i].prefab = null;
-                                }
-                            }
-                        }
-
-
-                        StorageMode newStageMusicStorage = (StorageMode)EditorGUILayout.EnumPopup("Stage Music:", globalInfo.stageMusicStorage);
-                        if (globalInfo.stageMusicStorage != newStageMusicStorage) {
-                            globalInfo.stageMusicStorage = newStageMusicStorage;
-
-                            if (newStageMusicStorage == StorageMode.ResourcesFolder) {
-                                for (int i = 0; i < globalInfo.stages.Length; i++) {
-                                    globalInfo.stages[i].music = null;
-                                }
-                            }
-                        }
-
-                        EditorGUILayout.Space();
-                        SubGroupTitle("Stages Info");
-						
 						for (int i = 0; i < globalInfo.stages.Length; i ++){
 							EditorGUILayout.Space();
 							EditorGUILayout.BeginVertical(arrayElementStyle);{
@@ -1083,20 +1460,39 @@ public class GlobalEditorWindow : EditorWindow {
 									}
 								}EditorGUILayout.EndHorizontal();
 
-                                if (globalInfo.stagePrefabStorage == StorageMode.Legacy) {
+                                // Stage File Loading Method
+                                StorageMode stageLoadingMethod = (StorageMode)EditorGUILayout.EnumPopup("Loading Method:", globalInfo.stages[i].stageLoadingMethod);
+                                if (stageLoadingMethod != globalInfo.stages[i].stageLoadingMethod) {
+                                    globalInfo.stages[i].stageLoadingMethod = stageLoadingMethod;
+                                    globalInfo.stages[i].prefab = null;
+                                }
+                                
+                                if (stageLoadingMethod == StorageMode.ResourcesFolder)
+                                {
+                                    globalInfo.stages[i].stagePath = EditorGUILayout.TextField("Stage Path:", globalInfo.stages[i].stagePath);
+                                }
+                                else if (stageLoadingMethod == StorageMode.SceneFile)
+                                {
+                                    globalInfo.stages[i].stagePath = EditorGUILayout.TextField("Scene Path:", globalInfo.stages[i].stagePath);
+                                }
+                                else if (stageLoadingMethod == StorageMode.Prefab)
+                                {
                                     globalInfo.stages[i].prefab = (GameObject)EditorGUILayout.ObjectField("Stage Prefab:", globalInfo.stages[i].prefab, typeof(UnityEngine.GameObject), true);
-                                } else {
-                                    globalInfo.stages[i].stageResourcePath = EditorGUILayout.TextField("Stage Resource Path:", globalInfo.stages[i].stageResourcePath);
                                 }
-                                if (globalInfo.stageMusicStorage == StorageMode.Legacy) {
-                                    globalInfo.stages[i].music = (AudioClip)EditorGUILayout.ObjectField("Music File:", globalInfo.stages[i].music, typeof(UnityEngine.AudioClip), true);
-                                } else {
-                                    globalInfo.stages[i].musicResourcePath = EditorGUILayout.TextField("Music Resource Path:", globalInfo.stages[i].musicResourcePath);
+
+                                globalInfo.stages[i].music = (AudioClip)EditorGUILayout.ObjectField("Music File:", globalInfo.stages[i].music, typeof(UnityEngine.AudioClip), true);
+
+                                if (globalInfo.gameplayType != GameplayType._2DFighter)
+                                {
+                                    globalInfo.stages[i]._rightBoundary = EditorGUILayout.FloatField("Radius:", (float)globalInfo.stages[i]._rightBoundary);
                                 }
-								globalInfo.stages[i]._leftBoundary = EditorGUILayout.FloatField("Left Boundary:", (float)globalInfo.stages[i]._leftBoundary);
-								globalInfo.stages[i]._rightBoundary = EditorGUILayout.FloatField("Right Boundary:", (float)globalInfo.stages[i]._rightBoundary);
+                                else
+                                {
+                                    globalInfo.stages[i]._leftBoundary = EditorGUILayout.FloatField("Left Boundary:", (float)globalInfo.stages[i]._leftBoundary);
+                                    globalInfo.stages[i]._rightBoundary = EditorGUILayout.FloatField("Right Boundary:", (float)globalInfo.stages[i]._rightBoundary);
+                                }
 								globalInfo.stages[i]._groundFriction = EditorGUILayout.FloatField("Ground Friction:", (float)globalInfo.stages[i]._groundFriction);
-								globalInfo.stages[i]._groundHeight = EditorGUILayout.FloatField("Ground Height:", (float)globalInfo.stages[i]._groundHeight);
+                                globalInfo.stages[i].position = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Position:", globalInfo.stages[i].position.ToVector()));
                                 EditorGUILayout.LabelField("Screenshot:");
 								globalInfo.stages[i].screenshot = (Texture2D) EditorGUILayout.ObjectField(globalInfo.stages[i].screenshot, typeof(Texture2D), false);
 
@@ -1167,8 +1563,163 @@ public class GlobalEditorWindow : EditorWindow {
 			}EditorGUILayout.EndVertical();
 
 
-			// Screen Options
-			EditorGUILayout.BeginVertical(rootGroupStyle);{
+            // Team Mode
+            /*EditorGUILayout.BeginVertical(rootGroupStyle);
+            {
+                EditorGUILayout.BeginHorizontal();
+                {
+                    teamModeOptions = EditorGUILayout.Foldout(teamModeOptions, "(WIP) Team Modes (" + globalInfo.teamModes.Length + ")", foldStyle);
+                    helpButton("global:teams");
+                }
+                EditorGUILayout.EndHorizontal();
+
+                if (teamModeOptions)
+                {
+                    EditorGUILayout.BeginVertical(subGroupStyle);
+                    {
+                        EditorGUILayout.Space();
+                        EditorGUI.indentLevel += 1;
+
+                        for (int i = 0; i < globalInfo.teamModes.Length; i++)
+                        {
+                            EditorGUILayout.Space();
+                            EditorGUILayout.BeginVertical(arrayElementStyle);
+                            {
+                                EditorGUILayout.Space();
+                                EditorGUILayout.BeginHorizontal();
+                                {
+                                    globalInfo.teamModes[i].modeName = EditorGUILayout.TextField("Name:", globalInfo.teamModes[i].modeName);
+                                    if (GUILayout.Button("", "PaneOptions"))
+                                    {
+                                        PaneOptions(
+                                            globalInfo.teamModes,
+                                            globalInfo.teamModes[i],
+                                            delegate (UFE3D.TeamModeOptions[] newElement) {
+                                                globalInfo.teamModes = newElement;
+                                            }
+                                        );
+                                    }
+                                }
+                                EditorGUILayout.EndHorizontal();
+
+                                EditorGUILayout.Space();
+                                globalInfo.teamModes[i].teamsToggle = EditorGUILayout.Foldout(globalInfo.teamModes[i].teamsToggle, "Teams (" + globalInfo.teamModes[i].teams.Length + ")", foldStyle);
+                                if (globalInfo.teamModes[i].teamsToggle)
+                                {
+                                    if (globalInfo.teamModes[i].teams.Length > 2)
+                                    {
+                                        GUILayout.BeginHorizontal("GroupBox");
+                                        GUILayout.Label("Only 2 teams are allowed", "CN EntryWarn");
+                                        GUILayout.EndHorizontal();
+                                    }
+
+                                    EditorGUILayout.BeginVertical(subGroupStyle);
+                                    {
+                                        EditorGUI.indentLevel += 1;
+                                        EditorGUILayout.Space();
+
+                                        for (int j = 0; j < globalInfo.teamModes[i].teams.Length; j++)
+                                        {
+                                            EditorGUILayout.Space();
+                                            EditorGUILayout.BeginVertical(arrayElementStyle);
+                                            {
+                                                EditorGUILayout.Space();
+                                                EditorGUILayout.BeginHorizontal();
+                                                {
+                                                    globalInfo.teamModes[i].teams[j].teamName = EditorGUILayout.TextField("Name:", globalInfo.teamModes[i].teams[j].teamName);
+                                                    if (GUILayout.Button("", "PaneOptions"))
+                                                    {
+                                                        PaneOptions(
+                                                            globalInfo.teamModes[i].teams,
+                                                            globalInfo.teamModes[i].teams[j],
+                                                            delegate (UFE3D.Team[] newElement)
+                                                            {
+                                                                globalInfo.teamModes[i].teams = newElement;
+                                                            }
+                                                        );
+                                                    }
+                                                }
+                                                EditorGUILayout.EndHorizontal();
+
+                                                globalInfo.teamModes[i].teams[j].teamType = (UFE3D.TeamType)EditorGUILayout.EnumPopup("Type:", globalInfo.teamModes[i].teams[j].teamType);
+
+                                                EditorGUILayout.Space();
+                                                globalInfo.teamModes[i].teams[j].charactersToggle = EditorGUILayout.Foldout(globalInfo.teamModes[i].teams[j].charactersToggle, "Characters (" + globalInfo.teamModes[i].teams[j].characters.Length + ")", foldStyle);
+
+                                                if (globalInfo.teamModes[i].teams[j].charactersToggle)
+                                                {
+                                                    for (int m = 0; m < globalInfo.teamModes[i].teams[j].characters.Length; m++)
+                                                    {
+                                                        EditorGUILayout.Space();
+                                                        EditorGUILayout.BeginVertical(subGroupStyle);
+                                                        {
+                                                            EditorGUILayout.Space();
+                                                            EditorGUILayout.BeginHorizontal();
+                                                            {
+                                                                globalInfo.teamModes[i].teams[j].characters[m].player = (UFE3D.PlayerController)EditorGUILayout.EnumPopup("Player Controlling:", globalInfo.teamModes[i].teams[j].characters[m].player);
+                                                                if (GUILayout.Button("", "PaneOptions"))
+                                                                {
+                                                                    PaneOptions(
+                                                                        globalInfo.teamModes[i].teams[j].characters,
+                                                                        globalInfo.teamModes[i].teams[j].characters[m],
+                                                                        delegate (UFE3D.CharacterController[] newElement)
+                                                                        {
+                                                                            globalInfo.teamModes[i].teams[j].characters = newElement;
+                                                                        }
+                                                                    );
+                                                                }
+                                                            }EditorGUILayout.EndHorizontal();
+
+                                                            globalInfo.teamModes[i].teams[j].characters[m].endWhenDies = EditorGUILayout.Toggle("End When It Dies", globalInfo.teamModes[i].teams[j].characters[m].endWhenDies);
+
+                                                            if (globalInfo.teamModes[i].teams[j].teamType == TeamType.AllActive)
+                                                            {
+                                                                globalInfo.teamModes[i].teams[j].characters[m].spawnPosition = FPVector.ToFPVector(EditorGUILayout.Vector3Field("Spawn Position:", globalInfo.teamModes[i].teams[j].characters[m].spawnPosition.ToVector()));
+                                                            }
+                                                            EditorGUILayout.Space();
+                                                        }
+                                                        EditorGUILayout.EndVertical();
+                                                    }
+
+                                                    EditorGUILayout.Space();
+                                                    if (StyledButton("New Character Controller"))
+                                                    {
+                                                        globalInfo.teamModes[i].teams[j].characters = AddElement(globalInfo.teamModes[i].teams[j].characters, new UFE3D.CharacterController());
+                                                    }
+                                                }
+                                            }EditorGUILayout.EndVertical();
+                                        }
+                                        EditorGUI.indentLevel -= 1;
+
+                                        EditorGUILayout.Space();
+                                        if (StyledButton("New Team"))
+                                        {
+                                            globalInfo.teamModes[i].teams = AddElement(globalInfo.teamModes[i].teams, new UFE3D.Team());
+                                        }
+
+                                    }
+                                    EditorGUILayout.EndVertical();
+                                }
+                                EditorGUILayout.Space();
+                            }
+                            EditorGUILayout.EndVertical();
+                        }
+                        EditorGUI.indentLevel -= 1;
+
+                        EditorGUILayout.Space();
+                        if (StyledButton("New Team Mode"))
+                        {
+                            globalInfo.teamModes = AddElement(globalInfo.teamModes, new TeamModeOptions());
+                        }
+
+                    }
+                    EditorGUILayout.EndVertical();
+                }
+            }
+            EditorGUILayout.EndVertical();*/
+
+            // Screen Options
+            EditorGUILayout.BeginVertical(rootGroupStyle);{
 				EditorGUILayout.BeginHorizontal();{
 					screenOptions = EditorGUILayout.Foldout(screenOptions, "GUI Options", foldStyle);
 					helpButton("global:gui");
@@ -1251,6 +1802,13 @@ public class GlobalEditorWindow : EditorWindow {
                                         ScreenButton(globalInfo.gameGUI.characterSelectionScreen);
                                     } EditorGUI.EndDisabledGroup();
                                 } EditorGUILayout.EndHorizontal();
+                                
+								/*EditorGUILayout.BeginHorizontal();{
+								    globalInfo.gameGUI.teamSelectionScreen = (CharacterSelectionScreen)EditorGUILayout.ObjectField("Team Selection:", globalInfo.gameGUI.teamSelectionScreen, typeof(CharacterSelectionScreen), true);
+                                    EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.teamSelectionScreen));{
+                                        ScreenButton(globalInfo.gameGUI.teamSelectionScreen);
+                                    } EditorGUI.EndDisabledGroup();
+                                } EditorGUILayout.EndHorizontal();*/
                                 
 								EditorGUILayout.BeginHorizontal();{
 								    globalInfo.gameGUI.stageSelectionScreen = (StageSelectionScreen)EditorGUILayout.ObjectField("Stage Selection:", globalInfo.gameGUI.stageSelectionScreen, typeof(StageSelectionScreen), true);
@@ -1344,46 +1902,79 @@ public class GlobalEditorWindow : EditorWindow {
                                         ScreenButton(globalInfo.gameGUI.versusModeAfterBattleScreen);
                                     } EditorGUI.EndDisabledGroup();
                                 } EditorGUILayout.EndHorizontal();
-								
-								if (UFE.isNetworkAddonInstalled){
+
+#if !UFE_LITE && !UFE_BASIC
+                                EditorGUI.BeginDisabledGroup(!UFE.isNetworkAddonInstalled && !UFE.isBluetoothAddonInstalled);{
                                     EditorGUILayout.Space();
 
                                     SubGroupTitle("Network Mode");
+                                    
+                                    EditorGUILayout.BeginHorizontal();{
+                                        globalInfo.gameGUI.networkOptionsScreen = (NetworkOptionsScreen)EditorGUILayout.ObjectField("Options:", globalInfo.gameGUI.networkOptionsScreen, typeof(NetworkOptionsScreen), true);
+                                        EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.networkOptionsScreen));{
+                                            ScreenButton(globalInfo.gameGUI.networkOptionsScreen);
+                                        } EditorGUI.EndDisabledGroup();
+                                    } EditorGUILayout.EndHorizontal();
 
                                     EditorGUILayout.BeginHorizontal();{
-                                        globalInfo.gameGUI.networkGameScreen = (NetworkGameScreen)EditorGUILayout.ObjectField("Network Screen:", globalInfo.gameGUI.networkGameScreen, typeof(NetworkGameScreen), true);
-                                        EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.networkGameScreen));{
-                                            ScreenButton(globalInfo.gameGUI.networkGameScreen);
+                                        globalInfo.gameGUI.roomMatchScreen = (NetworkRoomMatchScreen)EditorGUILayout.ObjectField("Room Match:", globalInfo.gameGUI.roomMatchScreen, typeof(NetworkRoomMatchScreen), true);
+                                        EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.roomMatchScreen));{
+                                            ScreenButton(globalInfo.gameGUI.roomMatchScreen);
                                         } EditorGUI.EndDisabledGroup();
                                     } EditorGUILayout.EndHorizontal();
                                     
 								    EditorGUILayout.BeginHorizontal();{
-									    globalInfo.gameGUI.hostGameScreen = (HostGameScreen)EditorGUILayout.ObjectField("Host Game:", globalInfo.gameGUI.hostGameScreen, typeof(HostGameScreen), true);
+									    globalInfo.gameGUI.hostGameScreen = (HostGameScreen)EditorGUILayout.ObjectField("- Host Game:", globalInfo.gameGUI.hostGameScreen, typeof(HostGameScreen), true);
                                         EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.hostGameScreen));{
                                             ScreenButton(globalInfo.gameGUI.hostGameScreen);
                                         } EditorGUI.EndDisabledGroup();
                                     } EditorGUILayout.EndHorizontal();
                                     
 								    EditorGUILayout.BeginHorizontal();{
-									    globalInfo.gameGUI.joinGameScreen = (JoinGameScreen)EditorGUILayout.ObjectField("Join Game:", globalInfo.gameGUI.joinGameScreen, typeof(JoinGameScreen), true);
+									    globalInfo.gameGUI.joinGameScreen = (JoinGameScreen)EditorGUILayout.ObjectField("- Join Game:", globalInfo.gameGUI.joinGameScreen, typeof(JoinGameScreen), true);
                                         EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.joinGameScreen));{
                                             ScreenButton(globalInfo.gameGUI.joinGameScreen);
                                         } EditorGUI.EndDisabledGroup();
                                     } EditorGUILayout.EndHorizontal();
 
                                     EditorGUILayout.BeginHorizontal();{
-                                        globalInfo.gameGUI.searchMatchScreen = (SearchMatchScreen)EditorGUILayout.ObjectField("Search Match:", globalInfo.gameGUI.searchMatchScreen, typeof(SearchMatchScreen), true);
+                                        globalInfo.gameGUI.searchMatchScreen = (SearchMatchScreen)EditorGUILayout.ObjectField("Random Match:", globalInfo.gameGUI.searchMatchScreen, typeof(SearchMatchScreen), true);
                                         EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.searchMatchScreen));{
                                             ScreenButton(globalInfo.gameGUI.searchMatchScreen);
                                         } EditorGUI.EndDisabledGroup();
                                     } EditorGUILayout.EndHorizontal();
 
                                     EditorGUILayout.BeginHorizontal();{
-										globalInfo.gameGUI.bluetoothGameScreen = (BluetoothGameScreen)EditorGUILayout.ObjectField("Bluetooth Screen:", globalInfo.gameGUI.bluetoothGameScreen, typeof(BluetoothGameScreen), true);
+										globalInfo.gameGUI.bluetoothGameScreen = (BluetoothGameScreen)EditorGUILayout.ObjectField("Bluetooth Match:", globalInfo.gameGUI.bluetoothGameScreen, typeof(BluetoothGameScreen), true);
 										EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.bluetoothGameScreen));{
 											ScreenButton(globalInfo.gameGUI.bluetoothGameScreen);
 										} EditorGUI.EndDisabledGroup();
 									} EditorGUILayout.EndHorizontal();
+
+									EditorGUILayout.BeginHorizontal();{
+										globalInfo.gameGUI.bluetoothHostGameScreen = (BluetoothHostGameScreen)EditorGUILayout.ObjectField("- Bluetooth Host Game:", globalInfo.gameGUI.bluetoothHostGameScreen, typeof(BluetoothHostGameScreen), true);
+										EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.bluetoothHostGameScreen));
+										{
+											ScreenButton(globalInfo.gameGUI.bluetoothHostGameScreen);
+										}
+										EditorGUI.EndDisabledGroup();
+									} EditorGUILayout.EndHorizontal();
+
+									EditorGUILayout.BeginHorizontal();{
+										globalInfo.gameGUI.bluetoothJoinGameScreen = (BluetoothJoinGameScreen)EditorGUILayout.ObjectField("- Bluetooth Join Game:", globalInfo.gameGUI.bluetoothJoinGameScreen, typeof(BluetoothJoinGameScreen), true);
+										EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.bluetoothJoinGameScreen));
+										{
+											ScreenButton(globalInfo.gameGUI.bluetoothJoinGameScreen);
+										}
+										EditorGUI.EndDisabledGroup();
+									} EditorGUILayout.EndHorizontal();
+
+									EditorGUILayout.BeginHorizontal();{
+								        globalInfo.gameGUI.onlineModeAfterBattleScreen = (OnlineModeAfterBattleScreen)EditorGUILayout.ObjectField("After Battle:", globalInfo.gameGUI.onlineModeAfterBattleScreen, typeof(OnlineModeAfterBattleScreen), true);
+                                        EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.onlineModeAfterBattleScreen));{
+                                            ScreenButton(globalInfo.gameGUI.onlineModeAfterBattleScreen);
+                                        } EditorGUI.EndDisabledGroup();
+                                    } EditorGUILayout.EndHorizontal();
 
                                     EditorGUILayout.BeginHorizontal();{
 									    globalInfo.gameGUI.connectionLostScreen = (ConnectionLostScreen)EditorGUILayout.ObjectField("Connection Lost:", globalInfo.gameGUI.connectionLostScreen, typeof(ConnectionLostScreen), true);
@@ -1392,8 +1983,21 @@ public class GlobalEditorWindow : EditorWindow {
                                         } EditorGUI.EndDisabledGroup();
                                     } EditorGUILayout.EndHorizontal();
 
-								}
-								EditorGUILayout.Space();
+                                }EditorGUI.EndDisabledGroup();
+
+                                EditorGUILayout.Space();
+
+#if !UFE_STANDARD
+                                SubGroupTitle("Replay Mode");
+                                EditorGUILayout.BeginHorizontal();{
+									globalInfo.gameGUI.replayTools = (ReplayMode)EditorGUILayout.ObjectField("Replay Tools:", globalInfo.gameGUI.replayTools, typeof(ReplayMode), true);
+                                    EditorGUI.BeginDisabledGroup(DisableScreenButton(globalInfo.gameGUI.replayTools));{
+                                        ScreenButton(globalInfo.gameGUI.replayTools);
+                                    } EditorGUI.EndDisabledGroup();
+                                } EditorGUILayout.EndHorizontal();
+#endif
+#endif
+                                EditorGUILayout.Space();
 							}EditorGUILayout.EndVertical();
                         } else if (!storyModeOptions){
                             CloseGUICanvas();
@@ -1561,7 +2165,6 @@ public class GlobalEditorWindow : EditorWindow {
                         EditorGUILayout.Space();
                         EditorGUI.indentLevel += 1;
                         EditorGUIUtility.labelWidth = 200;
-                        globalInfo.trainingModeOptions.inputInfo = EditorGUILayout.Toggle("Display Input", globalInfo.trainingModeOptions.inputInfo);
                         globalInfo.trainingModeOptions.freezeTime = EditorGUILayout.Toggle("Freeze Timer", globalInfo.trainingModeOptions.freezeTime);
                         globalInfo.trainingModeOptions.p1StartingLife = EditorGUILayout.Slider("Player 1 Starting Life:", globalInfo.trainingModeOptions.p1StartingLife, 1, 100);
                         globalInfo.trainingModeOptions.p2StartingLife = EditorGUILayout.Slider("Player 2 Starting Life:", globalInfo.trainingModeOptions.p2StartingLife, 1, 100);
@@ -1708,8 +2311,6 @@ public class GlobalEditorWindow : EditorWindow {
                         EditorGUIUtility.labelWidth = 200;
                         globalInfo._preloadingTime = EditorGUILayout.FloatField("Preloading Time:", (float)globalInfo._preloadingTime);
                         globalInfo.preloadHitEffects = EditorGUILayout.Toggle("Hit Effects", globalInfo.preloadHitEffects);
-                        globalInfo.preloadCharacter1 = EditorGUILayout.Toggle("Player 1 Character & Moves", globalInfo.preloadCharacter1);
-                        globalInfo.preloadCharacter2 = EditorGUILayout.Toggle("Player 2 Character & Moves", globalInfo.preloadCharacter2);
                         globalInfo.preloadStage = EditorGUILayout.Toggle("Stage", globalInfo.preloadStage);
                         globalInfo.warmAllShaders = EditorGUILayout.Toggle("Warm All Shaders", globalInfo.warmAllShaders);
 
@@ -1732,19 +2333,23 @@ public class GlobalEditorWindow : EditorWindow {
 					EditorGUILayout.BeginVertical(subGroupStyle);{
 						EditorGUILayout.Space();
 						EditorGUI.indentLevel += 1;
-						EditorGUIUtility.labelWidth = 180;
+						EditorGUIUtility.labelWidth = 220;
 
 						EditorGUILayout.Space();
-						UFE.fps = EditorGUILayout.IntField("Frames Per Second:", UFE.fps);
-						globalInfo.executionBufferType = (ExecutionBufferType)EditorGUILayout.EnumPopup("Execution Buffer Type:", globalInfo.executionBufferType, enumStyle);
+                        globalInfo.fps = EditorGUILayout.IntField("Frames Per Second:", globalInfo.fps);
+                        globalInfo.executionBufferType = (ExecutionBufferType)EditorGUILayout.EnumPopup("Execution Buffer Type:", globalInfo.executionBufferType, enumStyle);
 						EditorGUI.BeginDisabledGroup(globalInfo.executionBufferType == ExecutionBufferType.NoBuffer);{
 							globalInfo.executionBufferTime = EditorGUILayout.IntField("Execution Buffer (frames):", Mathf.Clamp(globalInfo.executionBufferTime, 1, int.MaxValue));
-						}EditorGUI.EndDisabledGroup();
-						globalInfo.plinkingDelay = EditorGUILayout.IntField("Plinking Delay (frames):", Mathf.Clamp(globalInfo.plinkingDelay, 1, int.MaxValue));
-						globalInfo._gameSpeed = EditorGUILayout.Slider("Game Speed:", (float)globalInfo._gameSpeed, .01f, 2);
+                        }
+                        EditorGUI.EndDisabledGroup();
+                        globalInfo.plinkingDelay = EditorGUILayout.IntField("Plinking Delay (frames):", Mathf.Clamp(globalInfo.plinkingDelay, 1, int.MaxValue));
+                        globalInfo._gameSpeed = EditorGUILayout.Slider("Game Speed:", (float)globalInfo._gameSpeed, .01f, 2);
 						globalInfo._gravity = EditorGUILayout.FloatField("Global Gravity:", (float)globalInfo._gravity);
                         globalInfo.detect3D_Hits = EditorGUILayout.Toggle("3D Hit Detection", globalInfo.detect3D_Hits);
+                        globalInfo.lockZAxis = EditorGUILayout.Toggle("Lock Z Axis", globalInfo.lockZAxis);
                         globalInfo.runInBackground = EditorGUILayout.Toggle("Run in Background", globalInfo.runInBackground);
+                        globalInfo.useFixedUpdateInputs = EditorGUILayout.Toggle("Use FixedUpdate for Inputs", globalInfo.useFixedUpdateInputs);
+						UFE.autoSaveAssets = EditorGUILayout.Toggle("Auto Save UFE Assets", UFE.autoSaveAssets);
 						
 						EditorGUIUtility.labelWidth = 150;
 						EditorGUI.indentLevel -= 1;
@@ -1753,166 +2358,176 @@ public class GlobalEditorWindow : EditorWindow {
 				}
 			}EditorGUILayout.EndVertical();
 
-
-            EditorGUI.BeginDisabledGroup(!UFE.isNetworkAddonInstalled);
-            //if (UFE.isNetworkAddonInstalled){
-				EditorGUILayout.BeginVertical(rootGroupStyle);{
-					EditorGUILayout.BeginHorizontal();{
-						networkOptions = EditorGUILayout.Foldout(networkOptions, "Network Options", foldStyle);
-						helpButton("global:network");
-					}EditorGUILayout.EndHorizontal();
-
-					if (networkOptions){
-                        EditorGUILayout.BeginVertical(subGroupStyle);
-                        {
-                            EditorGUILayout.Space();
-                            EditorGUI.indentLevel += 1;
-
-                            SubGroupTitle("Online Service");
-                            EditorGUIUtility.labelWidth = 200;
-                            globalInfo.networkOptions.networkService = (NetworkService)EditorGUILayout.EnumPopup("Network Service:", globalInfo.networkOptions.networkService, enumStyle);
-
-                            if (globalInfo.networkOptions.networkService == NetworkService.Photon) {
-                                if (UFE.isPhotonInstalled) {
-                                    globalInfo.networkOptions.photonHostingService = (PhotonHostingService)EditorGUILayout.EnumPopup("Photon Service:", globalInfo.networkOptions.photonHostingService);
-                                    /*globalInfo.networkOptions.photonApplicationId = EditorGUILayout.TextField("Photon Application ID:", globalInfo.networkOptions.photonApplicationId);
-                                    if (globalInfo.networkOptions.photonHostingService == PhotonHostingService.PlayFab) {
-                                        globalInfo.networkOptions.playFabTitleId = EditorGUILayout.TextField("PlayFab Title Id:", globalInfo.networkOptions.playFabTitleId);
-                                    }*/
-                                } else {
-                                    GUILayout.BeginHorizontal("GroupBox");
-                                    GUILayout.Label("Photon Unity Network Missing", "CN EntryWarn");
-                                    GUILayout.EndHorizontal();
-                                }
-                            }
-                            EditorGUILayout.Space();
-
-                            if (UFE.isBluetoothAddonInstalled) {
-                                EditorGUILayout.BeginVertical(subArrayElementStyle);{
-                                    EditorGUILayout.LabelField("Bluetooth installed.");
-                                } EditorGUILayout.EndVertical();
-                            }
-
-                            EditorGUILayout.Space();
-
-                            EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.networkService == NetworkService.Disabled);
-
-                            SubGroupTitle("LAN Games");
-                            EditorGUIUtility.labelWidth = 220;
-                            globalInfo.networkOptions.port = EditorGUILayout.IntField("Network Port:", globalInfo.networkOptions.port);
-                            globalInfo.networkOptions.lanDiscoveryPort = EditorGUILayout.IntField("LAN Discovery Port:", globalInfo.networkOptions.lanDiscoveryPort);
-                            globalInfo.networkOptions.lanDiscoveryBroadcastInterval = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Broadcast Interval", globalInfo.networkOptions.lanDiscoveryBroadcastInterval));
-                            globalInfo.networkOptions.lanDiscoverySearchInterval = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Search Interval", globalInfo.networkOptions.lanDiscoverySearchInterval));
-                            globalInfo.networkOptions.lanDiscoverySearchTimeout = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Search Timeout", globalInfo.networkOptions.lanDiscoverySearchTimeout));
-
-                            EditorGUILayout.Space();
-
-                            SubGroupTitle("Animation Control");
-                            EditorGUIUtility.labelWidth = 200;
-                            globalInfo.networkOptions.forceAnimationControl = EditorGUILayout.Toggle("Force UFE Animation Control", globalInfo.networkOptions.forceAnimationControl);
-                            globalInfo.networkOptions.disableRootMotion = EditorGUILayout.Toggle("Disable Root Motion", globalInfo.networkOptions.disableRootMotion);
-                            globalInfo.networkOptions.disableBlending = EditorGUILayout.Toggle("Disable Blending", globalInfo.networkOptions.disableBlending);
-                            globalInfo.networkOptions.disableRotationBlend = EditorGUILayout.Toggle("Disable Rotation Blend", globalInfo.networkOptions.disableRotationBlend);
-
-                            EditorGUILayout.Space();
-
-                            SubGroupTitle("Package Options");
-                            EditorGUIUtility.labelWidth = 200;
-                            globalInfo.networkOptions.networkMessageSize = (NetworkMessageSize)EditorGUILayout.EnumPopup("Network Message Size", globalInfo.networkOptions.networkMessageSize);
-                            globalInfo.networkOptions.inputMessageFrequency = (NetworkInputMessageFrequency)EditorGUILayout.EnumPopup("Send Input Message", globalInfo.networkOptions.inputMessageFrequency);
-                            globalInfo.networkOptions.onlySendInputChanges = EditorGUILayout.Toggle("Only Send Input Changes", globalInfo.networkOptions.onlySendInputChanges);
-
-                            EditorGUILayout.Space();
-
-                            SubGroupTitle("Rollback Netcode");
-                            EditorGUIUtility.labelWidth = 220;
-#if UFE_LITE || UFE_BASIC || UFE_STANDARD
-                            globalInfo.networkOptions.allowRollBacks = false;
-#else
-                            globalInfo.networkOptions.allowRollBacks = EditorGUILayout.Toggle("Enable Rollback", globalInfo.networkOptions.allowRollBacks);
+#if (UFE_LITE || UFE_BASIC)
+            EditorGUI.BeginDisabledGroup(true);{
 #endif
-                            EditorGUI.BeginDisabledGroup(!globalInfo.networkOptions.allowRollBacks);
-                            {
-                                globalInfo.networkOptions.ufeTrackers = EditorGUILayout.Toggle("Track UFE Variables: ", globalInfo.networkOptions.ufeTrackers);
-                                globalInfo.networkOptions.maxFastForwards = Mathf.Max(0, EditorGUILayout.IntField("Max Fast-Forwards Per Frame", globalInfo.networkOptions.maxFastForwards));
-                                globalInfo.networkOptions.maxBufferSize = EditorGUILayout.IntField("Input Buffer Size: ", globalInfo.networkOptions.maxBufferSize);
-                                globalInfo.networkOptions.spawnBuffer = Mathf.Max(1, EditorGUILayout.IntField("Spawn Buffer Size: ", globalInfo.networkOptions.spawnBuffer));
-                                globalInfo.networkOptions.rollbackBalancing = (NetworkRollbackBalancing)EditorGUILayout.EnumPopup("Rollback Balancing", globalInfo.networkOptions.rollbackBalancing);
+			EditorGUILayout.BeginVertical(rootGroupStyle);{
+				EditorGUILayout.BeginHorizontal();{
+					networkOptions = EditorGUILayout.Foldout(networkOptions, "Network Options", foldStyle);
+					helpButton("global:network");
+				}EditorGUILayout.EndHorizontal();
 
-                            } EditorGUI.EndDisabledGroup();
+				if (networkOptions){
+                    EditorGUILayout.BeginVertical(subGroupStyle);
+                    {
+                        EditorGUILayout.Space();
+                        EditorGUI.indentLevel += 1;
 
-                            EditorGUILayout.Space();
+                        SubGroupTitle("Online Service");
+                        EditorGUIUtility.labelWidth = 200;
+                        globalInfo.networkOptions.networkService = (NetworkService)EditorGUILayout.EnumPopup("Network Service:", globalInfo.networkOptions.networkService, enumStyle);
 
-                            SubGroupTitle("Frame Delay Netcode");
-                            EditorGUIUtility.labelWidth = 200;
-                            globalInfo.networkOptions.frameDelayType = (NetworkFrameDelay)EditorGUILayout.EnumPopup("Frame Delay Type", globalInfo.networkOptions.frameDelayType);
+                        if (globalInfo.networkOptions.networkService == NetworkService.Photon) {
+                            if (UFE.isPhotonInstalled) {
+                                globalInfo.networkOptions.photonHostingService = (PhotonHostingService)EditorGUILayout.EnumPopup("Photon Service:", globalInfo.networkOptions.photonHostingService);
+                                /*globalInfo.networkOptions.photonApplicationId = EditorGUILayout.TextField("Photon Application ID:", globalInfo.networkOptions.photonApplicationId);
+                                if (globalInfo.networkOptions.photonHostingService == PhotonHostingService.PlayFab) {
+                                    globalInfo.networkOptions.playFabTitleId = EditorGUILayout.TextField("PlayFab Title Id:", globalInfo.networkOptions.playFabTitleId);
+                                }*/
+                            } else {
+                                GUILayout.BeginHorizontal("GroupBox");
+                                GUILayout.Label("Photon Unity Network Missing", "CN EntryWarn");
+                                GUILayout.EndHorizontal();
+                            }
+                        } else if (globalInfo.networkOptions.networkService == NetworkService.Unity && !UFE.isUNetInstalled) {
+                            GUILayout.BeginHorizontal("GroupBox");
+                            GUILayout.Label("You need to extract the UNet libraries to use this option.", "CN EntryWarn");
+                            GUILayout.EndHorizontal();
+                        }
 
-                            EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.frameDelayType == NetworkFrameDelay.Disabled);
-                            {
-                                if (globalInfo.networkOptions.frameDelayType != NetworkFrameDelay.Auto) {
-                                    globalInfo.networkOptions.defaultFrameDelay = EditorGUILayout.IntSlider(
-                                        "Default Frame Delay: ",
-                                        globalInfo.networkOptions.defaultFrameDelay,
-                                        0,
-                                        60
-                                    );
-                                }
+                        EditorGUILayout.Space();
 
-                                if (globalInfo.networkOptions.frameDelayType != NetworkFrameDelay.Fixed) {
-                                    globalInfo.networkOptions.minFrameDelay = Mathf.Clamp(
-                                        EditorGUILayout.IntField("Min Frame Delay: ", globalInfo.networkOptions.minFrameDelay),
-                                        0,
-                                        globalInfo.networkOptions.maxFrameDelay
-                                    );
+                        if (UFE.isBluetoothAddonInstalled) {
+                            EditorGUILayout.BeginVertical(subArrayElementStyle);{
+                                EditorGUILayout.LabelField("Bluetooth installed.");
+                            } EditorGUILayout.EndVertical();
+                        }
 
-                                    globalInfo.networkOptions.maxFrameDelay = Mathf.Clamp(
-                                        EditorGUILayout.IntField("Max Frame Delay: ", globalInfo.networkOptions.maxFrameDelay),
-                                        globalInfo.networkOptions.minFrameDelay,
-                                        60
-                                    );
-                                }
+                        EditorGUILayout.Space();
 
-                                globalInfo.networkOptions.applyFrameDelayOffline = EditorGUILayout.Toggle("Apply Frame Delay Offline", globalInfo.networkOptions.applyFrameDelayOffline);
+                        EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.networkService == NetworkService.Disabled || (!UFE.isNetworkAddonInstalled && !UFE.isBluetoothAddonInstalled));
 
-                            } EditorGUI.EndDisabledGroup();
+                        SubGroupTitle("LAN Games");
+                        EditorGUIUtility.labelWidth = 220;
+                        globalInfo.networkOptions.port = EditorGUILayout.IntField("Network Port:", globalInfo.networkOptions.port);
+                        globalInfo.networkOptions.lanDiscoveryPort = EditorGUILayout.IntField("LAN Discovery Port:", globalInfo.networkOptions.lanDiscoveryPort);
+                        globalInfo.networkOptions.lanDiscoveryBroadcastInterval = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Broadcast Interval", globalInfo.networkOptions.lanDiscoveryBroadcastInterval));
+                        globalInfo.networkOptions.lanDiscoverySearchInterval = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Search Interval", globalInfo.networkOptions.lanDiscoverySearchInterval));
+                        globalInfo.networkOptions.lanDiscoverySearchTimeout = Mathf.Max(0f, EditorGUILayout.FloatField("LAN Discovery Search Timeout", globalInfo.networkOptions.lanDiscoverySearchTimeout));
 
-                            if (globalInfo.networkOptions.frameDelayType == NetworkFrameDelay.Disabled) {
-                                globalInfo.networkOptions.defaultFrameDelay = 0;
+                        EditorGUILayout.Space();
+
+                        SubGroupTitle("Animation Control");
+                        EditorGUIUtility.labelWidth = 200;
+                        globalInfo.networkOptions.forceAnimationControl = EditorGUILayout.Toggle("Force UFE Animation Control", globalInfo.networkOptions.forceAnimationControl);
+                        globalInfo.networkOptions.disableRootMotion = EditorGUILayout.Toggle("Disable Root Motion", globalInfo.networkOptions.disableRootMotion);
+                        globalInfo.networkOptions.disableBlending = EditorGUILayout.Toggle("Disable Blending", globalInfo.networkOptions.disableBlending);
+                        globalInfo.networkOptions.disableRotationBlend = EditorGUILayout.Toggle("Disable Rotation Blend", globalInfo.networkOptions.disableRotationBlend);
+
+                        EditorGUILayout.Space();
+
+                        SubGroupTitle("Package Options");
+                        EditorGUIUtility.labelWidth = 200;
+                        globalInfo.networkOptions.networkMessageSize = (NetworkMessageSize)EditorGUILayout.EnumPopup("Network Message Size", globalInfo.networkOptions.networkMessageSize);
+                        globalInfo.networkOptions.inputMessageFrequency = (NetworkInputMessageFrequency)EditorGUILayout.EnumPopup("Input Message Frequency", globalInfo.networkOptions.inputMessageFrequency);
+                        globalInfo.networkOptions.onlySendInputChanges = EditorGUILayout.Toggle("Only Send Input Changes", globalInfo.networkOptions.onlySendInputChanges);
+
+                        EditorGUILayout.Space();
+
+                        SubGroupTitle("Rollback Netcode");
+                        EditorGUIUtility.labelWidth = 220;
+#if UFE_LITE || UFE_BASIC || UFE_STANDARD
+                        globalInfo.networkOptions.allowRollBacks = false;
+#else
+                        globalInfo.networkOptions.allowRollBacks = EditorGUILayout.Toggle("Enable Rollback", globalInfo.networkOptions.allowRollBacks);
+#endif
+                        EditorGUI.BeginDisabledGroup(!globalInfo.networkOptions.allowRollBacks);
+                        {
+                            //globalInfo.networkOptions.ufeTrackers = EditorGUILayout.Toggle("Track UFE Variables: ", globalInfo.networkOptions.ufeTrackers);
+                            globalInfo.networkOptions.maxFastForwards = Mathf.Max(0, EditorGUILayout.IntField("Max Fast-Forwards Per Frame", globalInfo.networkOptions.maxFastForwards));
+                            globalInfo.networkOptions.maxBufferSize = EditorGUILayout.IntField("Input Buffer Size: ", globalInfo.networkOptions.maxBufferSize);
+                            globalInfo.networkOptions.spawnBuffer = Mathf.Max(1, EditorGUILayout.IntField("Spawn Buffer Size: ", globalInfo.networkOptions.spawnBuffer));
+                            globalInfo.networkOptions.rollbackBalancing = (NetworkRollbackBalancing)EditorGUILayout.EnumPopup("Rollback Balancing", globalInfo.networkOptions.rollbackBalancing);
+
+                        } EditorGUI.EndDisabledGroup();
+
+                        EditorGUILayout.Space();
+
+                        SubGroupTitle("Frame Delay Netcode");
+                        EditorGUIUtility.labelWidth = 200;
+                        globalInfo.networkOptions.frameDelayType = (NetworkFrameDelay)EditorGUILayout.EnumPopup("Frame Delay Type", globalInfo.networkOptions.frameDelayType);
+
+                        EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.frameDelayType == NetworkFrameDelay.Disabled);
+                        {
+                            if (globalInfo.networkOptions.frameDelayType != NetworkFrameDelay.Auto) {
+                                globalInfo.networkOptions.defaultFrameDelay = EditorGUILayout.IntSlider(
+                                    "Default Frame Delay: ",
+                                    globalInfo.networkOptions.defaultFrameDelay,
+                                    0,
+                                    60
+                                );
                             }
 
-                            EditorGUILayout.Space();
-                            
-                            /*
-                            SubGroupTitle("Sync Handling");
-                            EditorGUIUtility.labelWidth = 220;
+                            if (globalInfo.networkOptions.frameDelayType != NetworkFrameDelay.Fixed) {
+                                globalInfo.networkOptions.minFrameDelay = Mathf.Clamp(
+                                    EditorGUILayout.IntField("Min Frame Delay: ", globalInfo.networkOptions.minFrameDelay),
+                                    0,
+                                    globalInfo.networkOptions.maxFrameDelay
+                                );
 
-                            globalInfo.networkOptions.synchronizationMessageFrequency = (NetworkSynchronizationMessageFrequency)EditorGUILayout.EnumPopup("Send Synchronization Message", globalInfo.networkOptions.synchronizationMessageFrequency);
-                            EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.synchronizationMessageFrequency == NetworkSynchronizationMessageFrequency.Disabled);
-                            globalInfo.networkOptions.floatDesynchronizationThreshold = EditorGUILayout.Slider("Float Desync Threshold", globalInfo.networkOptions.floatDesynchronizationThreshold, 0f, 1f);
-                            globalInfo.networkOptions.desynchronizationRecovery = EditorGUILayout.Toggle("Try to Recover from Desync", globalInfo.networkOptions.desynchronizationRecovery);
-                            globalInfo.networkOptions.disconnectOnDesynchronization = EditorGUILayout.Toggle("Disconnect on Desync", globalInfo.networkOptions.disconnectOnDesynchronization);
-                            EditorGUI.BeginDisabledGroup(!globalInfo.networkOptions.disconnectOnDesynchronization);
-                            globalInfo.networkOptions.allowedDesynchronizations = Mathf.Max(0, EditorGUILayout.IntField("Max Allowed Desync", globalInfo.networkOptions.allowedDesynchronizations));
-                            EditorGUI.EndDisabledGroup();
-                            EditorGUI.EndDisabledGroup();
-                            */
+                                globalInfo.networkOptions.maxFrameDelay = Mathf.Clamp(
+                                    EditorGUILayout.IntField("Max Frame Delay: ", globalInfo.networkOptions.maxFrameDelay),
+                                    globalInfo.networkOptions.minFrameDelay,
+                                    60
+                                );
+                            }
+
+                            globalInfo.networkOptions.applyFrameDelayOffline = EditorGUILayout.Toggle("Apply Frame Delay Offline", globalInfo.networkOptions.applyFrameDelayOffline);
+
+                        } EditorGUI.EndDisabledGroup();
+
+                        if (globalInfo.networkOptions.frameDelayType == NetworkFrameDelay.Disabled) {
+                            globalInfo.networkOptions.defaultFrameDelay = 0;
+                        }
+
+                        EditorGUILayout.Space();
+                          
+
+                        SubGroupTitle("Synchronization Test");
+                        EditorGUIUtility.labelWidth = 200;
+
+						globalInfo.networkOptions.synchronizationAction = (NetworkSynchronizationAction)EditorGUILayout.EnumPopup("Desync Action", globalInfo.networkOptions.synchronizationAction);
+                        EditorGUI.BeginDisabledGroup(globalInfo.networkOptions.synchronizationAction == NetworkSynchronizationAction.Disconnect);
+                        {
+							globalInfo.networkOptions.floatDesynchronizationThreshold = EditorGUILayout.Slider("Float Desync Threshold", globalInfo.networkOptions.floatDesynchronizationThreshold, 0f, 1f);
+                            globalInfo.networkOptions.synchronizationMessageFrequency = (NetworkInputMessageFrequency)EditorGUILayout.EnumPopup("Sync Check Frequency", globalInfo.networkOptions.synchronizationMessageFrequency);
+                            globalInfo.networkOptions.logSyncMsg = EditorGUILayout.Toggle("Log Sync Messages (Console)", globalInfo.networkOptions.logSyncMsg);
+                            globalInfo.networkOptions.postRollbackRecording = EditorGUILayout.Toggle("Record Post-Rollback Frames", globalInfo.networkOptions.postRollbackRecording);
+
+                            globalInfo.networkOptions.generateVariableLog = EditorGUILayout.Toggle("Generate Variable Log", globalInfo.networkOptions.generateVariableLog);
+                            if (globalInfo.networkOptions.generateVariableLog)
+                                globalInfo.networkOptions.textFilePath = EditorGUILayout.TextField("Exported File Path: ", globalInfo.networkOptions.textFilePath);
+							
+							globalInfo.networkOptions.recordingBuffer = Mathf.Max(0, EditorGUILayout.IntField("Recording Buffer", globalInfo.networkOptions.recordingBuffer));
+                        }
+                        EditorGUI.EndDisabledGroup();
+
                         
-                            EditorGUI.EndDisabledGroup();
+                        EditorGUI.EndDisabledGroup();
 
-                            EditorGUIUtility.labelWidth = 150;
-                            EditorGUI.indentLevel -= 1;
-                            EditorGUILayout.Space();
-                        } EditorGUILayout.EndVertical();
-					}
-				}EditorGUILayout.EndVertical();
-			//}
-            EditorGUI.EndDisabledGroup();
+                        EditorGUIUtility.labelWidth = 150;
+                        EditorGUI.indentLevel -= 1;
+                        EditorGUILayout.Space();
+                    } EditorGUILayout.EndVertical();
+				}
+			}EditorGUILayout.EndVertical();
+#if (UFE_LITE || UFE_BASIC)
+            }EditorGUI.EndDisabledGroup();
+#endif
+		}EditorGUILayout.EndScrollView();
 
-			}
-        EditorGUILayout.EndScrollView();
-
-        if (SystemInfo.deviceUniqueIdentifier == "eb1bb2d8e99b3e170b1d91fc9b64348ff1bbc264" && 
-            (Application.dataPath.Contains("Unity Projects/UFE 2 PRO/") || Application.dataPath.Contains("Unity Projects/UFE 2/"))) {
+        if (SystemInfo.deviceUniqueIdentifier == "ed373fb0d6a1c8b58b0eaecbd02361cd1e2978c5" && 
+            (Application.dataPath.Contains("Unity Projects/UFE2PRO/") || Application.dataPath.Contains("Unity Projects/UFE2/"))) {
 
             pName = EditorGUILayout.TextField("Package Name:", pName);
 
@@ -1929,10 +2544,11 @@ public class GlobalEditorWindow : EditorWindow {
             }
 		}
 
-		if (GUI.changed) {
+        if (GUI.changed) {
 			Undo.RecordObject(globalInfo, "Global Editor Modify");
-			EditorUtility.SetDirty(globalInfo);
-		}
+            EditorUtility.SetDirty(globalInfo);
+            if (UFE.autoSaveAssets) AssetDatabase.SaveAssets();
+        }
 	}
 
 
@@ -2147,6 +2763,7 @@ public class GlobalEditorWindow : EditorWindow {
                 debugInfo.currentMove = EditorGUILayout.Toggle("Move Info", debugInfo.currentMove);
                 debugInfo.position = EditorGUILayout.Toggle("Position", debugInfo.position);
                 debugInfo.lifePoints = EditorGUILayout.Toggle("Life Points", debugInfo.lifePoints);
+                debugInfo.gaugePoints = EditorGUILayout.Toggle("Gauge Points", debugInfo.gaugePoints);
                 debugInfo.currentState = EditorGUILayout.Toggle("State", debugInfo.currentState);
                 debugInfo.currentSubState = EditorGUILayout.Toggle("SubState", debugInfo.currentSubState);
                 debugInfo.stunTime = EditorGUILayout.Toggle("Stun Time", debugInfo.stunTime);
@@ -2556,26 +3173,59 @@ public class GlobalEditorWindow : EditorWindow {
 					if (inputReferences[i].engineRelatedButton != ButtonPress.Start){
 						string label1 = null;
 						string label2 = null;
-						if (inputReferences[i].inputType == InputType.Button){
+						string label3 = null;
+						string label4 = null;
+                        string label5 = null;
+                        string label6 = null;
+                        if (inputReferences[i].inputType == InputType.Button){
 							label1 = "Button Icon:";
-						}else if (inputReferences[i].inputType == InputType.HorizontalAxis){
+						}
+                        else if (inputReferences[i].inputType == InputType.HorizontalAxis){
 							label1 = "Axis Right Icon:";
 							label2 = "Axis Left Icon:";
-						}else if (inputReferences[i].inputType == InputType.VerticalAxis){
+							label3 = "Axis Up-Right Icon:";
+							label4 = "Axis Up-Left Icon:";
+                            label5 = "Axis Down-Right Icon:";
+                            label6 = "Axis Down-Left Icon:";
+                        }
+                        else if (inputReferences[i].inputType == InputType.VerticalAxis){
 							label1 = "Axis Up Icon:";
 							label2 = "Axis Down Icon:";
-						}
+                        }
 
 						EditorGUILayout.BeginHorizontal();{
 							EditorGUILayout.LabelField(label1, GUILayout.Width(160));
 							inputReferences[i].inputViewerIcon1 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon1, typeof(Texture2D), true);
-							inputReferences[i].activeIcon = inputReferences[i].inputViewerIcon1;
 						}EditorGUILayout.EndHorizontal();
 
 						if (label2 != null){
 							EditorGUILayout.BeginHorizontal();{
 								EditorGUILayout.LabelField(label2, GUILayout.Width(160));
 								inputReferences[i].inputViewerIcon2 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon2, typeof(Texture2D), true);
+							}EditorGUILayout.EndHorizontal();
+						}
+						if (label3 != null){
+							EditorGUILayout.BeginHorizontal();{
+								EditorGUILayout.LabelField(label3, GUILayout.Width(160));
+								inputReferences[i].inputViewerIcon3 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon3, typeof(Texture2D), true);
+							}EditorGUILayout.EndHorizontal();
+						}
+						if (label4 != null){
+							EditorGUILayout.BeginHorizontal();{
+								EditorGUILayout.LabelField(label4, GUILayout.Width(160));
+								inputReferences[i].inputViewerIcon4 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon4, typeof(Texture2D), true);
+							}EditorGUILayout.EndHorizontal();
+						}
+						if (label5 != null){
+							EditorGUILayout.BeginHorizontal();{
+								EditorGUILayout.LabelField(label5, GUILayout.Width(160));
+								inputReferences[i].inputViewerIcon5 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon5, typeof(Texture2D), true);
+							}EditorGUILayout.EndHorizontal();
+						}
+						if (label6 != null){
+							EditorGUILayout.BeginHorizontal();{
+								EditorGUILayout.LabelField(label6, GUILayout.Width(160));
+								inputReferences[i].inputViewerIcon6 = (Texture2D)EditorGUILayout.ObjectField(inputReferences[i].inputViewerIcon6, typeof(Texture2D), true);
 							}EditorGUILayout.EndHorizontal();
 						}
 					}
@@ -2655,8 +3305,11 @@ public class GlobalEditorWindow : EditorWindow {
 			}EditorGUI.EndDisabledGroup();
 		}EditorGUILayout.EndHorizontal();
 	}
-
+	
 	private void SubGroupTitle(string _name){
+		Texture2D originalBackground = GUI.skin.box.normal.background;
+		GUI.skin.box.normal.background = Texture2D.grayTexture;
+
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
@@ -2664,6 +3317,8 @@ public class GlobalEditorWindow : EditorWindow {
 		GUILayout.FlexibleSpace();
 		EditorGUILayout.EndHorizontal();
 		GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+
+		GUI.skin.box.normal.background = originalBackground;
 	}
 
 	public void CInputPreferences(){
@@ -2829,7 +3484,7 @@ public class GlobalEditorWindow : EditorWindow {
 		if (CloneObject.objCopy == null) return elements;
 		List<T> elementsList = new List<T>(elements);
 		elementsList.Insert(elementsList.IndexOf(element) + 1, (T)CloneObject.objCopy);
-		CloneObject.objCopy = null;
+		//CloneObject.objCopy = null;
 		return elementsList.ToArray();
 	}
 	
