@@ -2203,11 +2203,13 @@ public class UFE : MonoBehaviour, UFEInterface
 
         UFE.graphicRaycaster = go.AddComponent<GraphicRaycaster>();
 
+        //todo disable if want to use mouse pointer
         UFE.standaloneInputModule = go.AddComponent<StandaloneInputModule>();
         UFE.standaloneInputModule.verticalAxis = "Mouse Wheel";
         UFE.standaloneInputModule.horizontalAxis = "Mouse Wheel";
         UFE.standaloneInputModule.forceModuleActive = true;
-
+		//
+		
         if (UFE.config.gameGUI.useCanvasScaler) {
             CanvasScaler cs = go.AddComponent<CanvasScaler>();
             cs.defaultSpriteDPI = UFE.config.gameGUI.canvasScaler.defaultSpriteDPI;
@@ -2389,16 +2391,17 @@ public class UFE : MonoBehaviour, UFEInterface
     protected void Start()
     {
 		// Check for active EventSystem and spawn one if there are none
-		if (EventSystem.current != null)
-		{
-			UFE.eventSystem = EventSystem.current;
-		}
-		else
-		{
-			UFE.eventSystem = FindObjectOfType<EventSystem>();
-			if (UFE.eventSystem == null)
-				UFE.eventSystem = gameObject.AddComponent<EventSystem>();
-		}
+		 if (EventSystem.current != null)
+		 {
+			 Debug.Log("Event system");
+		 	UFE.eventSystem = FindObjectOfType<EventSystem>();
+		 }
+		 else
+		 {
+		 	UFE.eventSystem = FindObjectOfType<EventSystem>();
+		 	if (UFE.eventSystem == null)
+		 		UFE.eventSystem = gameObject.AddComponent<EventSystem>();
+		 }
 
 		// Load the intro screen or the combat, depending on the UFE Config settings
 		if (UFE.config.deploymentOptions.deploymentType != DeploymentType.FullInterface){

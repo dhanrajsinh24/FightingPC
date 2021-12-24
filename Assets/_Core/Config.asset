@@ -39,7 +39,7 @@ MonoBehaviour:
       z:
         _serializedValue: 0
   gameName: BlokkBots
-  gameplayType: 1
+  gameplayType: 0
   selectedLanguage:
     languageName: English
     start: Start
@@ -134,19 +134,51 @@ MonoBehaviour:
       - maxFights: 3
         mode: 1
         name: Random Fights
-        opponents: []
+        opponents:
+        - conversationBeforeBattle: {fileID: 11400004, guid: 40c65adfe829a4a59bf7fc39d9560079,
+            type: 3}
+          conversationAfterBattle: {fileID: 11400004, guid: bb6bf06c538904fd8bce94fe3390c7e4,
+            type: 3}
+          opponentCharacterIndex: 0
+          possibleStagesIndexes: 00000000
+        - conversationBeforeBattle: {fileID: 11400004, guid: 40c65adfe829a4a59bf7fc39d9560079,
+            type: 3}
+          conversationAfterBattle: {fileID: 11400004, guid: bb6bf06c538904fd8bce94fe3390c7e4,
+            type: 3}
+          opponentCharacterIndex: 1
+          possibleStagesIndexes: 01000000
+        - conversationBeforeBattle: {fileID: 11400004, guid: 40c65adfe829a4a59bf7fc39d9560079,
+            type: 3}
+          conversationAfterBattle: {fileID: 11400004, guid: bb6bf06c538904fd8bce94fe3390c7e4,
+            type: 3}
+          opponentCharacterIndex: 2
+          possibleStagesIndexes: 02000000
         showOpponentsInEditor: 1
       - maxFights: 4
         mode: 2
         name: Boss Fight
-        opponents: []
+        opponents:
+        - conversationBeforeBattle: {fileID: 11400004, guid: 40c65adfe829a4a59bf7fc39d9560079,
+            type: 3}
+          conversationAfterBattle: {fileID: 11400004, guid: bb6bf06c538904fd8bce94fe3390c7e4,
+            type: 3}
+          opponentCharacterIndex: 3
+          possibleStagesIndexes: 000000000100000002000000
         showOpponentsInEditor: 1
-      showStoryInEditor: 0
-    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
-    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
+      showStoryInEditor: 1
+    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
+    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
     characterStories:
-      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
+      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
       _values:
+      - opening: {fileID: 0}
+        ending: {fileID: 0}
+        fightsGroups: []
+        showStoryInEditor: 0
+      - opening: {fileID: 0}
+        ending: {fileID: 0}
+        fightsGroups: []
+        showStoryInEditor: 0
       - opening: {fileID: 0}
         ending: {fileID: 0}
         fightsGroups: []
@@ -269,7 +301,7 @@ MonoBehaviour:
     height3d: 8
     enableZoom: 1
     followCharacters: 1
-    initialFieldOfView: 20
+    initialFieldOfView: 23
     verticalPriority: 0
     verticalThreshold: 0
     movementSpeed: 12
@@ -822,9 +854,9 @@ MonoBehaviour:
       editorToggle: 0
   player1_Inputs:
   - inputType: 0
-    inputButtonName: P1KeyboardHorizontal
+    inputButtonName: Horizontal
     engineRelatedButton: 0
-    joystickAxisName: P1JoystickHorizontal
+    joystickAxisName: Horizontal
     cInputPositiveKeyName: P1Right
     cInputPositiveDefaultKey: D
     cInputPositiveAlternativeKey: Joy1 Axis 1+
@@ -838,9 +870,9 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 1
-    inputButtonName: P1KeyboardVertical
+    inputButtonName: Vertical
     engineRelatedButton: 2
-    joystickAxisName: P1JoystickVertical
+    joystickAxisName: Vertical
     cInputPositiveKeyName: P1Up
     cInputPositiveDefaultKey: W
     cInputPositiveAlternativeKey: Joy1 Axis 2+
@@ -854,7 +886,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button1
+    inputButtonName: Button1
     engineRelatedButton: 4
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -870,7 +902,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button2
+    inputButtonName: Button2
     engineRelatedButton: 5
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -886,7 +918,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button3
+    inputButtonName: Button3
     engineRelatedButton: 6
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -902,7 +934,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button4
+    inputButtonName: Button4
     engineRelatedButton: 7
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -918,7 +950,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button5
+    inputButtonName: Button5
     engineRelatedButton: 8
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -934,7 +966,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Button6
+    inputButtonName: Button6
     engineRelatedButton: 9
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -950,7 +982,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P1Start
+    inputButtonName: Start
     engineRelatedButton: 20
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -967,9 +999,9 @@ MonoBehaviour:
     inputViewerIcon6: {fileID: 0}
   player2_Inputs:
   - inputType: 0
-    inputButtonName: P2KeyboardHorizontal
+    inputButtonName: Horizontal
     engineRelatedButton: 0
-    joystickAxisName: P2JoystickHorizontal
+    joystickAxisName: Horizontal
     cInputPositiveKeyName: P2Right
     cInputPositiveDefaultKey: RightArrow
     cInputPositiveAlternativeKey: Joy2 Axis 1+
@@ -983,9 +1015,9 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 1
-    inputButtonName: P2KeyboardVertical
-    engineRelatedButton: 2
-    joystickAxisName: P2JoystickVertical
+    inputButtonName: Vertical
+    engineRelatedButton: 3
+    joystickAxisName: Vertical
     cInputPositiveKeyName: P2Up
     cInputPositiveDefaultKey: UpArrow
     cInputPositiveAlternativeKey: Joy2 Axis 2+
@@ -999,7 +1031,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button1
+    inputButtonName: Button1
     engineRelatedButton: 4
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1015,7 +1047,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button2
+    inputButtonName: Button2
     engineRelatedButton: 5
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1031,7 +1063,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button3
+    inputButtonName: Button3
     engineRelatedButton: 6
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1047,7 +1079,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button4
+    inputButtonName: Button4
     engineRelatedButton: 7
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1063,7 +1095,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button5
+    inputButtonName: Button5
     engineRelatedButton: 8
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1079,7 +1111,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Button6
+    inputButtonName: Button6
     engineRelatedButton: 9
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1095,7 +1127,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   - inputType: 2
-    inputButtonName: P2Start
+    inputButtonName: Start
     engineRelatedButton: 20
     joystickAxisName: 
     cInputPositiveKeyName: 
@@ -1111,7 +1143,7 @@ MonoBehaviour:
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
   inputOptions:
-    inputManagerType: 0
+    inputManagerType: 3
     cInputAllowDuplicates: 0
     cInputGravity: 3
     cInputSensitivity: 3
@@ -1121,8 +1153,8 @@ MonoBehaviour:
     controlFreak2Prefab: {fileID: 0}
     controlFreakDeadZone: 0.5
     forceDigitalInput: 1
-    confirmButton: 4
-    cancelButton: 7
+    confirmButton: 7
+    cancelButton: 4
   stages:
   - stageName: Green Stage
     stageLoadingMethod: 0
@@ -1164,6 +1196,25 @@ MonoBehaviour:
         _serializedValue: 0
       z:
         _serializedValue: 0
+  - stageName: Hell Arena
+    stageLoadingMethod: 0
+    stagePath: 
+    screenshot: {fileID: 2800000, guid: 24fd7695bbbde43a9ab8581f1e25be47, type: 3}
+    prefab: {fileID: 321428727001828403, guid: b1f3f8763680049d6802d5ec3ab1ce3e, type: 3}
+    music: {fileID: 8300000, guid: 641189ac87f861f41bfd4a406b0d3294, type: 3}
+    _groundFriction:
+      _serializedValue: 429496729600
+    _leftBoundary:
+      _serializedValue: -85899345920
+    _rightBoundary:
+      _serializedValue: 85899345920
+    position:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 0
+      z:
+        _serializedValue: 0
   characters:
   - {fileID: 11400000, guid: 3d3e84e1b98db4a1f920d6345f662b6d, type: 2}
   - {fileID: 11400000, guid: c34fea5a998254e579065a4996337eee, type: 2}
@@ -1180,16 +1231,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9b6a5d3b10ea491dad31bf99f2a84bf, type: 2}
   - {fileID: 11400000, guid: 828865cfdc5b5452085b3b1b68eb6ff7, type: 2}
   - {fileID: 11400000, guid: af0fa7ef6579a4cab866ae8cc164c899, type: 2}
+  - {fileID: 11400000, guid: e7738ee488ed4450db0a63869f8e514e, type: 2}
+  - {fileID: 11400000, guid: 59fd0a80acccd4e6d8ee2f7502525d45, type: 2}
   teamModes: []
   debugOptions:
     debugMode: 0
     emulateNetwork: 0
     trainingModeDebugger: 0
     preloadedObjects: 0
-    inputsToggle: 1
+    inputsToggle: 0
     networkToggle: 0
-    recordToggle: 1
-    hitboxColorsToggle: 1
+    recordToggle: 0
+    hitboxColorsToggle: 0
     connectionLog: 1
     ping: 1
     frameDelay: 1
@@ -1243,9 +1296,21 @@ MonoBehaviour:
     p2Life: 0
     p2Gauge: 2
     refillTime: 3
-  challengeModeOptions: []
+  challengeModeOptions:
+  - challengeName: Challenge 1
+    description: 
+    character: {fileID: 11400000, guid: 7b13ae371ccba405683c2ed3f86f2b16, type: 2}
+    opCharacter: {fileID: 11400000, guid: 134b0fec85a1047368b4bc156694503e, type: 2}
+    ai: {fileID: 0}
+    isCombo: 0
+    aiOpponent: 0
+    resetData: 0
+    repeats: 1
+    challengeSequence: 0
+    actionListToggle: 0
+    actionSequence: []
   aiOptions:
-    engine: 0
+    engine: 1
     attackWhenEnemyIsDown: 0
     moveWhenEnemyIsDown: 1
     inputFrequency: 0
@@ -1277,7 +1342,7 @@ MonoBehaviour:
       attackProbability: 0
     multiCoreSupport: 1
     persistentBehavior: 0
-    difficultyToggle: 0
+    difficultyToggle: 1
     difficultySettings:
     - difficultyLevel: 0
       overrideTimeBetweenDecisions: 1
@@ -1413,10 +1478,10 @@ MonoBehaviour:
     inputMessageFrequency: 0
     synchronizationMessageFrequency: 0
     synchronizationAction: 1
-  music: 1
+  music: 0
   musicVolume: 1
-  soundfx: 1
-  soundfxVolume: 1
+  soundfx: 0
+  soundfxVolume: 0.13799472
   colorStateOne: {r: 1, g: 0, b: 0, a: 1}
   colorIsHit: {r: 1, g: 0, b: 1, a: 1}
   colorBodyCollider: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

@@ -1285,9 +1285,9 @@ MonoBehaviour:
       _serializedValue: 4294967296
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:
@@ -1363,9 +1363,9 @@ MonoBehaviour:
       _serializedValue: 4294967296
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:
@@ -1441,9 +1441,9 @@ MonoBehaviour:
       _serializedValue: 4294967296
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:
@@ -1519,9 +1519,9 @@ MonoBehaviour:
       _serializedValue: 4294967296
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:
@@ -1597,9 +1597,9 @@ MonoBehaviour:
       _serializedValue: 4294967296
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:
@@ -1672,12 +1672,12 @@ MonoBehaviour:
       yMax:
         _serializedValue: 17179869184
     _radius:
-      _serializedValue: 4294967296
+      _serializedValue: 5068061184
     _offSet:
       x:
-        _serializedValue: 0
+        _serializedValue: 5798205952
       y:
-        _serializedValue: 0
+        _serializedValue: 1503238528
       z:
         _serializedValue: 0
   - rect:

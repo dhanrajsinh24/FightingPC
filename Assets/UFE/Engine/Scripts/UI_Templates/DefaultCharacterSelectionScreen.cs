@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using FPLibrary;
@@ -339,33 +340,63 @@ public class DefaultCharacterSelectionScreen : CharacterSelectionScreen {
 				// Then, update the cursor position
 				if (this.hudPlayer1 != null){
 					RectTransform rt = this.hudPlayer1.transform as RectTransform;
-					if (rt != null){
-						rt.anchoredPosition = this.characters[this.p1HoverIndex].rectTransform.anchoredPosition;
-					}else{
+					//if (rt != null){
+						//rt.anchoredPosition = this.characters[this.p1HoverIndex].rectTransform.anchoredPosition;
+					//}else{
 						this.hudPlayer1.transform.position = this.characters[this.p1HoverIndex].transform.position;
-					}
+					//}
 				}
 
 				if (this.hudPlayer2 != null){
 					RectTransform rt = this.hudPlayer2.transform as RectTransform;
-					if (rt != null){
-						rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
-					}else{
+					//if (rt != null){
+					//	rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
+					//}else{
 						this.hudPlayer2.transform.position = this.characters[this.p2HoverIndex].transform.position;
-					}
+					//}
 				}
 
 				if (this.hudBothPlayers != null){
 					RectTransform rt = this.hudBothPlayers.transform as RectTransform;
-					if (rt != null){
-						rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
-					}else{
+					//if (rt != null){
+					//	rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
+					//}else{
 						this.hudBothPlayers.transform.position = this.characters[this.p2HoverIndex].transform.position;
-					}
+					//}
 				}
 			}
 
 			this.UpdateHud();
+		}
+	}
+
+	private void Update()
+	{
+		if (this.hudPlayer1 != null){
+			RectTransform rt = this.hudPlayer1.transform as RectTransform;
+			//if (rt != null){
+			//rt.anchoredPosition = this.characters[this.p1HoverIndex].rectTransform.anchoredPosition;
+			//}else{
+			this.hudPlayer1.transform.position = this.characters[this.p1HoverIndex].transform.position;
+			//}
+		}
+
+		if (this.hudPlayer2 != null){
+			RectTransform rt = this.hudPlayer2.transform as RectTransform;
+			//if (rt != null){
+			//	rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
+			//}else{
+			this.hudPlayer2.transform.position = this.characters[this.p2HoverIndex].transform.position;
+			//}
+		}
+
+		if (this.hudBothPlayers != null){
+			RectTransform rt = this.hudBothPlayers.transform as RectTransform;
+			//if (rt != null){
+			//	rt.anchoredPosition = this.characters[this.p2HoverIndex].rectTransform.anchoredPosition;
+			//}else{
+			this.hudBothPlayers.transform.position = this.characters[this.p2HoverIndex].transform.position;
+			//}
 		}
 	}
 
