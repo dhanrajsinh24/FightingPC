@@ -2838,6 +2838,84 @@ MonoBehaviour:
         _serializedValue: 0
       z:
         _serializedValue: 0
+  - rect:
+      serializedVersion: 2
+      x: -1.15
+      y: -2.68
+      width: 3
+      height: 9
+    defaultVisibility: 1
+    followXBounds: 0
+    followYBounds: 0
+    position: {fileID: 969281666069215382}
+    bodyPart: 16
+    mappedPosition:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 0
+      z:
+        _serializedValue: 0
+    localPosition:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 0
+      z:
+        _serializedValue: 0
+    shape: 1
+    collisionType: 3
+    type: 0
+    _rect:
+      _x:
+        _serializedValue: -4939212288
+      _y:
+        _serializedValue: -11510512640
+      topRight:
+        x:
+          _serializedValue: 7945689600
+        y:
+          _serializedValue: -11510512640
+        z:
+          _serializedValue: 0
+      topLeft:
+        x:
+          _serializedValue: -4939212288
+        y:
+          _serializedValue: -11510512640
+        z:
+          _serializedValue: 0
+      bottomRight:
+        x:
+          _serializedValue: 7945689600
+        y:
+          _serializedValue: 27144192000
+        z:
+          _serializedValue: 0
+      bottomLeft:
+        x:
+          _serializedValue: -4939212288
+        y:
+          _serializedValue: 27144192000
+        z:
+          _serializedValue: 0
+      width:
+        _serializedValue: 12884901888
+      height:
+        _serializedValue: 38654705664
+      xMax:
+        _serializedValue: 7945689600
+      yMax:
+        _serializedValue: 27144192000
+    _radius:
+      _serializedValue: 2147483648
+    _offSet:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 0
+      z:
+        _serializedValue: 0
   activeHurtBoxes: []
   blockableArea:
     enabled: 1

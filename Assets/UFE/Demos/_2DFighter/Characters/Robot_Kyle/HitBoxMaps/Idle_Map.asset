@@ -34,7 +34,7 @@ MonoBehaviour:
         _serializedValue: 17437566976
       radius:
         _serializedValue: 2147483648
-      range: 13
+      range: 9
     - active: 1
       position:
         x:
@@ -155,7 +155,7 @@ MonoBehaviour:
       radius:
         _serializedValue: 2147483648
       range: 0
-    - active: 1
+    - active: 0
       position:
         x:
           _serializedValue: -515396064
@@ -170,7 +170,7 @@ MonoBehaviour:
       radius:
         _serializedValue: 2147483648
       range: 0
-    - active: 1
+    - active: 0
       position:
         x:
           _serializedValue: -515396064
@@ -185,7 +185,7 @@ MonoBehaviour:
       radius:
         _serializedValue: 2147483648
       range: 0
-    - active: 1
+    - active: 0
       position:
         x:
           _serializedValue: -515396064
@@ -200,7 +200,7 @@ MonoBehaviour:
       radius:
         _serializedValue: 2147483648
       range: 0
-    - active: 1
+    - active: 0
       position:
         x:
           _serializedValue: -515396064
