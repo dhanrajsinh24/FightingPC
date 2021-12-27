@@ -352,3 +352,705 @@ Received Import Request.
 Start importing Assets/_Core/StageFiles/BattleBot_Arena/Textures/TexturesCom_Fabric_SciFi2_512_albedo.tif using Guid(8f9838d6418a7134eaa6243ef4052279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb046612892dd19ca8a508af0b912a3') in 0.009297 seconds 
   Import took 0.014796 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 388.322839 seconds.
+  path: Assets/_Core/Prefabs/Arena/Green_Stage.prefab
+  artifactKey: Guid(cba3299f8fbf248bda848b98c0d110bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/Prefabs/Arena/Green_Stage.prefab using Guid(cba3299f8fbf248bda848b98c0d110bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6b063af359c808cd1248f4404f62e66') in 0.033948 seconds 
+  Import took 0.040862 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.433143 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Prefabs/particle_ring01_24pl.fbx
+  artifactKey: Guid(50fdc7757465fc34db1758b224461cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Prefabs/particle_ring01_24pl.fbx using Guid(50fdc7757465fc34db1758b224461cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae0f334eb8b82f1506f3a9444d62712b') in 0.470454 seconds 
+  Import took 0.477130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.529119 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Crumple.prefab
+  artifactKey: Guid(e78df5c3545b7324991134d6f0eb6528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Crumple.prefab using Guid(e78df5c3545b7324991134d6f0eb6528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1725ca62431f32850a927177ae65ce82') in 0.031875 seconds 
+  Import took 0.038619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001587 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Crumple.prefab
+  artifactKey: Guid(e78df5c3545b7324991134d6f0eb6528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Crumple.prefab using Guid(e78df5c3545b7324991134d6f0eb6528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1725ca62431f32850a927177ae65ce82') in 0.022316 seconds 
+  Import took 0.028676 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.909023 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Fireball2.prefab
+  artifactKey: Guid(e0629515d33ba6e4e9b138227446813f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Fireball2.prefab using Guid(e0629515d33ba6e4e9b138227446813f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76720b8691b29d1be59869e06e57f74f') in 0.021325 seconds 
+  Import took 0.027845 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.102567 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Materials/LightningSub.mat
+  artifactKey: Guid(d3fc846de7b07fd48ac0db9909578147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Materials/LightningSub.mat using Guid(d3fc846de7b07fd48ac0db9909578147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5701e4e9ad03a31dbb564db5794cad3a') in 0.144398 seconds 
+  Import took 0.150312 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.086504 seconds.
+  path: Assets/_Core/StageFiles/BattleBot_Arena/Scenes
+  artifactKey: Guid(30b4ffc11f7870f44a2cb625cdf3e25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/StageFiles/BattleBot_Arena/Scenes using Guid(30b4ffc11f7870f44a2cb625cdf3e25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '950d7cb0231173845491652db1a03b36') in 0.001948 seconds 
+  Import took 0.008457 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007984 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+27-12-2021 12:25:41|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.337 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1338ms)
+		BeginReloadAssembly (140ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (62ms)
+		EndReloadAssembly (1137ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (390ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (65ms)
+			SetupLoadedEditorAssemblies (298ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (193ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 330.3 MB.
+System memory in use after: 330.5 MB.
+
+Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3792.
+Total: 2.119765 ms (FindLiveObjects: 0.298071 ms CreateObjectMapping: 0.153778 ms MarkObjects: 1.604481 ms  DeleteObjects: 0.062666 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003588 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+27-12-2021 12:25:45|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.058 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1058ms)
+		BeginReloadAssembly (99ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (899ms)
+			LoadAssemblies (79ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (336ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (275ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (176ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 331.6 MB.
+System memory in use after: 331.8 MB.
+
+Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3795.
+Total: 2.415252 ms (FindLiveObjects: 0.317221 ms CreateObjectMapping: 0.169802 ms MarkObjects: 1.832028 ms  DeleteObjects: 0.095499 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 468.515402 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/FireBallHeavy.asset
+  artifactKey: Guid(135d7c4030a0c42a4a3857b606007425) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/FireBallHeavy.asset using Guid(135d7c4030a0c42a4a3857b606007425) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3824517c8f82c7a6f89d50791e9bce53') in 0.203492 seconds 
+  Import took 0.211042 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.562483 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/FireBallLight.asset
+  artifactKey: Guid(e5c5486a721324d3c807c1003e810504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/FireBallLight.asset using Guid(e5c5486a721324d3c807c1003e810504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1176d99291d595fcba2ce27926fcc485') in 0.016882 seconds 
+  Import took 0.023843 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.955913 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Cancel.asset
+  artifactKey: Guid(323c6b97238aecf4183ea690a681635a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Cancel.asset using Guid(323c6b97238aecf4183ea690a681635a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d7cab8f9ea304f28609f3e8d1bd2afc') in 0.262122 seconds 
+  Import took 0.268970 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.008699 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Crouch_N1.asset
+  artifactKey: Guid(c1dd6bea0e7837841aeed5a5595ea7d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Crouch_N1.asset using Guid(c1dd6bea0e7837841aeed5a5595ea7d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76f9f4de72d02212b0030a3402db992b') in 0.180827 seconds 
+  Import took 0.185981 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.435576 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Medium.asset
+  artifactKey: Guid(f178f5162818cb7468ec0586fcc70e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Medium.asset using Guid(f178f5162818cb7468ec0586fcc70e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be43ea2e374fa6fc91348bfe07e57b40') in 0.260821 seconds 
+  Import took 0.267149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.232190 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Start.asset
+  artifactKey: Guid(afaa09e1dbb5b294eaf784105d66e5e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Focus Start.asset using Guid(afaa09e1dbb5b294eaf784105d66e5e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66d490ca76e97cd5101f9075ea02dc88') in 0.263018 seconds 
+  Import took 0.269900 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.187789 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/HouyokuSen.asset
+  artifactKey: Guid(d8c6f26a92c1051468eb9f2e5e54fb1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/HouyokuSen.asset using Guid(d8c6f26a92c1051468eb9f2e5e54fb1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '202667e63be4d7e98956231b792ce618') in 0.017029 seconds 
+  Import took 0.023777 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.018577 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickStandingHeavy.asset
+  artifactKey: Guid(304fc07e190e22248901f8df3867899e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickStandingHeavy.asset using Guid(304fc07e190e22248901f8df3867899e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3c07df911f4c9ad32221cc555667e7d') in 0.258326 seconds 
+  Import took 0.264808 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.289110 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/PunchJumpingHeavy.asset
+  artifactKey: Guid(50091ccf7790fc041b1348f8f47f9056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/PunchJumpingHeavy.asset using Guid(50091ccf7790fc041b1348f8f47f9056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6a9e875fbba082e866ca202052257f2') in 0.010630 seconds 
+  Import took 0.016837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.029152 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_DF1DF1.asset
+  artifactKey: Guid(d4bd5e580de9ab840aae07e0b7f055a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_DF1DF1.asset using Guid(d4bd5e580de9ab840aae07e0b7f055a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89ca7bdd0e8e87bfdf8be326ca22bb62') in 0.126006 seconds 
+  Import took 0.131988 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.532918 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_FDF3.asset
+  artifactKey: Guid(069844d353e0db9498fc08cfd2a8fad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_FDF3.asset using Guid(069844d353e0db9498fc08cfd2a8fad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7676ad2b85ca13d9b0512bf0e90a81f') in 0.020596 seconds 
+  Import took 0.026865 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.900847 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_N22.asset
+  artifactKey: Guid(eb94b041344f1f742b76d44a04b3893e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_N22.asset using Guid(eb94b041344f1f742b76d44a04b3893e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fb43287f94fb8fb7b24b8f243f573c') in 0.157437 seconds 
+  Import took 0.163362 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004081 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+27-12-2021 12:32:45|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.013 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1013ms)
+		BeginReloadAssembly (107ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (844ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (316ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (252ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (163ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 337.0 MB.
+System memory in use after: 337.2 MB.
+
+Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3798.
+Total: 2.427889 ms (FindLiveObjects: 0.309596 ms CreateObjectMapping: 0.153643 ms MarkObjects: 1.890656 ms  DeleteObjects: 0.073216 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 126.364698 seconds.
+  path: Assets/Frank_Fighting_Set3/Asset/Animations/Grapple/Frank_FS3@Grapple_Fail.FBX
+  artifactKey: Guid(0c0fafdb02465fc45bff666bd80cb3b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frank_Fighting_Set3/Asset/Animations/Grapple/Frank_FS3@Grapple_Fail.FBX using Guid(0c0fafdb02465fc45bff666bd80cb3b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10732337ebeb0db1d2c1773af005016d') in 0.118039 seconds 
+  Import took 0.124430 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.002230 seconds.
+  path: Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/19_Mid_Left_Punch_to_High_Roundhouse_Kick_(IP).anim
+  artifactKey: Guid(b100d6c2b4d065442bed53ab95018284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/19_Mid_Left_Punch_to_High_Roundhouse_Kick_(IP).anim using Guid(b100d6c2b4d065442bed53ab95018284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19f77bee199326a6e7a5ebb328c8f66a') in 0.123827 seconds 
+  Import took 0.129301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.443629 seconds.
+  path: Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/33_Frank_TestCombo01_(In-place).anim
+  artifactKey: Guid(d486cb89a86566444a8bd17cd2642634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/33_Frank_TestCombo01_(In-place).anim using Guid(d486cb89a86566444a8bd17cd2642634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d78351cea9182c9c7d3aace0ee12e3e') in 0.040422 seconds 
+  Import took 0.046319 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.839824 seconds.
+  path: Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/34_Frank_TestCombo02_(In-place).anim
+  artifactKey: Guid(08b0448393bdefc41bbb1be17e1916f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frank_Fighting_Pack/Assets/Animations/Test_Anims/34_Frank_TestCombo02_(In-place).anim using Guid(08b0448393bdefc41bbb1be17e1916f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bc7edcd470b29b284c690eeb4814274') in 0.045744 seconds 
+  Import took 0.051623 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010103 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+27-12-2021 12:40:41|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.090 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1090ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (48ms)
+		EndReloadAssembly (909ms)
+			LoadAssemblies (86ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (341ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (269ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (172ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 346.5 MB.
+System memory in use after: 346.7 MB.
+
+Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3801.
+Total: 2.154835 ms (FindLiveObjects: 0.298983 ms CreateObjectMapping: 0.142763 ms MarkObjects: 1.644598 ms  DeleteObjects: 0.067908 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 395.484644 seconds.
+  path: Assets/_Core/SetupFiles/Config.asset
+  artifactKey: Guid(eaf439cbd252e074bb21dd77f6faed12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Config.asset using Guid(eaf439cbd252e074bb21dd77f6faed12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25a1a18c09e69b80e3323b922d297b0d') in 0.625865 seconds 
+  Import took 0.645629 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010119 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
+Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
+27-12-2021 12:51:48|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
+                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
+                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
+Mono: successfully reloaded assembly
+- Completed reload, in  1.001 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1001ms)
+		BeginReloadAssembly (99ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (842ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (306ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (253ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (164ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 348.5 MB.
+System memory in use after: 348.7 MB.
+
+Unloading 52 unused Assets to reduce memory usage. Loaded Objects now: 3804.
+Total: 4.271773 ms (FindLiveObjects: 0.333349 ms CreateObjectMapping: 0.158074 ms MarkObjects: 1.933031 ms  DeleteObjects: 1.846314 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 654.377222 seconds.
+  path: Assets/_Core/StageFiles/IceArena/IceArena_Floor.fbx
+  artifactKey: Guid(fd56c57e231199a4f95819761063c58e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/StageFiles/IceArena/IceArena_Floor.fbx using Guid(fd56c57e231199a4f95819761063c58e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24f1aa51febaf5c7e7983049291fb5f4') in 0.292803 seconds 
+  Import took 0.300471 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/_Core/Resources/Fighters/FireIce.prefab
+  artifactKey: Guid(3ec5c01adea8a40a8b025b4162e9ba21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/Resources/Fighters/FireIce.prefab using Guid(3ec5c01adea8a40a8b025b4162e9ba21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5915c996605655accc0f65ad22580a5') in 0.088050 seconds 
+  Import took 0.095139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/_Core/BotFiles/01_FireIce/FireIce.mat
+  artifactKey: Guid(783fae2fee66c4511b73b4686c6c0e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/BotFiles/01_FireIce/FireIce.mat using Guid(783fae2fee66c4511b73b4686c6c0e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1366621a39829449e11ba9beb9af4b4') in 0.046622 seconds 
+  Import took 0.053059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Materials/HitIce.mat
+  artifactKey: Guid(a659268067eda304dad34c1cff4cb12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Materials/HitIce.mat using Guid(a659268067eda304dad34c1cff4cb12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9041229a59fb6679d876101a7af1de32') in 0.013716 seconds 
+  Import took 0.019293 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/_Core/BotFiles/01_FireIce/FireIce.mat
+  artifactKey: Guid(783fae2fee66c4511b73b4686c6c0e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/BotFiles/01_FireIce/FireIce.mat using Guid(783fae2fee66c4511b73b4686c6c0e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1366621a39829449e11ba9beb9af4b4') in 0.031084 seconds 
+  Import took 0.037814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/UFE/Demos/Shared_Assets/Particles/Materials/HitIce.mat
+  artifactKey: Guid(a659268067eda304dad34c1cff4cb12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UFE/Demos/Shared_Assets/Particles/Materials/HitIce.mat using Guid(a659268067eda304dad34c1cff4cb12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9041229a59fb6679d876101a7af1de32') in 0.010673 seconds 
+  Import took 0.016387 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/_Core/StageFiles/IceArena/Materials/Ice.mat
+  artifactKey: Guid(21410150a245ee94e8eefb9bec229611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/StageFiles/IceArena/Materials/Ice.mat using Guid(21410150a245ee94e8eefb9bec229611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b75e2ca279cdebb9b10dc1962f2b6eb') in 0.018943 seconds 
+  Import took 0.029212 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 6.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 46 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 298.0 MB.
+System memory in use after: 298.2 MB.
+
+Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 3867.
+Total: 3.055432 ms (FindLiveObjects: 0.347879 ms CreateObjectMapping: 0.155669 ms MarkObjects: 2.474792 ms  DeleteObjects: 0.076480 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  colorSpace: 1 -> 0
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 256.805520 seconds.
+  path: Assets/_Core/Prefabs/Arena/HellArena.prefab
+  artifactKey: Guid(b1f3f8763680049d6802d5ec3ab1ce3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/Prefabs/Arena/HellArena.prefab using Guid(b1f3f8763680049d6802d5ec3ab1ce3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f05f1f1288e8b78d75e484f65d44e73') in 0.158497 seconds 
+  Import took 0.171387 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.092044 seconds.
+  path: Assets/_Core/StageFiles/IceArena/winter_lake_01_1k.exr
+  artifactKey: Guid(cd186f91ec5f6f9489eb596ade2d4f42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/StageFiles/IceArena/winter_lake_01_1k.exr using Guid(cd186f91ec5f6f9489eb596ade2d4f42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd031838c713dc5c83fe2683b5b91f53a') in 0.742304 seconds 
+  Import took 0.748429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 317.403298 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_FDF3.asset
+  artifactKey: Guid(069844d353e0db9498fc08cfd2a8fad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Stand_FDF3.asset using Guid(069844d353e0db9498fc08cfd2a8fad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8432f32618550703237f265cdcffdfb3') in 0.110364 seconds 
+  Import took 0.116159 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.850794 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/ThrowAttempt.asset
+  artifactKey: Guid(9da1125128da97b47932ea434a93bdff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/ThrowAttempt.asset using Guid(9da1125128da97b47932ea434a93bdff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bea0c9a2e71c9fde626e69e64756dfc3') in 0.095736 seconds 
+  Import took 0.101783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.919790 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Counter.asset
+  artifactKey: Guid(69a879051b466ef49a6340123ccc09c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Counter.asset using Guid(69a879051b466ef49a6340123ccc09c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b15b2638f88a400fc4e8beade8279c07') in 0.384602 seconds 
+  Import took 0.391883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.966561 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickJumpingHeavy.asset
+  artifactKey: Guid(5de776f961c4bd44386c4a3132766cfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickJumpingHeavy.asset using Guid(5de776f961c4bd44386c4a3132766cfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cb465e913eb797da35e69ddff93e9ec') in 0.198277 seconds 
+  Import took 0.204819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.408182 seconds.
+  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickStandingHeavy.asset
+  artifactKey: Guid(304fc07e190e22248901f8df3867899e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/KickStandingHeavy.asset using Guid(304fc07e190e22248901f8df3867899e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '462236b596789127af4a6a04ca667f5a') in 0.264922 seconds 
+  Import took 0.271765 seconds .
+
