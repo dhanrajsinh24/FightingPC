@@ -1874,7 +1874,7 @@ MonoBehaviour:
     onBlock: 1
     onParry: 1
     activeFramesBegins: 6
-    activeFramesEnds: 12
+    activeFramesEnds: 11
     counterMoveType: 0
     counterMoveFilter: {fileID: 0}
     disableHitImpact: 1
@@ -1911,7 +1911,7 @@ MonoBehaviour:
     _gaugeGainOnMiss:
       _serializedValue: 0
     _gaugeGainOnHit:
-      _serializedValue: 17179869184
+      _serializedValue: 42949672960
     _gaugeGainOnBlock:
       _serializedValue: 21474836480
     _opGaugeGainOnBlock:

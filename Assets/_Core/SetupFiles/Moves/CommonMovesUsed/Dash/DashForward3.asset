@@ -3461,6 +3461,7 @@ MonoBehaviour:
   invertRotationLeft: 0
   invertRotationRight: 0
   autoCorrectRotation: 0
+  allowSideSwitch: 0
   frameWindowRotation: 0
   cooldown: 0
   cooldownFrames: 0
@@ -3718,6 +3719,7 @@ MonoBehaviour:
       z:
         _serializedValue: 0
   lockOnTargets: []
+  switchCharacterOptions: []
   invincibleBodyParts: []
   stateOverride: []
   armorOptions:
@@ -3748,3 +3750,4 @@ MonoBehaviour:
     damageAbsorption: 0
     nonAffectedBodyParts: 
   projectiles: []
+  rotationPreview: {x: 0, y: 90, z: 0}

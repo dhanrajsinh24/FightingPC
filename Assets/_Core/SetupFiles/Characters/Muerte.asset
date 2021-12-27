@@ -108,7 +108,7 @@ MonoBehaviour:
   useAnimationMaps: 0
   normalizeAnimationFrames: 0
   stanceResourcePath:
-  - Stances/Stance2
+  - Stances/Stance1
   moves: []
   aiInstructionsSet:
   - aiInfo: {fileID: 11400000, guid: 381a98fe3348ea640801d8072511a960, type: 2}

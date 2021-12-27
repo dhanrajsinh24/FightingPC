@@ -297,8 +297,8 @@ MonoBehaviour:
     selectedChallengeMode: 0
     skipLoadingScreen: 0
   cameraOptions:
-    initialDistance: {x: 0, y: 12, z: -35}
-    initialRotation: {x: 8, y: 0, z: 0}
+    initialDistance: {x: 0, y: 10, z: -35}
+    initialRotation: {x: 5, y: 0, z: 0}
     enableLookAt: 1
     dollyAngle: 0
     distance3d: 41
@@ -859,7 +859,7 @@ MonoBehaviour:
   player1_Inputs:
   - inputType: 0
     inputButtonName: Horizontal
-    engineRelatedButton: 1
+    engineRelatedButton: 0
     joystickAxisName: Horizontal
     cInputPositiveKeyName: P1Right
     cInputPositiveDefaultKey: D
