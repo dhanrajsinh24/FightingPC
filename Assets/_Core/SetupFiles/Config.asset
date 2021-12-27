@@ -18,18 +18,19 @@ MonoBehaviour:
   player1Team: []
   player2Team: []
   selectedStage:
-    stageName: Hell Arena
+    stageName: Green Stage
     stageLoadingMethod: 0
     stagePath: 
-    screenshot: {fileID: 2800000, guid: 24fd7695bbbde43a9ab8581f1e25be47, type: 3}
-    prefab: {fileID: 321428727001828403, guid: b1f3f8763680049d6802d5ec3ab1ce3e, type: 3}
+    screenshot: {fileID: 2800000, guid: 03afdd1629dec4aec92a61312b69928d, type: 3}
+    prefab: {fileID: 1509416590611773032, guid: cba3299f8fbf248bda848b98c0d110bc,
+      type: 3}
     music: {fileID: 8300000, guid: 641189ac87f861f41bfd4a406b0d3294, type: 3}
     _groundFriction:
       _serializedValue: 429496729600
     _leftBoundary:
-      _serializedValue: -85899345920
+      _serializedValue: -128849018880
     _rightBoundary:
-      _serializedValue: 85899345920
+      _serializedValue: 128849018880
     position:
       x:
         _serializedValue: 0
@@ -165,15 +166,11 @@ MonoBehaviour:
           possibleStagesIndexes: 000000000100000002000000
         showOpponentsInEditor: 1
       showStoryInEditor: 1
-    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
-    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
+    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
+    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
     characterStories:
-      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
+      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
       _values:
-      - opening: {fileID: 0}
-        ending: {fileID: 0}
-        fightsGroups: []
-        showStoryInEditor: 0
       - opening: {fileID: 0}
         ending: {fileID: 0}
         fightsGroups: []
@@ -858,7 +855,7 @@ MonoBehaviour:
   player1_Inputs:
   - inputType: 0
     inputButtonName: Horizontal
-    engineRelatedButton: 0
+    engineRelatedButton: 1
     joystickAxisName: Horizontal
     cInputPositiveKeyName: P1Right
     cInputPositiveDefaultKey: D
@@ -1003,7 +1000,7 @@ MonoBehaviour:
   player2_Inputs:
   - inputType: 0
     inputButtonName: Horizontal
-    engineRelatedButton: 1
+    engineRelatedButton: 0
     joystickAxisName: Horizontal
     cInputPositiveKeyName: P2Right
     cInputPositiveDefaultKey: RightArrow
@@ -1236,7 +1233,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af0fa7ef6579a4cab866ae8cc164c899, type: 2}
   - {fileID: 11400000, guid: e7738ee488ed4450db0a63869f8e514e, type: 2}
   - {fileID: 11400000, guid: 59fd0a80acccd4e6d8ee2f7502525d45, type: 2}
-  - {fileID: 11400000, guid: 15ebe1f5abf5f42a691e4e4adf5e2c18, type: 2}
   teamModes: []
   debugOptions:
     debugMode: 0

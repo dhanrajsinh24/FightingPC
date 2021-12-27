@@ -12616,7 +12616,7 @@ MonoBehaviour:
     resetPreviousHorizontal: 1
     _force:
       x:
-        _serializedValue: -150323855360
+        _serializedValue: -107374182400
       y:
         _serializedValue: 64424509440
       z:
