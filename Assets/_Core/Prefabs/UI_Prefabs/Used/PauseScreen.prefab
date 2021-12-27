@@ -1300,22 +1300,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.67
-  m_Text: "Throw Grapple - Forward, Heavy Punch\n\nFocus - Heavy Kick\n\nFireball
-    1 - Down, Forward, Heavy Punch\n\nFireball 2 - Down, Forward, Heavy Kick\n\nHouyokuSen
-    - Back, Forward, Back, Forward, Heavy Kick\n\nFury Set - Down, Down, Forward,
-    Heavy Punch\n\nPower Hit - Down, Down, Forward, Heavy Kick\n\nRage - Down, Down,
-    Back, Heavy Punch\n\nUppercut - Down, Down, Back, Heavy Kick\n\nCombo 1:\nDown,
-    Forward, Light Punch (x3)\n\nCombo 2:\LDown, Forward, Medium Punch, Down, Forward,
-    Heavy Punch\n\nCombo 3:\LMedium Punch, Combo 2\n\nCombo 4:\LLight Punch, Combo
-    1\n\nCombo 5:\LLight Punch, Medium Punch, Combo 1 / Combo 2\n\nCombo 6: \LDown,
-    Light Punch, Combo 2\n\nCombo 7:\LDown, Light Punch, Medium Punch, Combo 1 /
-    Combo 2\n\nCombo 8:\nDown, Heavy Punch, Combo 4 / Combo 2\n\nCombo 9:\nDown,
-    Heavy Punch, Heavy Punch\n\nCombo 10:\nHeavy Punch, Combo 8\n\nCombo 11:\LMedium
-    Kick, Forward, Medium Kick\n\nCombo 12:\LForward, Medium Punch\n\nCombo 13:\LHeavy
-    Punch, Combo 11 / Combo 16 / Combo 8\n\nCombo 14:\LLight Kick, Combo 13 / Combo
-    11\n\nCombo 15:\nForward, Forward, Combo 4 / Combo 10 / Combo 14\L\nCombo 16:
-    \LDown, Light Kick, Down, Medium Kick / Combo 8\n\nCombo 17:\LLight Kick, Combo
-    10 / Combo 11"
+  m_Text: "Throw Grapple - Forward, Heavy Punch\n\nGrapple 2 - Back, Heavy Punch\n\nFocus
+    - Heavy Kick\n\nFireball 1 - Down, Forward, Heavy Punch\n\nFireball 2 - Down,
+    Forward, Heavy Kick\n\nHouyokuSen - Back, Forward, Back, Forward, Heavy Kick\n\nFury
+    Set - Down, Down, Forward, Heavy Punch\n\nPower Hit - Down, Down, Forward, Heavy
+    Kick\n\nRage - Down, Down, Back, Heavy Punch\n\nUppercut - Down, Down, Back,
+    Heavy Kick\n\nCombo 1:\nDown, Forward, Light Punch (x3)\n\nCombo 2:\LDown, Forward,
+    Medium Punch, Down, Forward, Heavy Punch\n\nCombo 3:\LMedium Punch, Combo 2\n\nCombo
+    4:\LLight Punch, Combo 1\n\nCombo 5:\LLight Punch, Medium Punch, Combo 1 / Combo
+    2\n\nCombo 6: \LDown, Light Punch, Combo 2\n\nCombo 7:\LDown, Light Punch, Medium
+    Punch, Combo 1 / Combo 2\n\nCombo 8:\nDown, Heavy Punch, Combo 4 / Combo 2\n\nCombo
+    9:\nDown, Heavy Punch, Heavy Punch\n\nCombo 10:\nHeavy Punch, Combo 8\n\nCombo
+    11:\LMedium Kick, Forward, Medium Kick\n\nCombo 12:\LForward, Medium Punch\n\nCombo
+    13:\LHeavy Punch, Combo 11 / Combo 16 / Combo 8\n\nCombo 14:\LLight Kick, Combo
+    13 / Combo 11\n\nCombo 15:\nForward, Forward, Combo 4 / Combo 10 / Combo 14\L\nCombo
+    16: \LDown, Light Kick, Down, Medium Kick / Combo 8\n\nCombo 17:\LLight Kick,
+    Combo 10 / Combo 11"
 --- !u!1 &100084
 GameObject:
   m_ObjectHideFlags: 0

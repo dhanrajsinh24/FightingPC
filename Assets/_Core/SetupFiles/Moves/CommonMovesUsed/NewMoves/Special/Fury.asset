@@ -15851,7 +15851,7 @@ MonoBehaviour:
     castingFrame: 20
     _duration:
       _serializedValue: 4294967296
-    fieldOfView: 10
+    fieldOfView: 15
     camSpeed: 1
     freezePhysics: 0
     _myAnimationSpeed:
