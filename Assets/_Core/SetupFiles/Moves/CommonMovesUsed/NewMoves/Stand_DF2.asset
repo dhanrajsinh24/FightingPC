@@ -6817,33 +6817,6 @@ MonoBehaviour:
     nextMoveStartupFrame: 3
     linkableMoves:
     - {fileID: 11400000, guid: 069844d353e0db9498fc08cfd2a8fad2, type: 2}
-    - {fileID: 0}
-    linkableMovesToggle: 1
-    hitConfirmToggle: 0
-    counterMoveToggle: 0
-  - linkType: 0
-    allowBuffer: 1
-    onStrike: 1
-    onBlock: 1
-    onParry: 1
-    activeFramesBegins: 36
-    activeFramesEnds: 54
-    counterMoveType: 0
-    counterMoveFilter: {fileID: 0}
-    disableHitImpact: 1
-    anyHitStrength: 1
-    hitStrength: 0
-    anyStrokeHitBox: 1
-    hitBoxType: 0
-    anyHitType: 1
-    hitType: 0
-    ignoreInputs: 0
-    ignorePlayerConditions: 0
-    ignoreGauge: 0
-    nextMoveStartupFrame: 3
-    linkableMoves:
-    - {fileID: 11400000, guid: 2875ba2b82ba4414684bdca9090da7d4, type: 2}
-    - {fileID: 0}
     linkableMovesToggle: 1
     hitConfirmToggle: 0
     counterMoveToggle: 0

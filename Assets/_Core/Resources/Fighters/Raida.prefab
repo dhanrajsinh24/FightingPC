@@ -2018,7 +2018,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: -1.5
       y: -3.07
-      width: 3
+      width: 4
       height: 9
     defaultVisibility: 1
     followXBounds: 0
@@ -2049,7 +2049,7 @@ MonoBehaviour:
         _serializedValue: -13185549312
       topRight:
         x:
-          _serializedValue: 6442450944
+          _serializedValue: 10737418240
         y:
           _serializedValue: -13185549312
         z:
@@ -2063,7 +2063,7 @@ MonoBehaviour:
           _serializedValue: 0
       bottomRight:
         x:
-          _serializedValue: 6442450944
+          _serializedValue: 10737418240
         y:
           _serializedValue: 25469157376
         z:
@@ -2076,11 +2076,11 @@ MonoBehaviour:
         z:
           _serializedValue: 0
       width:
-        _serializedValue: 12884901888
+        _serializedValue: 17179869184
       height:
         _serializedValue: 38654705664
       xMax:
-        _serializedValue: 6442450944
+        _serializedValue: 10737418240
       yMax:
         _serializedValue: 25469157376
     _radius:

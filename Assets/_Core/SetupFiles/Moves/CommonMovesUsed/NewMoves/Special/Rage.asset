@@ -121,7 +121,7 @@ MonoBehaviour:
     targetGauge: 0
     startDrainingGauge: 0
     inhibitGainWhileDraining: 0
-    stopDrainingGauge: 1
+    stopDrainingGauge: 0
     _gaugeDPS:
       _serializedValue: 0
     _totalDrain:
@@ -133,7 +133,7 @@ MonoBehaviour:
     _gaugeGainOnMiss:
       _serializedValue: 0
     _gaugeGainOnHit:
-      _serializedValue: 85899345920
+      _serializedValue: 0
     _gaugeGainOnBlock:
       _serializedValue: 42949672960
     _opGaugeGainOnBlock:
@@ -162,12 +162,12 @@ MonoBehaviour:
     camAnimationSpeed: 1
     blendSpeed: 100
     gameObjectPosition: {x: 0, y: 0, z: 0}
-    position: {x: -8, y: 8, z: -30}
-    rotation: {x: 7, y: 15, z: 0}
+    position: {x: 2, y: 8, z: -38}
+    rotation: {x: 7, y: -2.8, z: 0}
     castingFrame: 36
     _duration:
       _serializedValue: 4294967296
-    fieldOfView: 15
+    fieldOfView: 10
     camSpeed: 1
     freezePhysics: 0
     _myAnimationSpeed:
@@ -363,10 +363,10 @@ MonoBehaviour:
       _serializedValue: 0
     pullEnemyIn:
       speed: 50
-      forceGrounded: 0
+      forceGrounded: 1
       position:
         x:
-          _serializedValue: 0
+          _serializedValue: 21474836480
         y:
           _serializedValue: 0
         z:
@@ -463,12 +463,12 @@ MonoBehaviour:
     armorBreaker: 0
     continuousHit: 1
     unblockable: 0
-    spaceBetweenHits: 3
+    spaceBetweenHits: 2
     groundHit: 1
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -864,7 +864,7 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 2
+    hitStrength: 3
     hitStunType: 1
     _hitStunOnHit:
       _serializedValue: 42949672960

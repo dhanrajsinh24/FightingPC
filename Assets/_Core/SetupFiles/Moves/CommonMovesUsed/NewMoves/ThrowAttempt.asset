@@ -3940,7 +3940,7 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    hitToggle: 1
+    hitToggle: 0
     damageOptionsToggle: 0
     hitStunOptionsToggle: 0
     forceOptionsToggle: 0
@@ -3950,7 +3950,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 1
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
