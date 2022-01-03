@@ -2951,8 +2951,8 @@ MonoBehaviour:
   animSpeedKeyFrame: []
   totalFrames: 25
   startUpFrames: 11
-  activeFrames: 3
-  recoveryFrames: 11
+  activeFrames: 4
+  recoveryFrames: 10
   applyRootMotion: 0
   lockXMotion: 0
   lockYMotion: 0
@@ -3314,7 +3314,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 0
     pullInToggle: 0
-    hurtBoxesToggle: 0
+    hurtBoxesToggle: 1
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:
@@ -3338,7 +3338,7 @@ MonoBehaviour:
           _serializedValue: -2276332544
         topRight:
           x:
-            _serializedValue: 3135326208
+            _serializedValue: 10866267136
           y:
             _serializedValue: -2276332544
           z:
@@ -3352,26 +3352,26 @@ MonoBehaviour:
             _serializedValue: 0
         bottomRight:
           x:
-            _serializedValue: 3135326208
+            _serializedValue: 10866267136
           y:
-            _serializedValue: 2018634752
+            _serializedValue: 6313602048
           z:
             _serializedValue: 0
         bottomLeft:
           x:
             _serializedValue: -2018634624
           y:
-            _serializedValue: 2018634752
+            _serializedValue: 6313602048
           z:
             _serializedValue: 0
         width:
-          _serializedValue: 5153960960
+          _serializedValue: 12884901888
         height:
-          _serializedValue: 4294967296
+          _serializedValue: 8589934592
         xMax:
-          _serializedValue: 3135326208
+          _serializedValue: 10866267136
         yMax:
-          _serializedValue: 2018634752
+          _serializedValue: 6313602048
       shape: 1
       type: 0
   blockableArea:
@@ -3455,11 +3455,11 @@ MonoBehaviour:
         _serializedValue: 0
     position:
       x:
-        _serializedValue: 15258698752
+        _serializedValue: 15360379904
       y:
-        _serializedValue: 10843723776
+        _serializedValue: 10922894336
       z:
-        _serializedValue: 2931640576
+        _serializedValue: 3084916992
   lockOnTargets: []
   switchCharacterOptions: []
   invincibleBodyParts: []

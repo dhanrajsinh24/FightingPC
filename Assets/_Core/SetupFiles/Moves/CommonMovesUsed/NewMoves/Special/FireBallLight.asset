@@ -7323,7 +7323,7 @@ MonoBehaviour:
     requireButtonPress: 1
     onPressExecution: 1
     buttonSequence: 0300000000000000
-    buttonExecution: 06000000
+    buttonExecution: 09000000
     editorToggle: 1
     buttonSequenceToggle: 1
     buttonExecutionToggle: 1
@@ -7338,11 +7338,11 @@ MonoBehaviour:
     onReleaseExecution: 0
     requireButtonPress: 1
     onPressExecution: 1
-    buttonSequence: 0300000000000000
-    buttonExecution: 04000000
+    buttonSequence: 
+    buttonExecution: 
     editorToggle: 1
-    buttonSequenceToggle: 1
-    buttonExecutionToggle: 1
+    buttonSequenceToggle: 0
+    buttonExecutionToggle: 0
   previousMoves: []
   opponentConditions:
     basicMoveLimitation: 

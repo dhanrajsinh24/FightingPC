@@ -254,9 +254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 2864699161358971561}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 11400082}
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 11400080}
   - component: {fileID: 11400082}
   m_Layer: 5
-  m_Name: Button_PauseScreen
+  m_Name: Button_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,9 +1038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 2864699161358971561}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 11400006}
     m_SelectOnRight: {fileID: 0}
@@ -1176,7 +1176,11 @@ MonoBehaviour:
     HEAVY PUNCH
     - PAGE UP
 
-    HEAVY KICK - PAGE DOWN'
+    HEAVY KICK - PAGE DOWN
+
+    SPECIAL 1 - [
+
+    SPECIAL 2 - ]'
 --- !u!1 &100076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1237,7 @@ GameObject:
   - component: {fileID: 22400082}
   - component: {fileID: 22200074}
   - component: {fileID: 11400096}
+  - component: {fileID: 49263472323513686}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1256,9 +1261,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00023617427, y: 0.0043945312}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.000000014901161, y: 1}
 --- !u!222 &22200074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1290,32 +1295,128 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: c5fdb83839e4e46f89849e5949b770f1, type: 3}
     m_FontSize: 23
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 0
-    m_MinSize: 8
-    m_MaxSize: 47
+    m_MinSize: 2
+    m_MaxSize: 100
     m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.67
-  m_Text: "Throw Grapple - Forward, Heavy Punch\n\nGrapple 2 - Back, Heavy Punch\n\nFocus
-    - Heavy Kick\n\nFireball 1 - Down, Forward, Heavy Punch\n\nFireball 2 - Down,
-    Forward, Heavy Kick\n\nHouyokuSen - Back, Forward, Back, Forward, Heavy Kick\n\nFury
-    Set - Down, Down, Forward, Heavy Punch\n\nPower Hit - Down, Down, Forward, Heavy
-    Kick\n\nRage - Down, Down, Back, Heavy Punch\n\nUppercut - Down, Down, Back,
-    Heavy Kick\n\nCombo 1:\nDown, Forward, Light Punch (x3)\n\nCombo 2:\LDown, Forward,
-    Medium Punch, Down, Forward, Heavy Punch\n\nCombo 3:\LMedium Punch, Combo 2\n\nCombo
-    4:\LLight Punch, Combo 1\n\nCombo 5:\LLight Punch, Medium Punch, Combo 1 / Combo
-    2\n\nCombo 6: \LDown, Light Punch, Combo 2\n\nCombo 7:\LDown, Light Punch, Medium
-    Punch, Combo 1 / Combo 2\n\nCombo 8:\nDown, Heavy Punch, Combo 4 / Combo 2\n\nCombo
-    9:\nDown, Heavy Punch, Heavy Punch\n\nCombo 10:\nHeavy Punch, Combo 8\n\nCombo
-    11:\LMedium Kick, Forward, Medium Kick\n\nCombo 12:\LForward, Medium Punch\n\nCombo
-    13:\LHeavy Punch, Combo 11 / Combo 16 / Combo 8\n\nCombo 14:\LLight Kick, Combo
-    13 / Combo 11\n\nCombo 15:\nForward, Forward, Combo 4 / Combo 10 / Combo 14\L\nCombo
-    16: \LDown, Light Kick, Down, Medium Kick / Combo 8\n\nCombo 17:\LLight Kick,
-    Combo 10 / Combo 11"
+    m_LineSpacing: 1.8
+  m_Text: 'GRAPPLES:
+
+    * Grapple 1- Forward, Heavy Punch
+
+    * Grapple 2 - Back,
+    Heavy Punch
+
+    * Grapple 3 - Back, Special 2
+
+    * Powerbomb - Forward, Heavy
+    Kick
+
+    * Flank - Back, Heavy Kick
+
+    * Siho - Special 1
+
+    * Atemi - Special
+    2
+
+    * Brain - Back, Special 1
+
+    * Hold Lali - Forward, Special 1
+
+    *
+    Neck Break - Forward, Special 2
+
+
+    FIREBALLS:
+
+    * Fireball 1 - Down, Forward,
+    Heavy Punch
+
+    * Fireball 2 - Down, Forward, Heavy Kick
+
+
+    SPECIALS:
+
+    *
+    HouyokuSen - Down, Back, Down, Back, Heavy Punch
+
+    * Fury Set - Down, Down,
+    Forward, Heavy Punch
+
+    * Power Hit - Down, Down, Forward, Heavy Kick
+
+    *
+    Rage - Down, Down, Back, Heavy Punch
+
+    * Uppercut - Down, Down, Back, Heavy
+    Kick
+
+
+    COMBOS:
+
+    * Combo 1 - Down, Forward, Light Punch (x3)
+
+    * Combo
+    2 - Down, Forward, Medium Punch, Down, Forward, Heavy Punch
+
+    * Combo 3 -
+    Medium Punch, Combo 2
+
+    * Combo 4 - Light Punch, Combo 1
+
+    * Combo 5 -
+    Light Punch, Medium Punch, Combo 1 / Combo 2
+
+    * Combo 6 - Down, Light Punch,
+    Combo 2
+
+    * Combo 7 - Down, Light Punch, Medium Punch, Combo 1 / Combo 2
+
+    *
+    Combo 8 - Down, Heavy Punch, Combo 4 / Combo 2
+
+    * Combo 9 - Down, Heavy Punch,
+    Heavy Punch
+
+    * Combo 10 - Heavy Punch, Combo 8
+
+    * Combo 11 - Medium Kick,
+    Forward, Medium Kick
+
+    * Combo 12 - Forward, Medium Punch
+
+    * Combo 13
+    - Heavy Punch, Combo 11 / Combo 16 / Combo 8
+
+    * Combo 14 - Light Kick, Combo
+    13 / Combo 11
+
+    * Combo 15 - Forward, Forward, Combo 4 / Combo 10 / Combo
+    14
+
+    * Combo 16 - Down, Light Kick, Down, Medium Kick / Combo 8
+
+    * Combo
+    17 - Light Kick, Combo 10 / Combo 11'
+--- !u!114 &49263472323513686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &100084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2362,11 @@ MonoBehaviour:
     HEAVY PUNCH - U
 
     HEAVY
-    KICK - J'
+    KICK - J
+
+    SPECIAL 1 - I
+
+    SPECIAL 2 - K'
 --- !u!1 &100114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,11 +3386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 11400006}
+    m_SelectOnUp: {fileID: 11400082}
+    m_SelectOnDown: {fileID: 6601175437162941272}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -3326,6 +3431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   up: 1
   thisRt: {fileID: 2770759089769184747}
+  moveValue: 10
+  updateSelected: 1
 --- !u!1 &193033080120763257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,7 +4445,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2770759089769184747}
-  - component: {fileID: 5011045566516245152}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -4364,22 +4470,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000085061336, y: 0}
-  m_SizeDelta: {x: -0.0001, y: 2679.071}
+  m_SizeDelta: {x: -0.0001, y: 2363}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &5011045566516245152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3193085105316009271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01895fe39faf240ff98f10cea812bcb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  up: 0
-  thisRt: {fileID: 0}
 --- !u!1 &3353685477583726426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,14 +4631,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3393054032894052583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 2770759089769184747}
   m_Horizontal: 0
-  m_Vertical: 0
+  m_Vertical: 1
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 0
@@ -6195,11 +6287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 11400006}
+    m_SelectOnUp: {fileID: 2864699161358971561}
+    m_SelectOnDown: {fileID: 11400082}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -6240,3 +6332,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   up: 0
   thisRt: {fileID: 2770759089769184747}
+  moveValue: 10
+  updateSelected: 1

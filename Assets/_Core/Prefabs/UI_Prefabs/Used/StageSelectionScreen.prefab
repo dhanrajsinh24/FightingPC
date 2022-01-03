@@ -65,7 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasPreview: 1
-  enableUFEInput: 0
   firstSelectableGameObject: {fileID: 0}
   hasFadeIn: 1
   hasFadeOut: 0
@@ -1972,7 +1971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72.004, y: 41}
+  m_AnchoredPosition: {x: -72.004, y: 47}
   m_SizeDelta: {x: 622.9, y: 785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &614273711964300579
@@ -2047,7 +2046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: 46.96}
+  m_AnchoredPosition: {x: 90, y: 47}
   m_SizeDelta: {x: 622.9, y: 785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &40038402973647910

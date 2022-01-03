@@ -4285,8 +4285,8 @@ MonoBehaviour:
       _serializedValue: 1717986944
   totalFrames: 36
   startUpFrames: 12
-  activeFrames: 16
-  recoveryFrames: 8
+  activeFrames: 17
+  recoveryFrames: 7
   applyRootMotion: 0
   lockXMotion: 0
   lockYMotion: 0
@@ -4310,7 +4310,7 @@ MonoBehaviour:
     onReleaseExecution: 0
     requireButtonPress: 1
     onPressExecution: 1
-    buttonSequence: 00000000
+    buttonSequence: 0300000000000000
     buttonExecution: 09000000
     editorToggle: 1
     buttonSequenceToggle: 1

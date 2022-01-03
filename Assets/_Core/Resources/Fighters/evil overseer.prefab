@@ -1810,6 +1810,7 @@ GameObject:
   - component: {fileID: 5811280648379378822}
   - component: {fileID: 323983981385418782}
   - component: {fileID: 7747837354945676445}
+  - component: {fileID: -1794254098865094129}
   m_Layer: 0
   m_Name: evil overseer
   m_TagString: Untagged
@@ -2863,7 +2864,7 @@ MonoBehaviour:
         _serializedValue: 0
   - rect:
       serializedVersion: 2
-      x: -1.32
+      x: -2
       y: -2.47
       width: 4
       height: 9
@@ -2891,33 +2892,33 @@ MonoBehaviour:
     type: 0
     _rect:
       _x:
-        _serializedValue: -5669357056
+        _serializedValue: -8589934592
       _y:
         _serializedValue: -10608569344
       topRight:
         x:
-          _serializedValue: 11510511616
+          _serializedValue: 8589934592
         y:
           _serializedValue: -10608569344
         z:
           _serializedValue: 0
       topLeft:
         x:
-          _serializedValue: -5669357056
+          _serializedValue: -8589934592
         y:
           _serializedValue: -10608569344
         z:
           _serializedValue: 0
       bottomRight:
         x:
-          _serializedValue: 11510511616
+          _serializedValue: 8589934592
         y:
           _serializedValue: 28046135296
         z:
           _serializedValue: 0
       bottomLeft:
         x:
-          _serializedValue: -5669357056
+          _serializedValue: -8589934592
         y:
           _serializedValue: 28046135296
         z:
@@ -2927,7 +2928,7 @@ MonoBehaviour:
       height:
         _serializedValue: 38654705664
       xMax:
-        _serializedValue: 11510511616
+        _serializedValue: 8589934592
       yMax:
         _serializedValue: 28046135296
     _radius:
@@ -3060,13 +3061,29 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 2c16e4e3f61504d599bc250b9fa5a05c, type: 3}
   m_Controller: {fileID: 9100000, guid: 85eca58503f1043499d28ef6a3683ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &-1794254098865094129
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624232485409617468}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &6651319703993249271
 GameObject:
   m_ObjectHideFlags: 0

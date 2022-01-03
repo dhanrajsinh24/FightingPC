@@ -3611,7 +3611,7 @@ MonoBehaviour:
   startUpFrames: 8
   activeFrames: 4
   recoveryFrames: 14
-  applyRootMotion: 1
+  applyRootMotion: 0
   lockXMotion: 0
   lockYMotion: 0
   lockZMotion: 1

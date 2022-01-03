@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 1014869164004559613}
   - component: {fileID: 693329345707519259}
   - component: {fileID: 693329345707519256}
+  - component: {fileID: -8300122858839417187}
   m_Layer: 0
   m_Name: Natures
   m_TagString: Untagged
@@ -112,8 +113,8 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: c5c47255a78324d808f59567ae051d9e, type: 3}
   m_Controller: {fileID: 9100000, guid: 85eca58503f1043499d28ef6a3683ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1149,7 +1150,7 @@ MonoBehaviour:
         _serializedValue: 0
   - rect:
       serializedVersion: 2
-      x: -1.41
+      x: -2
       y: -3.01
       width: 4
       height: 9
@@ -1177,33 +1178,33 @@ MonoBehaviour:
     type: 0
     _rect:
       _x:
-        _serializedValue: -6055903744
+        _serializedValue: -8589934592
       _y:
         _serializedValue: -12927851520
       topRight:
         x:
-          _serializedValue: 11123965952
+          _serializedValue: 8589934592
         y:
           _serializedValue: -12927851520
         z:
           _serializedValue: 0
       topLeft:
         x:
-          _serializedValue: -6055903744
+          _serializedValue: -8589934592
         y:
           _serializedValue: -12927851520
         z:
           _serializedValue: 0
       bottomRight:
         x:
-          _serializedValue: 11123965952
+          _serializedValue: 8589934592
         y:
           _serializedValue: 25726853120
         z:
           _serializedValue: 0
       bottomLeft:
         x:
-          _serializedValue: -6055903744
+          _serializedValue: -8589934592
         y:
           _serializedValue: 25726853120
         z:
@@ -1213,7 +1214,7 @@ MonoBehaviour:
       height:
         _serializedValue: 38654705664
       xMax:
-        _serializedValue: 11123965952
+        _serializedValue: 8589934592
       yMax:
         _serializedValue: 25726853120
     _radius:
@@ -1334,6 +1335,22 @@ MonoBehaviour:
   moveSetScript: {fileID: 0}
   previewAllBoxes: 0
   customHitBoxes: {fileID: 0}
+--- !u!54 &-8300122858839417187
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386846176270159943}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &433401498526623281
 GameObject:
   m_ObjectHideFlags: 0

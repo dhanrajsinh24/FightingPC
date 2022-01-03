@@ -4292,7 +4292,7 @@ MonoBehaviour:
   speedKeyFrameToggle: 0
   fixedSpeed: 1
   animSpeedKeyFrame: []
-  totalFrames: 32
+  totalFrames: 28
   startUpFrames: 7
   activeFrames: 3
   recoveryFrames: 5

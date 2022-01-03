@@ -22667,18 +22667,18 @@ MonoBehaviour:
   _blendingOut:
     _serializedValue: 0
   defaultInputs:
-    chargeMove: 1
+    chargeMove: 0
     _chargeTiming:
       _serializedValue: 2147483648
     allowInputLeniency: 1
     allowNegativeEdge: 1
     forceAxisPrecision: 0
-    leniencyBuffer: 8
+    leniencyBuffer: 3
     onReleaseExecution: 0
     requireButtonPress: 1
     onPressExecution: 1
-    buttonSequence: 01000000000000000100000000000000
-    buttonExecution: 09000000
+    buttonSequence: 03000000010000000300000001000000
+    buttonExecution: 06000000
     editorToggle: 1
     buttonSequenceToggle: 1
     buttonExecutionToggle: 1

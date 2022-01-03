@@ -18,7 +18,7 @@ MonoBehaviour:
   player1Team: []
   player2Team: []
   selectedStage:
-    stageName: Green Stage
+    stageName: Green Arena
     stageLoadingMethod: 0
     stagePath: 
     screenshot: {fileID: 2800000, guid: 03afdd1629dec4aec92a61312b69928d, type: 3}
@@ -166,11 +166,15 @@ MonoBehaviour:
           possibleStagesIndexes: 000000000100000002000000
         showOpponentsInEditor: 1
       showStoryInEditor: 1
-    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
-    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
+    selectableCharactersInStoryMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
+    selectableCharactersInVersusMode: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
     characterStories:
-      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
+      _keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
       _values:
+      - opening: {fileID: 0}
+        ending: {fileID: 0}
+        fightsGroups: []
+        showStoryInEditor: 0
       - opening: {fileID: 0}
         ending: {fileID: 0}
         fightsGroups: []
@@ -997,6 +1001,38 @@ MonoBehaviour:
     inputViewerIcon4: {fileID: 0}
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
+  - inputType: 2
+    inputButtonName: Special1
+    engineRelatedButton: 10
+    joystickAxisName: 
+    cInputPositiveKeyName: 
+    cInputPositiveDefaultKey: 
+    cInputPositiveAlternativeKey: 
+    cInputNegativeKeyName: 
+    cInputNegativeDefaultKey: 
+    cInputNegativeAlternativeKey: 
+    inputViewerIcon1: {fileID: 2800000, guid: a51b93a793889204aa5070bd3680da67, type: 3}
+    inputViewerIcon2: {fileID: 0}
+    inputViewerIcon3: {fileID: 0}
+    inputViewerIcon4: {fileID: 0}
+    inputViewerIcon5: {fileID: 0}
+    inputViewerIcon6: {fileID: 0}
+  - inputType: 2
+    inputButtonName: Special2
+    engineRelatedButton: 11
+    joystickAxisName: 
+    cInputPositiveKeyName: 
+    cInputPositiveDefaultKey: 
+    cInputPositiveAlternativeKey: 
+    cInputNegativeKeyName: 
+    cInputNegativeDefaultKey: 
+    cInputNegativeAlternativeKey: 
+    inputViewerIcon1: {fileID: 2800000, guid: ba161d6d4b05b544f9b0bb67ec878e85, type: 3}
+    inputViewerIcon2: {fileID: 0}
+    inputViewerIcon3: {fileID: 0}
+    inputViewerIcon4: {fileID: 0}
+    inputViewerIcon5: {fileID: 0}
+    inputViewerIcon6: {fileID: 0}
   player2_Inputs:
   - inputType: 0
     inputButtonName: Horizontal
@@ -1142,6 +1178,38 @@ MonoBehaviour:
     inputViewerIcon4: {fileID: 0}
     inputViewerIcon5: {fileID: 0}
     inputViewerIcon6: {fileID: 0}
+  - inputType: 2
+    inputButtonName: Special1
+    engineRelatedButton: 10
+    joystickAxisName: 
+    cInputPositiveKeyName: 
+    cInputPositiveDefaultKey: 
+    cInputPositiveAlternativeKey: 
+    cInputNegativeKeyName: 
+    cInputNegativeDefaultKey: 
+    cInputNegativeAlternativeKey: 
+    inputViewerIcon1: {fileID: 2800000, guid: a51b93a793889204aa5070bd3680da67, type: 3}
+    inputViewerIcon2: {fileID: 0}
+    inputViewerIcon3: {fileID: 0}
+    inputViewerIcon4: {fileID: 0}
+    inputViewerIcon5: {fileID: 0}
+    inputViewerIcon6: {fileID: 0}
+  - inputType: 2
+    inputButtonName: Special2
+    engineRelatedButton: 11
+    joystickAxisName: 
+    cInputPositiveKeyName: 
+    cInputPositiveDefaultKey: 
+    cInputPositiveAlternativeKey: 
+    cInputNegativeKeyName: 
+    cInputNegativeDefaultKey: 
+    cInputNegativeAlternativeKey: 
+    inputViewerIcon1: {fileID: 2800000, guid: ba161d6d4b05b544f9b0bb67ec878e85, type: 3}
+    inputViewerIcon2: {fileID: 0}
+    inputViewerIcon3: {fileID: 0}
+    inputViewerIcon4: {fileID: 0}
+    inputViewerIcon5: {fileID: 0}
+    inputViewerIcon6: {fileID: 0}
   inputOptions:
     inputManagerType: 3
     cInputAllowDuplicates: 0
@@ -1156,7 +1224,7 @@ MonoBehaviour:
     confirmButton: 7
     cancelButton: 8
   stages:
-  - stageName: Green Stage
+  - stageName: Green Arena
     stageLoadingMethod: 0
     stagePath: 
     screenshot: {fileID: 2800000, guid: 03afdd1629dec4aec92a61312b69928d, type: 3}
@@ -1215,6 +1283,26 @@ MonoBehaviour:
         _serializedValue: 0
       z:
         _serializedValue: 0
+  - stageName: Ice Arena
+    stageLoadingMethod: 0
+    stagePath: 
+    screenshot: {fileID: 2800000, guid: 10373bbe1f8e941cda59b24e06018c7c, type: 3}
+    prefab: {fileID: 7311317904693154817, guid: 3d890f2e37ffa410f9bba30d316a21ec,
+      type: 3}
+    music: {fileID: 8300000, guid: 641189ac87f861f41bfd4a406b0d3294, type: 3}
+    _groundFriction:
+      _serializedValue: 429496729600
+    _leftBoundary:
+      _serializedValue: -154618822656
+    _rightBoundary:
+      _serializedValue: 154618822656
+    position:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 0
+      z:
+        _serializedValue: 0
   characters:
   - {fileID: 11400000, guid: 3d3e84e1b98db4a1f920d6345f662b6d, type: 2}
   - {fileID: 11400000, guid: c34fea5a998254e579065a4996337eee, type: 2}
@@ -1233,6 +1321,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af0fa7ef6579a4cab866ae8cc164c899, type: 2}
   - {fileID: 11400000, guid: e7738ee488ed4450db0a63869f8e514e, type: 2}
   - {fileID: 11400000, guid: 59fd0a80acccd4e6d8ee2f7502525d45, type: 2}
+  - {fileID: 11400000, guid: f8ae6c21919d4421f90ed6139faca99a, type: 2}
   teamModes: []
   debugOptions:
     debugMode: 0
@@ -1479,9 +1568,9 @@ MonoBehaviour:
     synchronizationMessageFrequency: 0
     synchronizationAction: 1
   music: 1
-  musicVolume: 0.79999995
+  musicVolume: 1
   soundfx: 1
-  soundfxVolume: 0.13799474
+  soundfxVolume: 1
   colorStateOne: {r: 1, g: 0, b: 0, a: 1}
   colorIsHit: {r: 1, g: 0, b: 1, a: 1}
   colorBodyCollider: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

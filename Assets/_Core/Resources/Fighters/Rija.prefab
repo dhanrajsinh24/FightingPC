@@ -2212,6 +2212,7 @@ GameObject:
   - component: {fileID: 9018248941948834267}
   - component: {fileID: 3154610414576913313}
   - component: {fileID: -8568127061536759064}
+  - component: {fileID: -2866878294971914753}
   m_Layer: 0
   m_Name: Rija
   m_TagString: Untagged
@@ -2247,8 +2248,8 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 89df6877c255d46ea88b348635014dd9, type: 3}
   m_Controller: {fileID: 9100000, guid: 85eca58503f1043499d28ef6a3683ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3284,7 +3285,7 @@ MonoBehaviour:
         _serializedValue: 0
   - rect:
       serializedVersion: 2
-      x: -1.06
+      x: -2
       y: -3.6
       width: 4
       height: 10
@@ -3312,33 +3313,33 @@ MonoBehaviour:
     type: 0
     _rect:
       _x:
-        _serializedValue: -4552665088
+        _serializedValue: -8589934592
       _y:
         _serializedValue: -15461881856
       topRight:
         x:
-          _serializedValue: 12627204096
+          _serializedValue: 8589934592
         y:
           _serializedValue: -15461881856
         z:
           _serializedValue: 0
       topLeft:
         x:
-          _serializedValue: -4552665088
+          _serializedValue: -8589934592
         y:
           _serializedValue: -15461881856
         z:
           _serializedValue: 0
       bottomRight:
         x:
-          _serializedValue: 12627204096
+          _serializedValue: 8589934592
         y:
           _serializedValue: 27487791104
         z:
           _serializedValue: 0
       bottomLeft:
         x:
-          _serializedValue: -4552665088
+          _serializedValue: -8589934592
         y:
           _serializedValue: 27487791104
         z:
@@ -3348,7 +3349,7 @@ MonoBehaviour:
       height:
         _serializedValue: 42949672960
       xMax:
-        _serializedValue: 12627204096
+        _serializedValue: 8589934592
       yMax:
         _serializedValue: 27487791104
     _radius:
@@ -3469,6 +3470,22 @@ MonoBehaviour:
   moveSetScript: {fileID: 0}
   previewAllBoxes: 0
   customHitBoxes: {fileID: 0}
+--- !u!54 &-2866878294971914753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533354880362302305}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &8684572332269367079
 GameObject:
   m_ObjectHideFlags: 0

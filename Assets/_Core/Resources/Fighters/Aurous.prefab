@@ -2215,6 +2215,7 @@ GameObject:
   - component: {fileID: 8992037322235255168}
   - component: {fileID: 3628224252735853141}
   - component: {fileID: 9088982573842955647}
+  - component: {fileID: -2731629942177724}
   m_Layer: 0
   m_Name: Aurous
   m_TagString: Untagged
@@ -3268,8 +3269,8 @@ MonoBehaviour:
         _serializedValue: 0
   - rect:
       serializedVersion: 2
-      x: -1.5
-      y: -3.65
+      x: -2
+      y: -3.72
       width: 4
       height: 10
     defaultVisibility: 1
@@ -3296,35 +3297,35 @@ MonoBehaviour:
     type: 0
     _rect:
       _x:
-        _serializedValue: -6442450944
+        _serializedValue: -8589934592
       _y:
-        _serializedValue: -15676631040
+        _serializedValue: -15977278464
       topRight:
         x:
-          _serializedValue: 10737418240
+          _serializedValue: 8589934592
         y:
-          _serializedValue: -15676631040
+          _serializedValue: -15977278464
         z:
           _serializedValue: 0
       topLeft:
         x:
-          _serializedValue: -6442450944
+          _serializedValue: -8589934592
         y:
-          _serializedValue: -15676631040
+          _serializedValue: -15977278464
         z:
           _serializedValue: 0
       bottomRight:
         x:
-          _serializedValue: 10737418240
+          _serializedValue: 8589934592
         y:
-          _serializedValue: 27273041920
+          _serializedValue: 26972393472
         z:
           _serializedValue: 0
       bottomLeft:
         x:
-          _serializedValue: -6442450944
+          _serializedValue: -8589934592
         y:
-          _serializedValue: 27273041920
+          _serializedValue: 26972393472
         z:
           _serializedValue: 0
       width:
@@ -3332,9 +3333,9 @@ MonoBehaviour:
       height:
         _serializedValue: 42949672960
       xMax:
-        _serializedValue: 10737418240
+        _serializedValue: 8589934592
       yMax:
-        _serializedValue: 27273041920
+        _serializedValue: 26972393472
     _radius:
       _serializedValue: 2147483648
     _offSet:
@@ -3465,13 +3466,29 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 002501493d9304235b55711e2bd03d0b, type: 3}
   m_Controller: {fileID: 9100000, guid: 85eca58503f1043499d28ef6a3683ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &-2731629942177724
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611431014521324346}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &8652500457911410444
 GameObject:
   m_ObjectHideFlags: 0

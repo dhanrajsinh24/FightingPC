@@ -31,11 +31,13 @@ namespace UFE3D
 			}
 			else if (UFE.config.inputOptions.inputManagerType == InputManagerType.Rewired && UFE.isRewiredInstalled)
 			{
+				Debug.Log("Rewired");
 				if (RewiredInputController.inputConfiguration != null)
 				{
+					Debug.Log("Rewired UI");
 					RewiredInputController.inputConfiguration.ShowInputConfigurationUI(() =>
 					{
-
+						Debug.Log("Rewired UI Shown");
 						// Enable interaction again after closed
 						if (gameObject.GetComponent<CanvasGroup>() != null) gameObject.GetComponent<CanvasGroup>().interactable = true;
 					});

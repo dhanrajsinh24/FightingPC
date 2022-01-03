@@ -4,32 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoveContent : MonoBehaviour,IUpdateSelectedHandler,IPointerDownHandler,IPointerUpHandler
+public class MoveContent : MonoBehaviour,IUpdateSelectedHandler
 {
     public bool up;
     public RectTransform thisRt;
-    private bool isPressed;
+    private bool _isPressed;
+    public float moveValue = 10f;
+    public bool updateSelected = true;
  
     // Start is called before the first frame update
     public void OnUpdateSelected(BaseEventData data)
     {
-        if (isPressed)
-        {
-            MoveContentPane();
-        }
-    }
-    public void OnPointerDown(PointerEventData data)
-    {
-        isPressed = true;
-    }
-    public void OnPointerUp(PointerEventData data)
-    {
-        isPressed = false;
+        MoveContentPane();
     }
 
-    private void MoveContentPane()
+    public void MoveContentPane()
     {
-        var value = up ? -10f : 10f;
+        var value = up ? -moveValue : moveValue;
         thisRt.anchoredPosition = new Vector2(thisRt.anchoredPosition.x,
             thisRt.anchoredPosition.y + value);
     }

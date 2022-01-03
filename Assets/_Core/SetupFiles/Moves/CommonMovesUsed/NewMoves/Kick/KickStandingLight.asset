@@ -2980,7 +2980,7 @@ MonoBehaviour:
       _x:
         _serializedValue: 0
       _y:
-        _serializedValue: 0
+        _serializedValue: -17179869184
       topRight:
         x:
           _serializedValue: 25769803776

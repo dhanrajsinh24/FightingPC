@@ -14156,22 +14156,22 @@ MonoBehaviour:
   speedKeyFrameToggle: 0
   fixedSpeed: 1
   animSpeedKeyFrame: []
-  totalFrames: 104
+  totalFrames: 103
   startUpFrames: 17
   activeFrames: 42
-  recoveryFrames: 45
+  recoveryFrames: 44
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
   lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 0
-  overrideBlendingIn: 0
+  overrideBlendingIn: 1
   overrideBlendingOut: 1
   _blendingIn:
-    _serializedValue: 429496736
+    _serializedValue: 858993472
   _blendingOut:
-    _serializedValue: 214748368
+    _serializedValue: 2147483648
   defaultInputs:
     chargeMove: 0
     _chargeTiming:
@@ -14201,7 +14201,7 @@ MonoBehaviour:
     onPressExecution: 1
     buttonSequence: 
     buttonExecution: 
-    editorToggle: 0
+    editorToggle: 1
     buttonSequenceToggle: 0
     buttonExecutionToggle: 0
   previousMoves: []
@@ -14411,7 +14411,7 @@ MonoBehaviour:
       _serializedValue: 214748364800
     _damageOnBlock:
       _serializedValue: 0
-    doesntKill: 0
+    doesntKill: 1
     hitType: 0
     resetPreviousHorizontalPush: 0
     resetPreviousVerticalPush: 0
@@ -14527,7 +14527,7 @@ MonoBehaviour:
     opponentForceToggle: 1
     selfForceToggle: 0
     stageReactionsToggle: 0
-    overrideEventsToggle: 0
+    overrideEventsToggle: 1
     hitConditionsToggle: 0
     pullInToggle: 0
     hurtBoxesToggle: 1
@@ -14802,8 +14802,8 @@ MonoBehaviour:
     opponentForceToggle: 1
     selfForceToggle: 0
     stageReactionsToggle: 0
-    overrideEventsToggle: 0
-    hitConditionsToggle: 0
+    overrideEventsToggle: 1
+    hitConditionsToggle: 1
     pullInToggle: 1
     hurtBoxesToggle: 1
     wallBounceToggle: 0

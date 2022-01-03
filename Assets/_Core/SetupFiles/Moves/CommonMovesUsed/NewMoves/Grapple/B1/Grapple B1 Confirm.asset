@@ -14156,22 +14156,22 @@ MonoBehaviour:
   speedKeyFrameToggle: 0
   fixedSpeed: 1
   animSpeedKeyFrame: []
-  totalFrames: 104
+  totalFrames: 125
   startUpFrames: 17
   activeFrames: 74
-  recoveryFrames: 13
+  recoveryFrames: 34
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
   lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 0
-  overrideBlendingIn: 0
+  overrideBlendingIn: 1
   overrideBlendingOut: 1
   _blendingIn:
-    _serializedValue: 429496736
+    _serializedValue: 858993472
   _blendingOut:
-    _serializedValue: 214748368
+    _serializedValue: 2147483648
   defaultInputs:
     chargeMove: 0
     _chargeTiming:
@@ -14201,7 +14201,7 @@ MonoBehaviour:
     onPressExecution: 1
     buttonSequence: 
     buttonExecution: 
-    editorToggle: 0
+    editorToggle: 1
     buttonSequenceToggle: 0
     buttonExecutionToggle: 0
   previousMoves: []
@@ -14270,23 +14270,13 @@ MonoBehaviour:
     editorToggle: 0
   sortOrder: []
   particleEffects: []
-  appliedForces:
-  - castingFrame: 0
-    resetPreviousVertical: 1
-    resetPreviousHorizontal: 1
-    _force:
-      x:
-        _serializedValue: 0
-      y:
-        _serializedValue: 0
-      z:
-        _serializedValue: 0
+  appliedForces: []
   slowMoEffects: []
   bodyPartVisibilityChanges: []
   opponentOverride:
   - _position:
       x:
-        _serializedValue: 13743895552
+        _serializedValue: 15032385536
       y:
         _serializedValue: 0
       z:
@@ -14411,7 +14401,7 @@ MonoBehaviour:
       _serializedValue: 214748364800
     _damageOnBlock:
       _serializedValue: 0
-    doesntKill: 0
+    doesntKill: 1
     hitType: 0
     resetPreviousHorizontalPush: 0
     resetPreviousVerticalPush: 0
@@ -14617,7 +14607,7 @@ MonoBehaviour:
     resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 1
+    overrideHitEffects: 0
     hitEffects:
       hitParticle: {fileID: 0}
       killTime: 0
@@ -14672,7 +14662,7 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 0
+    hitStrength: 2
     hitStunType: 1
     _hitStunOnHit:
       _serializedValue: 0

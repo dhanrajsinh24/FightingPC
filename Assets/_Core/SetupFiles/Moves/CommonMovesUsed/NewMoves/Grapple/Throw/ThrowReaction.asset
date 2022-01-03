@@ -12486,7 +12486,7 @@ MonoBehaviour:
     hitBoxDefinitionType: 0
   _animationSpeed:
     _serializedValue: 4294967296
-  wrapMode: 1
+  wrapMode: 0
   characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
     type: 3}
   moveName: Throw Reaction
@@ -12508,11 +12508,11 @@ MonoBehaviour:
   speedKeyFrameToggle: 0
   fixedSpeed: 1
   animSpeedKeyFrame: []
-  totalFrames: 104
+  totalFrames: 103
   startUpFrames: 7
   activeFrames: 3
   recoveryFrames: 5
-  applyRootMotion: 0
+  applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
   lockZMotion: 1
@@ -12610,17 +12610,7 @@ MonoBehaviour:
     editorToggle: 0
   sortOrder: []
   particleEffects: []
-  appliedForces:
-  - castingFrame: 50
-    resetPreviousVertical: 1
-    resetPreviousHorizontal: 1
-    _force:
-      x:
-        _serializedValue: -107374182400
-      y:
-        _serializedValue: 64424509440
-      z:
-        _serializedValue: 0
+  appliedForces: []
   slowMoEffects: []
   bodyPartVisibilityChanges: []
   opponentOverride: []

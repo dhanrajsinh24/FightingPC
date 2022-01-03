@@ -3701,7 +3701,7 @@ MonoBehaviour:
     chargeMove: 0
     _chargeTiming:
       _serializedValue: 3006477107
-    allowInputLeniency: 0
+    allowInputLeniency: 1
     allowNegativeEdge: 0
     forceAxisPrecision: 0
     leniencyBuffer: 3
@@ -3711,7 +3711,7 @@ MonoBehaviour:
     buttonSequence: 
     buttonExecution: 04000000
     editorToggle: 1
-    buttonSequenceToggle: 0
+    buttonSequenceToggle: 1
     buttonExecutionToggle: 1
   altInputs:
     chargeMove: 0
@@ -3775,7 +3775,7 @@ MonoBehaviour:
       blocking: 0
       stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   moveClassification:
     attackType: 0
     hitType: 0
@@ -4185,11 +4185,11 @@ MonoBehaviour:
         _serializedValue: 0
     position:
       x:
-        _serializedValue: 102944256
+        _serializedValue: -1000341248
       y:
-        _serializedValue: 22703613952
+        _serializedValue: 22846322688
       z:
-        _serializedValue: 798084736
+        _serializedValue: 1600362752
   lockOnTargets: []
   switchCharacterOptions: []
   invincibleBodyParts: []

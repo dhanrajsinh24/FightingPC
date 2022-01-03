@@ -173,13 +173,9 @@ namespace Rewired.Integration.UniversalFightingEngine {
                 Debug.LogError(className + ": Rewired is not initialized. You must have an active Rewired Input Manager in the scene.");
                 return;
             }
-        }
 
-        private void Start() {
             if (_eventSystem == null) {
-                //todo
-                //_eventSystem = gameObject.GetComponentInChildren<EventSystem>(true);
-                _eventSystem = UFE.eventSystem;
+                _eventSystem = gameObject.GetComponentInChildren<EventSystem>(true);
                 if (_eventSystem == null) {
                     Debug.LogError(className + ": Event System must be linked in the inspector.");
                     return;
@@ -189,7 +185,7 @@ namespace Rewired.Integration.UniversalFightingEngine {
             // Rewired event system must start disabled so UFE doesn't see it and
             // try to use it as the primary event system for its custom navigation system.
             if (_eventSystem.enabled) {
-                //Debug.LogError(className + ": Event System component must be disabled initially in the GameObject to prevent issues during UFE initialization.");
+                Debug.LogError(className + ": Event System component must be disabled initially in the GameObject to prevent issues during UFE initialization.");
                 return;
             }
 
@@ -197,6 +193,9 @@ namespace Rewired.Integration.UniversalFightingEngine {
             _eventSystem.sendNavigationEvents = true;
 
             _initialized = true;
+        }
+
+        private void Start() {
             if (!_initialized) return;
 
             // Show/hide the touch UI initially
