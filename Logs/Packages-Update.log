@@ -73,3 +73,16 @@ The following packages were updated:
   com.unity.render-pipelines.universal from version 10.5.1 to 11.0.0
   com.unity.test-framework from version 1.1.27 to 1.1.29
   com.unity.timeline from version 1.4.8 to 1.5.6
+
+=== Sat Jan  8 19:49:52 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.analytics from version 3.6.11 to 3.6.12
+  com.unity.ide.visualstudio from version 2.0.11 to 2.0.12
+  com.unity.postprocessing from version 3.1.1 to 3.2.0
+  com.unity.purchasing from version 3.2.3 to 4.1.1
+  com.unity.render-pipelines.universal from version 11.0.0 to 12.1.2
+  com.unity.timeline from version 1.5.6 to 1.6.3
