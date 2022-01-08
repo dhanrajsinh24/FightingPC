@@ -3024,7 +3024,7 @@ MonoBehaviour:
     attackType: 1
     hitType: 1
     startupSpeed: 3
-    recoverySpeed: 2
+    recoverySpeed: 3
     hitConfirmType: 0
     preferableDistance: 2
     gaugeUsage: 2

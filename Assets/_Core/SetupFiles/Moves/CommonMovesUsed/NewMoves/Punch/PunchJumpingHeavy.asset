@@ -4493,11 +4493,11 @@ MonoBehaviour:
   moveClassification:
     attackType: 1
     hitType: 2
-    startupSpeed: 3
-    recoverySpeed: 2
+    startupSpeed: 2
+    recoverySpeed: 3
     hitConfirmType: 0
     preferableDistance: 2
-    gaugeUsage: 0
+    gaugeUsage: 2
     anyAttackType: 1
     anyHitType: 1
     anyHitConfirmType: 1

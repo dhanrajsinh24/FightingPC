@@ -12486,7 +12486,7 @@ MonoBehaviour:
     hitBoxDefinitionType: 0
   _animationSpeed:
     _serializedValue: 4294967296
-  wrapMode: 0
+  wrapMode: 8
   characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
     type: 3}
   moveName: NeckBreak Reaction
@@ -12499,7 +12499,7 @@ MonoBehaviour:
   forceMirrorRight: 0
   invertRotationLeft: 0
   invertRotationRight: 0
-  autoCorrectRotation: 1
+  autoCorrectRotation: 0
   allowSideSwitch: 0
   frameWindowRotation: 3
   cooldown: 0
@@ -12518,7 +12518,7 @@ MonoBehaviour:
   lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 2
-  overrideBlendingIn: 0
+  overrideBlendingIn: 1
   overrideBlendingOut: 1
   _blendingIn:
     _serializedValue: 429496736

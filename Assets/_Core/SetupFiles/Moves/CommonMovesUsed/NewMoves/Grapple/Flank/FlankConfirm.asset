@@ -14158,8 +14158,8 @@ MonoBehaviour:
   animSpeedKeyFrame: []
   totalFrames: 110
   startUpFrames: 36
-  activeFrames: 68
-  recoveryFrames: 6
+  activeFrames: 59
+  recoveryFrames: 15
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
@@ -14313,7 +14313,7 @@ MonoBehaviour:
     techable: 1
     resetHitAnimations: 1
     forceStand: 0
-    fixRotation: 1
+    fixRotation: 0
     armorBreaker: 0
     continuousHit: 0
     unblockable: 0
@@ -14322,7 +14322,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14332,11 +14332,11 @@ MonoBehaviour:
     resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 0
+    overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
       killTime: 0
-      hitSound: {fileID: 8300000, guid: 7cec4e4ba24f7db48b78639aa5b10a64, type: 3}
+      hitSound: {fileID: 8300000, guid: 5faf1d9397b29c14b850d93a497dc825, type: 3}
       spawnPoint: 1
       _freezingTime:
         _serializedValue: 0
@@ -14398,7 +14398,7 @@ MonoBehaviour:
     damageScaling: 0
     damageType: 1
     _damageOnHit:
-      _serializedValue: 429496729600
+      _serializedValue: 257698037760
     _damageOnBlock:
       _serializedValue: 0
     doesntKill: 1
@@ -14513,7 +14513,7 @@ MonoBehaviour:
     hitToggle: 1
     damageOptionsToggle: 1
     hitStunOptionsToggle: 0
-    forceOptionsToggle: 1
+    forceOptionsToggle: 0
     opponentForceToggle: 1
     selfForceToggle: 0
     stageReactionsToggle: 0
@@ -14580,15 +14580,15 @@ MonoBehaviour:
           _serializedValue: 8418136064
       shape: 1
       type: 0
-  - activeFramesBegin: 68
-    activeFramesEnds: 103
+  - activeFramesBegin: 84
+    activeFramesEnds: 94
     hitConfirmType: 0
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
     resetHitAnimations: 1
     forceStand: 0
-    fixRotation: 1
+    fixRotation: 0
     armorBreaker: 0
     continuousHit: 0
     unblockable: 0
@@ -14597,7 +14597,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14607,10 +14607,10 @@ MonoBehaviour:
     resetPreviousHitStun: 0
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 0
+    overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
-      killTime: 0
+      killTime: 0.2
       hitSound: {fileID: 8300000, guid: e49eb8fd2bdc27b49905d2c8c91c5058, type: 3}
       spawnPoint: 1
       _freezingTime:
@@ -14671,9 +14671,9 @@ MonoBehaviour:
     frameAdvantageOnHit: 0
     frameAdvantageOnBlock: 0
     damageScaling: 0
-    damageType: 0
+    damageType: 1
     _damageOnHit:
-      _serializedValue: 0
+      _serializedValue: 257698037760
     _damageOnBlock:
       _serializedValue: 0
     doesntKill: 0

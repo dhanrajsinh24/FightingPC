@@ -3658,9 +3658,21 @@ MonoBehaviour:
   previousMoves: []
   opponentConditions:
     basicMoveLimitation: 
-    possibleMoveStates: []
+    possibleMoveStates:
+    - possibleState: 0
+      jumpArc: 0
+      jumpArcBegins: 0
+      jumpArcEnds: 100
+      opponentDistance: 0
+      proximityRangeBegins: 0
+      proximityRangeEnds: 100
+      movingForward: 1
+      movingBack: 1
+      standBy: 1
+      blocking: 0
+      stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   selfConditions:
     basicMoveLimitation: 
     possibleMoveStates:
@@ -3677,12 +3689,12 @@ MonoBehaviour:
       blocking: 0
       stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   moveClassification:
     attackType: 1
     hitType: 0
-    startupSpeed: 5
-    recoverySpeed: 1
+    startupSpeed: 3
+    recoverySpeed: 3
     hitConfirmType: 1
     preferableDistance: 1
     gaugeUsage: 2
@@ -3755,7 +3767,19 @@ MonoBehaviour:
     allowMultiHit: 1
     opponentConditions:
       basicMoveLimitation: 
-      possibleMoveStates: []
+      possibleMoveStates:
+      - possibleState: 0
+        jumpArc: 0
+        jumpArcBegins: 0
+        jumpArcEnds: 100
+        opponentDistance: 2
+        proximityRangeBegins: 0
+        proximityRangeEnds: 50
+        movingForward: 1
+        movingBack: 1
+        standBy: 1
+        blocking: 1
+        stunned: 0
       basicMovesToggle: 1
       statesToggle: 1
     downHit: 0
@@ -3950,7 +3974,7 @@ MonoBehaviour:
     overrideEventsToggle: 0
     hitConditionsToggle: 1
     pullInToggle: 0
-    hurtBoxesToggle: 1
+    hurtBoxesToggle: 0
     wallBounceToggle: 0
     groundBounceToggle: 0
     hurtBoxes:

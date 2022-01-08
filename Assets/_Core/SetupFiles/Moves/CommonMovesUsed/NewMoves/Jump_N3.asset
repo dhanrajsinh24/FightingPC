@@ -750,7 +750,7 @@ MonoBehaviour:
       blocking: 0
       stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   moveClassification:
     attackType: 0
     hitType: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   cameraMovements: []
   hits:
   - activeFramesBegin: 10
-    activeFramesEnds: 30
+    activeFramesEnds: 29
     hitConfirmType: 0
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
@@ -821,7 +821,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -1012,9 +1012,9 @@ MonoBehaviour:
     hitToggle: 1
     damageOptionsToggle: 0
     hitStunOptionsToggle: 0
-    forceOptionsToggle: 0
+    forceOptionsToggle: 1
     opponentForceToggle: 1
-    selfForceToggle: 0
+    selfForceToggle: 1
     stageReactionsToggle: 0
     overrideEventsToggle: 0
     hitConditionsToggle: 0

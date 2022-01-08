@@ -12486,7 +12486,7 @@ MonoBehaviour:
     hitBoxDefinitionType: 0
   _animationSpeed:
     _serializedValue: 4294967296
-  wrapMode: 0
+  wrapMode: 8
   characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
     type: 3}
   moveName: Grapple B1 Reaction

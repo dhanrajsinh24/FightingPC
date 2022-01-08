@@ -104,7 +104,7 @@ MonoBehaviour:
   avatar: {fileID: 9000000, guid: a9bdbb083ff04a147ae05253c78ecde2, type: 3}
   useScaleFlip: 0
   applyRootMotion: 0
-  animationFlow: 1
+  animationFlow: 0
   useAnimationMaps: 0
   normalizeAnimationFrames: 0
   stanceResourcePath:

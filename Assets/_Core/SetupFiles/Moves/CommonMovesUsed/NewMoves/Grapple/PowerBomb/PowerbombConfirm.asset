@@ -14313,7 +14313,7 @@ MonoBehaviour:
     techable: 1
     resetHitAnimations: 1
     forceStand: 0
-    fixRotation: 1
+    fixRotation: 0
     armorBreaker: 0
     continuousHit: 0
     unblockable: 0
@@ -14322,7 +14322,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14332,10 +14332,10 @@ MonoBehaviour:
     resetPreviousHitStun: 0
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 0
+    overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
-      killTime: 0
+      killTime: 0.2
       hitSound: {fileID: 8300000, guid: e49eb8fd2bdc27b49905d2c8c91c5058, type: 3}
       spawnPoint: 1
       _freezingTime:
@@ -14517,7 +14517,7 @@ MonoBehaviour:
     opponentForceToggle: 0
     selfForceToggle: 0
     stageReactionsToggle: 0
-    overrideEventsToggle: 0
+    overrideEventsToggle: 1
     hitConditionsToggle: 1
     pullInToggle: 0
     hurtBoxesToggle: 1

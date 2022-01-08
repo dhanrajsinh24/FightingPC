@@ -4569,7 +4569,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -4649,20 +4649,20 @@ MonoBehaviour:
     _damageOnBlock:
       _serializedValue: 8589934592
     doesntKill: 0
-    hitType: 3
+    hitType: 6
     resetPreviousHorizontalPush: 1
     resetPreviousVerticalPush: 1
     resetPreviousSidewaysPush: 0
     resetJumpForce: 0
-    applyDifferentAirForce: 1
+    applyDifferentAirForce: 0
     applyDifferentBlockForce: 0
     applyDifferentSelfAirForce: 0
     applyDifferentSelfBlockForce: 0
     _pushForce:
       x:
-        _serializedValue: 64424509440
+        _serializedValue: 42949672960
       y:
-        _serializedValue: 0
+        _serializedValue: 171798691840
       z:
         _serializedValue: 0
     _pushForceAir:

@@ -14620,7 +14620,7 @@ MonoBehaviour:
     overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
-      killTime: 0
+      killTime: 0.2
       hitSound: {fileID: 8300000, guid: 7cec4e4ba24f7db48b78639aa5b10a64, type: 3}
       spawnPoint: 1
       _freezingTime:
@@ -14631,12 +14631,12 @@ MonoBehaviour:
       _hitStop:
         _serializedValue: 429496736
       mirrorOn2PSide: 0
-      shakeCharacterOnHit: 0
-      shakeCameraOnHit: 0
+      shakeCharacterOnHit: 1
+      shakeCameraOnHit: 1
       _shakeDensity:
         _serializedValue: 3435973888
       _shakeCameraDensity:
-        _serializedValue: 3435973836
+        _serializedValue: 3435973888
       editorToggle: 1
     overrideHitEffectsBlock: 0
     hitEffectsBlock:

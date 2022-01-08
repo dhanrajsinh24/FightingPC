@@ -2439,11 +2439,11 @@ MonoBehaviour:
   moveClassification:
     attackType: 1
     hitType: 1
-    startupSpeed: 3
-    recoverySpeed: 3
+    startupSpeed: 4
+    recoverySpeed: 4
     hitConfirmType: 0
     preferableDistance: 2
-    gaugeUsage: 0
+    gaugeUsage: 2
     anyAttackType: 1
     anyHitType: 1
     anyHitConfirmType: 1

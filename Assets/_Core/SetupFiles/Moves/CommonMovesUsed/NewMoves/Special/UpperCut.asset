@@ -101,17 +101,29 @@ MonoBehaviour:
     statesToggle: 0
   selfConditions:
     basicMoveLimitation: 
-    possibleMoveStates: []
-    basicMovesToggle: 0
-    statesToggle: 0
+    possibleMoveStates:
+    - possibleState: 0
+      jumpArc: 0
+      jumpArcBegins: 0
+      jumpArcEnds: 100
+      opponentDistance: 0
+      proximityRangeBegins: 0
+      proximityRangeEnds: 100
+      movingForward: 1
+      movingBack: 1
+      standBy: 1
+      blocking: 0
+      stunned: 0
+    basicMovesToggle: 1
+    statesToggle: 1
   moveClassification:
     attackType: 2
     hitType: 0
-    startupSpeed: 0
-    recoverySpeed: 0
+    startupSpeed: 3
+    recoverySpeed: 1
     hitConfirmType: 0
-    preferableDistance: 2
-    gaugeUsage: 3
+    preferableDistance: 1
+    gaugeUsage: 5
     anyAttackType: 1
     anyHitType: 1
     anyHitConfirmType: 1
@@ -193,7 +205,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -383,7 +395,7 @@ MonoBehaviour:
           _serializedValue: 0
     hitToggle: 1
     damageOptionsToggle: 0
-    hitStunOptionsToggle: 1
+    hitStunOptionsToggle: 0
     forceOptionsToggle: 1
     opponentForceToggle: 1
     selfForceToggle: 1

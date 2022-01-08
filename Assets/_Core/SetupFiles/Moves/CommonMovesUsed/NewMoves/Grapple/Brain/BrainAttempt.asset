@@ -3681,8 +3681,8 @@ MonoBehaviour:
   moveClassification:
     attackType: 1
     hitType: 0
-    startupSpeed: 5
-    recoverySpeed: 1
+    startupSpeed: 3
+    recoverySpeed: 3
     hitConfirmType: 1
     preferableDistance: 1
     gaugeUsage: 2
@@ -3755,7 +3755,19 @@ MonoBehaviour:
     allowMultiHit: 1
     opponentConditions:
       basicMoveLimitation: 
-      possibleMoveStates: []
+      possibleMoveStates:
+      - possibleState: 0
+        jumpArc: 0
+        jumpArcBegins: 0
+        jumpArcEnds: 100
+        opponentDistance: 2
+        proximityRangeBegins: 0
+        proximityRangeEnds: 50
+        movingForward: 1
+        movingBack: 1
+        standBy: 1
+        blocking: 1
+        stunned: 0
       basicMovesToggle: 1
       statesToggle: 1
     downHit: 0

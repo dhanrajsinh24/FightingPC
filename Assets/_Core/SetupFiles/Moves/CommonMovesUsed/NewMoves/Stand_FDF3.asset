@@ -4369,8 +4369,8 @@ MonoBehaviour:
   moveClassification:
     attackType: 5
     hitType: 3
-    startupSpeed: 3
-    recoverySpeed: 3
+    startupSpeed: 2
+    recoverySpeed: 4
     hitConfirmType: 0
     preferableDistance: 2
     gaugeUsage: 2

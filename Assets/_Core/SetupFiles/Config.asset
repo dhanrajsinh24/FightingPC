@@ -63,7 +63,7 @@ MonoBehaviour:
     quit: Quit
     ko: K.O.
     draw: Draw
-    defaultSelection: 0
+    defaultSelection: 1
   gameGUI:
     hasGauge: 1
     screenFadeDuration:
@@ -286,7 +286,7 @@ MonoBehaviour:
     quit: Quit
     ko: K.O.
     draw: Draw
-    defaultSelection: 0
+    defaultSelection: 1
   deploymentOptions:
     deploymentType: 0
     activeCharacters:
@@ -312,7 +312,7 @@ MonoBehaviour:
     minZoom: 30
     maxZoom: 42
     _maxDistance:
-      _serializedValue: 107374182400
+      _serializedValue: 77309411328
     rotationSpeed: 12
     heightOffSet: 0.5
     rotationOffSet: {x: 0, y: 4, z: 0}
@@ -333,9 +333,9 @@ MonoBehaviour:
     rotateWhileJumping: 1
     rotateOnMoveOnly: 0
     allowAirBorneSideSwitch: 0
-    fixRotationWhenStunned: 0
+    fixRotationWhenStunned: 1
     fixRotationWhenBlocking: 1
-    fixRotationOnHit: 1
+    fixRotationOnHit: 0
     smoothRotation: 1
     _rotationSpeed:
       _serializedValue: 214748364800
@@ -493,7 +493,7 @@ MonoBehaviour:
     easyParry: 0
     ignoreAppliedForceParry: 1
     parryHitEffects:
-      hitParticle: {fileID: 100006, guid: 1851f237d4f2a334899ca51cc1f67528, type: 2}
+      hitParticle: {fileID: 0}
       killTime: 0.6
       hitSound: {fileID: 8300000, guid: cb2782c81be7d634080146612802d65f, type: 3}
       spawnPoint: 1
@@ -714,7 +714,7 @@ MonoBehaviour:
         _serializedValue: 5153960960
       _shakeCameraDensity:
         _serializedValue: 7730940928
-      editorToggle: 0
+      editorToggle: 1
     crumpleHit:
       hitParticle: {fileID: 1459499847029934, guid: e78df5c3545b7324991134d6f0eb6528,
         type: 3}
@@ -742,19 +742,19 @@ MonoBehaviour:
       hitSound: {fileID: 8300000, guid: 3864bae6ac61cd141b757a06fdd6feb2, type: 3}
       spawnPoint: 1
       _freezingTime:
-        _serializedValue: 858993472
+        _serializedValue: 0
       _animationSpeed:
-        _serializedValue: 429496736
+        _serializedValue: 429496729600
       autoHitStop: 1
       _hitStop:
-        _serializedValue: 858993472
+        _serializedValue: 0
       mirrorOn2PSide: 0
       shakeCharacterOnHit: 1
       shakeCameraOnHit: 1
       _shakeDensity:
-        _serializedValue: 5153960960
+        _serializedValue: 3435973888
       _shakeCameraDensity:
-        _serializedValue: 6442450944
+        _serializedValue: 3435973888
       editorToggle: 0
     customHit2:
       hitParticle: {fileID: 0}
@@ -794,7 +794,7 @@ MonoBehaviour:
       _shakeDensity:
         _serializedValue: 3435973888
       _shakeCameraDensity:
-        _serializedValue: 3435973836
+        _serializedValue: 3435973888
       editorToggle: 0
     customHit4:
       hitParticle: {fileID: 0}
@@ -875,7 +875,7 @@ MonoBehaviour:
     inputViewerIcon6: {fileID: 0}
   - inputType: 1
     inputButtonName: Vertical
-    engineRelatedButton: 3
+    engineRelatedButton: 2
     joystickAxisName: Vertical
     cInputPositiveKeyName: P1Up
     cInputPositiveDefaultKey: W
@@ -1431,7 +1431,7 @@ MonoBehaviour:
       attackProbability: 0
     multiCoreSupport: 1
     persistentBehavior: 0
-    difficultyToggle: 1
+    difficultyToggle: 0
     difficultySettings:
     - difficultyLevel: 0
       overrideTimeBetweenDecisions: 1
@@ -1567,10 +1567,10 @@ MonoBehaviour:
     inputMessageFrequency: 0
     synchronizationMessageFrequency: 0
     synchronizationAction: 1
-  music: 1
-  musicVolume: 1
+  music: 0
+  musicVolume: 0.046784177
   soundfx: 1
-  soundfxVolume: 1
+  soundfxVolume: 0.20142919
   colorStateOne: {r: 1, g: 0, b: 0, a: 1}
   colorIsHit: {r: 1, g: 0, b: 1, a: 1}
   colorBodyCollider: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

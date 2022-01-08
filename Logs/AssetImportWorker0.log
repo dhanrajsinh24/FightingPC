@@ -12,78 +12,78 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49271
+49396
 Successfully changed project path to: /Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game
 /Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 95.71 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 120.52 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.14f1 (d0d1bb862f9d)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game/Assets
 GfxDevice: creating device client; threaded=0
-2022-01-03 15:44:21.640 Unity[916:14063] Color LCD preferred device: Intel(R) UHD Graphics 630 (low power)
-2022-01-03 15:44:21.640 Unity[916:14063] Metal devices available: 2
-2022-01-03 15:44:21.640 Unity[916:14063] 0: AMD Radeon Pro 5300M (high power)
-2022-01-03 15:44:21.640 Unity[916:14063] 1: Intel(R) UHD Graphics 630 (low power)
-2022-01-03 15:44:21.641 Unity[916:14063] Using device AMD Radeon Pro 5300M (high power)
+2022-01-08 18:18:35.140 Unity[1125:26925] Color LCD preferred device: Intel(R) UHD Graphics 630 (low power)
+2022-01-08 18:18:35.140 Unity[1125:26925] Metal devices available: 2
+2022-01-08 18:18:35.140 Unity[1125:26925] 0: AMD Radeon Pro 5300M (high power)
+2022-01-08 18:18:35.141 Unity[1125:26925] 1: Intel(R) UHD Graphics 630 (low power)
+2022-01-08 18:18:35.141 Unity[1125:26925] Using device AMD Radeon Pro 5300M (high power)
 Initializing Metal device caps: AMD Radeon Pro 5300M
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56916
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56125
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.14f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001063 seconds.
+Registered in 0.005638 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 75.40 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 85.78 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.805 seconds
+- Completed reload, in  3.584 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3806ms)
-		BeginReloadAssembly (35ms)
+	ReloadAssembly (3585ms)
+		BeginReloadAssembly (45ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (450ms)
-			LoadAssemblies (34ms)
+		EndReloadAssembly (496ms)
+			LoadAssemblies (46ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (165ms)
+			SetupTypeCache (177ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (202ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (227ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (75ms)
-				BeforeProcessingInitializeOnLoad (7ms)
-				ProcessInitializeOnLoadAttributes (88ms)
-				ProcessInitializeOnLoadMethodAttributes (26ms)
+				RefreshPlugins (86ms)
+				BeforeProcessingInitializeOnLoad (8ms)
+				ProcessInitializeOnLoadAttributes (95ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003121 seconds.
+Registered in 0.014818 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 80.66 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 81.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
@@ -95,34 +95,34 @@ Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
-03-01-2022 15:44:27|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+08-01-2022 18:18:41|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
                             at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
                             at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
                             at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
                             at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.140 seconds
+- Completed reload, in  1.186 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1141ms)
-		BeginReloadAssembly (138ms)
+	ReloadAssembly (1188ms)
+		BeginReloadAssembly (140ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (23ms)
-		EndReloadAssembly (943ms)
-			LoadAssemblies (76ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (987ms)
+			LoadAssemblies (110ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (325ms)
+			SetupTypeCache (326ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (345ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (355ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (81ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (164ms)
+				RefreshPlugins (82ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (172ms)
 				ProcessInitializeOnLoadMethodAttributes (8ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
@@ -133,15 +133,15 @@ Platform modules already initialized, skipping
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launching external process: /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3178 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 352.6 MB.
-System memory in use after: 352.8 MB.
+Unloading 3186 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 355.8 MB.
+System memory in use after: 356.0 MB.
 
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 3704.
-Total: 2.564210 ms (FindLiveObjects: 0.370447 ms CreateObjectMapping: 0.172354 ms MarkObjects: 1.901410 ms  DeleteObjects: 0.119099 ms)
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 3712.
+Total: 2.105668 ms (FindLiveObjects: 0.336036 ms CreateObjectMapping: 0.156763 ms MarkObjects: 1.513518 ms  DeleteObjects: 0.098218 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -155,15 +155,79 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Punch/Crouch_N3.asset
-  artifactKey: Guid(401b6d9a922ef694c85657ca82496ba8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Punch/Crouch_N3.asset using Guid(401b6d9a922ef694c85657ca82496ba8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cdea15bf9f023150f563382e4d58c40') in 1.099310 seconds 
-  Import took 1.107748 seconds .
+  path: Assets/VFX-Essentials-main
+  artifactKey: Guid(ec68dda933e5d469d84485574eb87b48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main using Guid(ec68dda933e5d469d84485574eb87b48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7144c9776ac73ba1fb930c6925a89f8f') in 0.005656 seconds 
+  Import took 0.009933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/VFX-Essentials-main/Assets
+  artifactKey: Guid(c36ace8a199ce45b28124b247314e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets using Guid(c36ace8a199ce45b28124b247314e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d55a05d191c6970c4537ac686f464c3') in 0.002072 seconds 
+  Import took 0.006670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.937953 seconds.
+  path: Assets/VFX-Essentials-main/LICENSE
+  artifactKey: Guid(6cafaae10ab43436e8d4e01840e37ed7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/LICENSE using Guid(6cafaae10ab43436e8d4e01840e37ed7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b28e6b7fc9999b4fbdb16ab365d6e6e') in 0.010923 seconds 
+  Import took 0.016071 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.300086 seconds.
+  path: Assets/VFX-Essentials-main/Assets/Blend
+  artifactKey: Guid(9edeef99939c4a949b21f0b37c33364d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/Blend using Guid(9edeef99939c4a949b21f0b37c33364d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3d0597095b0da2c7856a8f88b32b959') in 0.001092 seconds 
+  Import took 0.006972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.988232 seconds.
+  path: Assets/VFX-Essentials-main/Assets/VFXGraphs
+  artifactKey: Guid(8ff46c69ab442034c8c1af78c93ae78d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/VFXGraphs using Guid(8ff46c69ab442034c8c1af78c93ae78d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305854a414bc04ca6b5cf723c70604d4') in 0.001807 seconds 
+  Import took 0.007234 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.518959 seconds.
+  path: Assets/VFX-Essentials-main/Assets/VFXGraphs/2DGrid.vfx
+  artifactKey: Guid(5cdf6523f5d48034ea8d85de48f40a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/VFXGraphs/2DGrid.vfx using Guid(5cdf6523f5d48034ea8d85de48f40a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '655eadc05bd08e8db78b3fd0010f964b') in 0.103493 seconds 
+  Import took 0.109675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.506053 seconds.
+  path: Assets/VFX-Essentials-main/Assets/VFXGraphs/AttractionRepulsion.vfx
+  artifactKey: Guid(179e27e6ee83d9743adcaa2637218be4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/VFXGraphs/AttractionRepulsion.vfx using Guid(179e27e6ee83d9743adcaa2637218be4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '057685214abbeac1b154bb6d1c0c5e88') in 0.004890 seconds 
+  Import took 0.010643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.517652 seconds.
+  path: Assets/VFX-Essentials-main/Assets/VFXGraphs/Buffers_TextureBuffer.vfx
+  artifactKey: Guid(24525f011ac8d604a9eb39c2766cac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/VFXGraphs/Buffers_TextureBuffer.vfx using Guid(24525f011ac8d604a9eb39c2766cac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac599425c120cdc604a334428a45f340') in 0.003951 seconds 
+  Import took 0.009863 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000755 seconds.
+  path: Assets/VFX-Essentials-main/Assets/VFXGraphs/Buffers_TextureBuffer.vfx
+  artifactKey: Guid(24525f011ac8d604a9eb39c2766cac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX-Essentials-main/Assets/VFXGraphs/Buffers_TextureBuffer.vfx using Guid(24525f011ac8d604a9eb39c2766cac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac599425c120cdc604a334428a45f340') in 0.003998 seconds 
+  Import took 0.009340 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003508 seconds.
+Registered in 0.007246 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -181,156 +245,49 @@ Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
 Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
-03-01-2022 15:52:26|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
+08-01-2022 18:19:30|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
                             at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
                             at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
                             at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
                             at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
 Mono: successfully reloaded assembly
-- Completed reload, in  0.939 seconds
+- Completed reload, in  1.014 seconds
 Domain Reload Profiling:
-	ReloadAssembly (939ms)
-		BeginReloadAssembly (93ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (789ms)
-			LoadAssemblies (70ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (314ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (237ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (71ms)
-				ProcessInitializeOnLoadAttributes (153ms)
-				ProcessInitializeOnLoadMethodAttributes (5ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 346.6 MB.
-System memory in use after: 346.8 MB.
-
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3707.
-Total: 1.880694 ms (FindLiveObjects: 0.271198 ms CreateObjectMapping: 0.129225 ms MarkObjects: 1.416504 ms  DeleteObjects: 0.063035 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1276.658795 seconds.
-  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Grapple/Atemi/AtemiConfirm.asset
-  artifactKey: Guid(24702f18fda8d437795b1d3a7ef796ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Grapple/Atemi/AtemiConfirm.asset using Guid(24702f18fda8d437795b1d3a7ef796ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c325480476fc06633c385e650eb9458d') in 0.144306 seconds 
-  Import took 0.150327 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 71.155708 seconds.
-  path: Assets/FightingUnityChan_Asset10/Animations/Used/CmnAtemi_N.anim
-  artifactKey: Guid(2371829ea34664d2b83042ed6eeb786c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FightingUnityChan_Asset10/Animations/Used/CmnAtemi_N.anim using Guid(2371829ea34664d2b83042ed6eeb786c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3810f0de8103f24965b482f19b01ab6b') in 0.085458 seconds 
-  Import took 0.091649 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 267.155396 seconds.
-  path: Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Grapple/Atemi/AtemiReaction.asset
-  artifactKey: Guid(0e5a0a63ea9824b78ac605968db91829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Core/SetupFiles/Moves/CommonMovesUsed/NewMoves/Grapple/Atemi/AtemiReaction.asset using Guid(0e5a0a63ea9824b78ac605968db91829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f5285d6f72f1a957453163eafa23a00') in 0.030940 seconds 
-  Import took 0.036371 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.027994 seconds.
-  path: Assets/FightingUnityChan_Asset10/Animations/Used/CmnAtemi_Y.anim
-  artifactKey: Guid(23eab95055f4d4807990bad9e0e2fc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FightingUnityChan_Asset10/Animations/Used/CmnAtemi_Y.anim using Guid(23eab95055f4d4807990bad9e0e2fc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7325fcf06c9d794f09e41974a9312ca7') in 0.021540 seconds 
-  Import took 0.026217 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004082 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/Kernel32
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.dylib
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.so
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32.bundle
-Fallback handler could not load library /Applications/Unity/Hub/Editor/2020.3.14f1/Unity.app/Contents/Frameworks/Mono/lib/libKernel32
-03-01-2022 16:28:07|Fatal|WebSocket.connect|System.Net.Sockets.SocketException (0x80004005): Connection refused
-                            at System.Net.Sockets.TcpClient..ctor (System.String hostname, System.Int32 port) [0x0006d] in <6fcfdd162b5d4836bef3c96f53194db6>:0 
-                            at WebSocketSharp.WebSocket.setClientStream () [0x00066] in <6e54e4d675ae408e9064c25787e50820>:0 
-                            at WebSocketSharp.WebSocket.doHandshake () [0x00001] in <6e54e4d675ae408e9064c25787e50820>:0 
-                            at WebSocketSharp.WebSocket.connect () [0x00083] in <6e54e4d675ae408e9064c25787e50820>:0 
-Mono: successfully reloaded assembly
-- Completed reload, in  1.052 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1052ms)
+	ReloadAssembly (1014ms)
 		BeginReloadAssembly (103ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (42ms)
-		EndReloadAssembly (889ms)
-			LoadAssemblies (77ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (845ms)
+			LoadAssemblies (82ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (318ms)
+			SetupTypeCache (320ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (62ms)
-			SetupLoadedEditorAssemblies (289ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (256ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (187ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (2ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (164ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3016 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 352.8 MB.
-System memory in use after: 353.0 MB.
+Unloading 3017 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 349.6 MB.
+System memory in use after: 349.8 MB.
 
-Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3710.
-Total: 2.130458 ms (FindLiveObjects: 0.299008 ms CreateObjectMapping: 0.140996 ms MarkObjects: 1.619330 ms  DeleteObjects: 0.070374 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 3709.
+Total: 2.510184 ms (FindLiveObjects: 0.332686 ms CreateObjectMapping: 0.151533 ms MarkObjects: 1.947537 ms  DeleteObjects: 0.077531 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 

@@ -4887,8 +4887,8 @@ MonoBehaviour:
   animSpeedKeyFrame: []
   totalFrames: 40
   startUpFrames: 18
-  activeFrames: 8
-  recoveryFrames: 14
+  activeFrames: 9
+  recoveryFrames: 13
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
@@ -4963,7 +4963,7 @@ MonoBehaviour:
     startupSpeed: 1
     recoverySpeed: 2
     hitConfirmType: 0
-    preferableDistance: 0
+    preferableDistance: 2
     gaugeUsage: 2
     anyAttackType: 1
     anyHitType: 1

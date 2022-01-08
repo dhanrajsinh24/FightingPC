@@ -3667,6 +3667,7 @@ MonoBehaviour:
   invertRotationLeft: 0
   invertRotationRight: 0
   autoCorrectRotation: 0
+  allowSideSwitch: 0
   frameWindowRotation: 0
   cooldown: 0
   cooldownFrames: 0
@@ -3746,13 +3747,13 @@ MonoBehaviour:
     basicMovesToggle: 0
     statesToggle: 1
   moveClassification:
-    attackType: 0
+    attackType: 2
     hitType: 0
     startupSpeed: 0
     recoverySpeed: 0
     hitConfirmType: 0
-    preferableDistance: 0
-    gaugeUsage: 0
+    preferableDistance: 3
+    gaugeUsage: 2
     anyAttackType: 1
     anyHitType: 1
     anyHitConfirmType: 1
@@ -3926,3 +3927,4 @@ MonoBehaviour:
     damageAbsorption: 0
     nonAffectedBodyParts: 
   projectiles: []
+  rotationPreview: {x: 0, y: 90, z: 0}

@@ -14157,9 +14157,9 @@ MonoBehaviour:
   fixedSpeed: 1
   animSpeedKeyFrame: []
   totalFrames: 95
-  startUpFrames: 36
-  activeFrames: 59
-  recoveryFrames: 0
+  startUpFrames: 52
+  activeFrames: 5
+  recoveryFrames: 38
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
@@ -14169,9 +14169,9 @@ MonoBehaviour:
   overrideBlendingIn: 1
   overrideBlendingOut: 1
   _blendingIn:
-    _serializedValue: 858993472
+    _serializedValue: 429496736
   _blendingOut:
-    _serializedValue: 2147483648
+    _serializedValue: 858993472
   defaultInputs:
     chargeMove: 0
     _chargeTiming:
@@ -14276,7 +14276,7 @@ MonoBehaviour:
   opponentOverride:
   - _position:
       x:
-        _serializedValue: 13743895552
+        _serializedValue: 8589934592
       y:
         _serializedValue: 0
       z:
@@ -14305,15 +14305,15 @@ MonoBehaviour:
   stanceChanges: []
   cameraMovements: []
   hits:
-  - activeFramesBegin: 36
-    activeFramesEnds: 94
+  - activeFramesBegin: 52
+    activeFramesEnds: 56
     hitConfirmType: 0
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
     techable: 1
     resetHitAnimations: 1
     forceStand: 0
-    fixRotation: 1
+    fixRotation: 0
     armorBreaker: 0
     continuousHit: 0
     unblockable: 0
@@ -14322,7 +14322,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14335,7 +14335,7 @@ MonoBehaviour:
     overrideHitEffects: 0
     hitEffects:
       hitParticle: {fileID: 0}
-      killTime: 0
+      killTime: 0.2
       hitSound: {fileID: 8300000, guid: e49eb8fd2bdc27b49905d2c8c91c5058, type: 3}
       spawnPoint: 1
       _freezingTime:

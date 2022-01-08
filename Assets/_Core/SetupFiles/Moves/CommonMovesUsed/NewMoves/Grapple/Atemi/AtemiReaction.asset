@@ -12487,7 +12487,7 @@ MonoBehaviour:
   _animationSpeed:
     _serializedValue: 4294967296
   wrapMode: 0
-  characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
+  characterPrefab: {fileID: 5858918846304866696, guid: c65fc3c6c1a3545e5b0f77069c7710ad,
     type: 3}
   moveName: Atemi Reaction
   description: Atemi Reaction
@@ -12515,7 +12515,7 @@ MonoBehaviour:
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
-  lockZMotion: 0
+  lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 2
   overrideBlendingIn: 0

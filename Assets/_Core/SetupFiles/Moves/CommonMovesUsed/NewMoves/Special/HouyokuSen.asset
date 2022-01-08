@@ -22732,15 +22732,15 @@ MonoBehaviour:
       blocking: 0
       stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   moveClassification:
     attackType: 2
     hitType: 0
     startupSpeed: 1
-    recoverySpeed: 1
+    recoverySpeed: 4
     hitConfirmType: 0
     preferableDistance: 3
-    gaugeUsage: 3
+    gaugeUsage: 5
     anyAttackType: 1
     anyHitType: 1
     anyHitConfirmType: 1

@@ -14134,7 +14134,7 @@ MonoBehaviour:
     hitBoxDefinitionType: 0
   _animationSpeed:
     _serializedValue: 4294967296
-  wrapMode: 0
+  wrapMode: 8
   characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
     type: 3}
   moveName: Grapple B1 Confirm
@@ -14158,16 +14158,16 @@ MonoBehaviour:
   animSpeedKeyFrame: []
   totalFrames: 125
   startUpFrames: 17
-  activeFrames: 74
-  recoveryFrames: 34
+  activeFrames: 64
+  recoveryFrames: 44
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
   lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 0
-  overrideBlendingIn: 1
-  overrideBlendingOut: 1
+  overrideBlendingIn: 0
+  overrideBlendingOut: 0
   _blendingIn:
     _serializedValue: 858993472
   _blendingOut:
@@ -14276,7 +14276,7 @@ MonoBehaviour:
   opponentOverride:
   - _position:
       x:
-        _serializedValue: 15032385536
+        _serializedValue: 8589934592
       y:
         _serializedValue: 0
       z:
@@ -14287,7 +14287,7 @@ MonoBehaviour:
     _stunTime:
       _serializedValue: 773094113280
     overrideHitAnimations: 1
-    resetAppliedForces: 0
+    resetAppliedForces: 1
     standUpOptions: 1
     characterSpecific: 1
     move: {fileID: 11400000, guid: 42f418bf3978d4624b820d113aee8df1, type: 2}
@@ -14322,7 +14322,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14332,11 +14332,11 @@ MonoBehaviour:
     resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 0
+    overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
       killTime: 0
-      hitSound: {fileID: 0}
+      hitSound: {fileID: 8300000, guid: 7cec4e4ba24f7db48b78639aa5b10a64, type: 3}
       spawnPoint: 1
       _freezingTime:
         _serializedValue: 0
@@ -14351,8 +14351,8 @@ MonoBehaviour:
       _shakeDensity:
         _serializedValue: 3435973888
       _shakeCameraDensity:
-        _serializedValue: 3435973836
-      editorToggle: 0
+        _serializedValue: 3435973888
+      editorToggle: 1
     overrideHitEffectsBlock: 0
     hitEffectsBlock:
       hitParticle: {fileID: 0}
@@ -14510,8 +14510,8 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    hitToggle: 1
-    damageOptionsToggle: 1
+    hitToggle: 0
+    damageOptionsToggle: 0
     hitStunOptionsToggle: 0
     forceOptionsToggle: 0
     opponentForceToggle: 0
@@ -14580,8 +14580,8 @@ MonoBehaviour:
           _serializedValue: 12884901888
       shape: 1
       type: 0
-  - activeFramesBegin: 68
-    activeFramesEnds: 90
+  - activeFramesBegin: 70
+    activeFramesEnds: 80
     hitConfirmType: 0
     throwMove: {fileID: 0}
     techMove: {fileID: 0}
@@ -14597,7 +14597,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14611,7 +14611,7 @@ MonoBehaviour:
     hitEffects:
       hitParticle: {fileID: 0}
       killTime: 0
-      hitSound: {fileID: 8300000, guid: 7cec4e4ba24f7db48b78639aa5b10a64, type: 3}
+      hitSound: {fileID: 8300000, guid: 5faf1d9397b29c14b850d93a497dc825, type: 3}
       spawnPoint: 1
       _freezingTime:
         _serializedValue: 0
@@ -14662,7 +14662,7 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 2
+    hitStrength: 1
     hitStunType: 1
     _hitStunOnHit:
       _serializedValue: 0
@@ -14677,7 +14677,7 @@ MonoBehaviour:
     _damageOnBlock:
       _serializedValue: 0
     doesntKill: 0
-    hitType: 0
+    hitType: 2
     resetPreviousHorizontalPush: 0
     resetPreviousVerticalPush: 0
     resetPreviousSidewaysPush: 0
@@ -14816,43 +14816,43 @@ MonoBehaviour:
         _x:
           _serializedValue: -6313602048
         _y:
-          _serializedValue: -12884901888
+          _serializedValue: -17222819840
         topRight:
           x:
             _serializedValue: 1546188288
           y:
-            _serializedValue: -12884901888
+            _serializedValue: -17222819840
           z:
             _serializedValue: 0
         topLeft:
           x:
             _serializedValue: -6313602048
           y:
-            _serializedValue: -12884901888
+            _serializedValue: -17222819840
           z:
             _serializedValue: 0
         bottomRight:
           x:
             _serializedValue: 1546188288
           y:
-            _serializedValue: 12884901888
+            _serializedValue: 4080218112
           z:
             _serializedValue: 0
         bottomLeft:
           x:
             _serializedValue: -6313602048
           y:
-            _serializedValue: 12884901888
+            _serializedValue: 4080218112
           z:
             _serializedValue: 0
         width:
           _serializedValue: 7859790336
         height:
-          _serializedValue: 25769803776
+          _serializedValue: 21303037952
         xMax:
           _serializedValue: 1546188288
         yMax:
-          _serializedValue: 12884901888
+          _serializedValue: 4080218112
       shape: 1
       type: 0
   blockableArea:

@@ -14135,7 +14135,7 @@ MonoBehaviour:
   _animationSpeed:
     _serializedValue: 4294967296
   wrapMode: 0
-  characterPrefab: {fileID: 1272366937168992, guid: 01b0a963f13679544a22d6e63d5256c6,
+  characterPrefab: {fileID: 5858918846304866696, guid: c65fc3c6c1a3545e5b0f77069c7710ad,
     type: 3}
   moveName: Atemi Confirm
   description: Atemi Confirm
@@ -14163,7 +14163,7 @@ MonoBehaviour:
   applyRootMotion: 1
   lockXMotion: 0
   lockYMotion: 0
-  lockZMotion: 0
+  lockZMotion: 1
   forceGrounded: 0
   rootMotionNode: 0
   overrideBlendingIn: 1
@@ -14313,7 +14313,7 @@ MonoBehaviour:
     techable: 1
     resetHitAnimations: 1
     forceStand: 0
-    fixRotation: 1
+    fixRotation: 0
     armorBreaker: 0
     continuousHit: 0
     unblockable: 0
@@ -14322,7 +14322,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -14332,10 +14332,10 @@ MonoBehaviour:
     resetPreviousHitStun: 1
     resetCrumples: 0
     customStunValues: 0
-    overrideHitEffects: 0
+    overrideHitEffects: 1
     hitEffects:
       hitParticle: {fileID: 0}
-      killTime: 0
+      killTime: 0.2
       hitSound: {fileID: 8300000, guid: 7cec4e4ba24f7db48b78639aa5b10a64, type: 3}
       spawnPoint: 1
       _freezingTime:
@@ -14346,12 +14346,12 @@ MonoBehaviour:
       _hitStop:
         _serializedValue: 429496736
       mirrorOn2PSide: 0
-      shakeCharacterOnHit: 0
-      shakeCameraOnHit: 0
+      shakeCharacterOnHit: 1
+      shakeCameraOnHit: 1
       _shakeDensity:
         _serializedValue: 3435973888
       _shakeCameraDensity:
-        _serializedValue: 3435973836
+        _serializedValue: 3435973888
       editorToggle: 1
     overrideHitEffectsBlock: 0
     hitEffectsBlock:
@@ -14517,7 +14517,7 @@ MonoBehaviour:
     opponentForceToggle: 1
     selfForceToggle: 0
     stageReactionsToggle: 0
-    overrideEventsToggle: 0
+    overrideEventsToggle: 1
     hitConditionsToggle: 1
     pullInToggle: 0
     hurtBoxesToggle: 0

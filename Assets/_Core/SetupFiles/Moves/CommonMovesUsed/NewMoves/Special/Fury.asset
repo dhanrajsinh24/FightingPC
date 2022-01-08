@@ -15756,9 +15756,21 @@ MonoBehaviour:
   previousMoves: []
   opponentConditions:
     basicMoveLimitation: 
-    possibleMoveStates: []
+    possibleMoveStates:
+    - possibleState: 0
+      jumpArc: 0
+      jumpArcBegins: 0
+      jumpArcEnds: 100
+      opponentDistance: 0
+      proximityRangeBegins: 0
+      proximityRangeEnds: 100
+      movingForward: 1
+      movingBack: 1
+      standBy: 1
+      blocking: 0
+      stunned: 0
     basicMovesToggle: 0
-    statesToggle: 0
+    statesToggle: 1
   selfConditions:
     basicMoveLimitation: 
     possibleMoveStates:
@@ -15791,8 +15803,8 @@ MonoBehaviour:
   moveClassification:
     attackType: 2
     hitType: 0
-    startupSpeed: 0
-    recoverySpeed: 0
+    startupSpeed: 1
+    recoverySpeed: 1
     hitConfirmType: 0
     preferableDistance: 2
     gaugeUsage: 5
@@ -16152,7 +16164,7 @@ MonoBehaviour:
     crouchingHit: 1
     airHit: 1
     stunHit: 1
-    allowMultiHit: 1
+    allowMultiHit: 0
     opponentConditions:
       basicMoveLimitation: 
       possibleMoveStates: []
@@ -16220,7 +16232,7 @@ MonoBehaviour:
     hitStrength: 2
     hitStunType: 1
     _hitStunOnHit:
-      _serializedValue: 85899345920
+      _serializedValue: 214748364800
     _hitStunOnBlock:
       _serializedValue: 42949672960
     frameAdvantageOnHit: 0
@@ -16340,7 +16352,7 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    hitToggle: 0
+    hitToggle: 1
     damageOptionsToggle: 1
     hitStunOptionsToggle: 1
     forceOptionsToggle: 0
@@ -16492,7 +16504,7 @@ MonoBehaviour:
     instantAirRecovery: 0
     overrideHitAnimation: 0
     newHitAnimation: 27
-    hitStrength: 3
+    hitStrength: 2
     hitStunType: 1
     _hitStunOnHit:
       _serializedValue: 85899345920
@@ -16615,7 +16627,7 @@ MonoBehaviour:
           _serializedValue: 0
         z:
           _serializedValue: 0
-    hitToggle: 1
+    hitToggle: 0
     damageOptionsToggle: 1
     hitStunOptionsToggle: 0
     forceOptionsToggle: 0
