@@ -1,3 +1,9 @@
+1.1.41.3:
+
+  Bug Fixes:
+    - OSX Standalone, Native, Enhanced Device support enabled: Fixed Dual Shock 4 axes not working when connected via USB bug introduced in 1.1.41.2.
+
+
 1.1.41.2:
 
     Bug Fixes:
