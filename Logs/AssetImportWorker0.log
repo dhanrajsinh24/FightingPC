@@ -178,3 +178,9 @@ Received Import Request.
   path: Assets/_Core/Scripts
   artifactKey: Guid(484567376ec1645bc959ec6d0eab1565) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/_Core/Scripts using Guid(484567376ec1645bc959ec6d0eab1565) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '895013acc0d02680536f6b4a0f92d02a') in 0.009184 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 219.015776 seconds.
+  path: Assets/_Core/Scripts/DynamicStageColor.cs
+  artifactKey: Guid(95422a0c06fe648c39b981a8c656c499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Core/Scripts/DynamicStageColor.cs using Guid(95422a0c06fe648c39b981a8c656c499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c345d38a323949a5b0430db0ddf76c4') in 0.137564 seconds 
