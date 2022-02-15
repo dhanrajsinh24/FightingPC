@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6eaeb817a1dd6c644a2ebd19c6f62f6b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Merula
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0980d6c98b309ae498f4010f4e6d5f1c, type: 3}
+  - {fileID: 12800000, guid: f168c85991cdde84e9b91b67bad702bf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

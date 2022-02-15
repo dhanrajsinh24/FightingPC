@@ -1,0 +1,18 @@
+Base path: '/Applications/Unity/Hub/Editor/2021.2.7f1/Unity.app/Contents', plugins path '/Applications/Unity/Hub/Editor/2021.2.7f1/Unity.app/Contents/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: compileComputeKernel
+  insize=18315 file=/Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game/Library/PackageCache/com.unity.postprocessing@3.2.0/PostProcessing/Shaders/Builtins/MultiScaleVOUpsample.compute kernel=MultiScaleVOUpSample_MSAA_invert cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=2 km=<MAIN=MultiScaleVOUpSample_MSAA_invert>,<MSAA=1>,<INVERT=1>,<UNITY_VERSION=202127> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING uKW=SHADER_STAGE_COMPUTE platform=metal flags=4096 reqs=16385 forceDXC=0 forceFXC=0 ok=1 outsize=24682
+
+Cmd: compileComputeKernel
+  insize=7129 file=/Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game/Library/PackageCache/com.unity.render-pipelines.core@12.1.2/Editor/Lighting/ProbeVolume/ProbeVolumeSubdivide.compute kernel=VoxelizeProbeVolumeData cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=2 km=<UNITY_VERSION=202127> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING uKW=SHADER_STAGE_COMPUTE platform=metal flags=4096 reqs=16385 forceDXC=0 forceFXC=0 ok=1 outsize=9089
+
+Cmd: compileComputeKernel
+  insize=10925 file=/Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game/Library/PackageCache/com.unity.postprocessing@3.2.0/PostProcessing/Shaders/Builtins/MultiScaleVORender.compute kernel=MultiScaleVORender_MSAA cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=2 km=<MAIN=MultiScaleVORender_MSAA>,<MSAA=1>,<UNITY_VERSION=202127> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING uKW=SHADER_STAGE_COMPUTE platform=metal flags=4096 reqs=16385 forceDXC=0 forceFXC=0 ok=1 outsize=22253
+
+Cmd: compileComputeKernel
+  insize=1556 file=/Users/dhanrajsinhgohil/Work/BlokkBots_NFT_Game/Library/PackageCache/com.unity.postprocessing@3.2.0/PostProcessing/Shaders/Debug/Vectorscope.compute kernel=KVectorscopeGather cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=2 km=<UNITY_VERSION=202127> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING uKW=SHADER_STAGE_COMPUTE platform=metal flags=4096 reqs=16385 forceDXC=0 forceFXC=0 ok=1 outsize=3024
+
+Cmd: shutdown
+
+Quitting shader compiler process
